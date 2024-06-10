@@ -1,7 +1,10 @@
+import { DocumentTextIcon } from "@sanity/icons";
+
 export const article = {
   title: "Article",
   name: "article",
   type: "document",
+  icon: DocumentTextIcon,
   fields: [
     {
       title: "Title",
@@ -12,6 +15,11 @@ export const article = {
       title: "Subtitle",
       name: "subtitle",
       type: "string",
+    },
+    {
+      title: "MainImage",
+      name: "mainImage",
+      type: "image",
     },
     {
       title: "Author",

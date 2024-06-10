@@ -8,6 +8,13 @@ export const home = {
   icon: HomeIcon,
   fields: [
     {
+      name: "title",
+      title: "Title",
+      type: "string",
+      initialValue: "Home",
+      disabled: true,
+    },
+    {
       name: "featuredArticle",
       title: "Featured Article",
       type: "reference",

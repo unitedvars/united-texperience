@@ -1,7 +1,10 @@
+import { HashIcon } from "@sanity/icons";
+
 export const category = {
   title: "Category",
   name: "category",
   type: "document",
+  icon: HashIcon,
   fields: [
     {
       title: "Name",

@@ -8,11 +8,18 @@ export const HOME_QUERY = groq`*[_type == "home"][0] {
   featuredArticle->{
     title,
     subtitle,
-    author->{
-      name
-    },
-    category->{
-      name
-    }
+    author->,
+    category->,
+    "mainImage": mainImage.asset->url
+  }
+}`;
+
+export const ARTICLES = groq`*[_type == "article"] {
+  _id,
+  title,
+  author->,
+  "mainImage": mainImage.asset->url,
+  category->{
+    name
   }
 }`;
