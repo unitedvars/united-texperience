@@ -15,6 +15,9 @@ interface Article {
   _id: string;
   mainImage: string;
   title: string;
+  slug: {
+    current: string;
+  };
   author: {
     name: string;
   };
@@ -91,6 +94,7 @@ export default async function Home() {
                       title={article.title}
                       category={article.category.name}
                       author={article.author.name}
+                      url={`/articles/${article.slug.current}`}
                     />
                   </li>
                 ))}
@@ -112,6 +116,7 @@ export default async function Home() {
                       author={article.author.name}
                       titleSize={"large"}
                       className={"min-h-[124px]"}
+                      url={`/articles/${article.slug.current}`}
                     />
                   </li>
                 ))}
