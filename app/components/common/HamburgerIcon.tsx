@@ -10,7 +10,7 @@ const HamburgerIcon = ({
 }) => {
   const [isActive, setIsActive] = useState(false);
 
-  const LINE_STYLES = "w-full h-0.5 bg-primary-500 transition";
+  const LINE_STYLES = "w-full h-0.5 bg-gray-500 transition";
   return (
     <div
       className={clsx(

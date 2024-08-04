@@ -18,6 +18,7 @@ export const ARTICLES = groq`*[_type == "article"] {
   _id,
   title,
   slug,
+  subtitle,
   author->,
   "mainImage": mainImage.asset->url,
   category->{
