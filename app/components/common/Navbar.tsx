@@ -5,12 +5,8 @@ import HamburgerIcon from "./HamburgerIcon";
 import clsx from "clsx";
 import Image from "next/image";
 
-import { Mukta } from "next/font/google";
-
 import { SanityDocument } from "next-sanity";
 import Link from "next/link";
-
-const mukta = Mukta({ subsets: ["latin"], weight: ["400"] });
 
 const Navbar = ({ categories }: { categories: SanityDocument[] }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,12 +21,7 @@ const Navbar = ({ categories }: { categories: SanityDocument[] }) => {
               className="flex items-center gap-3 group"
             >
               <div className="h-2 w-2 bg-gray-700 rounded-full group-first:hidden" />
-              <div
-                className={clsx(
-                  mukta.className,
-                  "text-gray-200 text-right uppercase"
-                )}
-              >
+              <div className={clsx("text-gray-200 text-right uppercase")}>
                 <Link href={`/category/${category.slug.current}`}>
                   {category.name}
                 </Link>
@@ -68,7 +59,7 @@ const Navbar = ({ categories }: { categories: SanityDocument[] }) => {
             {categories.map((category) => (
               <li
                 key={category.slug.current}
-                className={clsx(mukta.className, "text-primary-500 text-right")}
+                className={clsx("text-sky-500 text-right")}
               >
                 <Link href={`/category/${category.slug.current}`}>
                   {category.name}

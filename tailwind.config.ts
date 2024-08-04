@@ -9,12 +9,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      transitionProperty: {
+        width: "width",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "gradient-sunrise":
-          "radial-gradient(theme(colors.yellow.300), white 70%)",
+          "radial-gradient(theme(colors.sky.600), transparent 70%)",
       },
     },
     colors: {
