@@ -1,6 +1,5 @@
 import { sanityFetch } from "@/sanity/lib/fetch";
 import Navbar from "./components/common/Navbar";
-import { SanityDocument } from "sanity";
 import { CATEGORIES_QUERY, HOME_QUERY, ARTICLES } from "@/sanity/lib/queries";
 
 import ArticleThumbnail from "./components/common/ArticleThumbnail";
@@ -10,16 +9,16 @@ import clsx from "clsx";
 import { orbitron } from "@/utils/fonts";
 
 export default async function Home() {
-  const categories = await sanityFetch<Category[]>({
-    query: CATEGORIES_QUERY,
-  });
-
   const { featuredArticle } = await sanityFetch<any>({
     query: HOME_QUERY,
   });
 
   const articles = await sanityFetch<any>({
     query: ARTICLES,
+  });
+
+  const categories = await sanityFetch<Category[]>({
+    query: CATEGORIES_QUERY,
   });
 
   return (

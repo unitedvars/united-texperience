@@ -21,24 +21,31 @@ export const HOME_QUERY = groq`*[_type == "home"][0] {
 }`;
 
 export const ARTICLES = groq`*[_type == "article"] {
+  _createdAt,
   _id,
   title,
-  slug,
-  author->,
-  "mainImage": mainImage.asset->url,
-  category->{
+  subtitle,
+  author->{
+    role->,
+    institution->,
     name
-  }
+  },
+  category->,
+  "mainImage": mainImage.asset->url,
+  slug
 }`;
 
 export const ARTICLE = groq`*[_type == "article" && slug.current == $slug][0] {
+  _createdAt,
   _id,
   title,
-  slug,
   subtitle,
-  author->,
-  "mainImage": mainImage.asset->url,
-  category->{
+  author->{
+    role->,
+    institution->,
     name
-  }
+  },
+  category->,
+  "mainImage": mainImage.asset->url,
+  slug
 }`;
