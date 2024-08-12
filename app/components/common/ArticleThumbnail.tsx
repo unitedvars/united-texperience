@@ -38,7 +38,7 @@ const ArticleThumbnail = ({
       >
         <div className={clsx(className, "flex gap-2 flex-col")}>
           {imageUrl && (
-            <div className="min-w-[150px] h-[220px] 2xl:h-[150px] relative rounded-sm overflow-hidden">
+            <div className="w-full min-w-[150px] h-[220px] 2xl:h-[150px] relative rounded-sm overflow-hidden">
               <Image src={imageUrl} alt={title} fill className="object-cover" />
             </div>
           )}

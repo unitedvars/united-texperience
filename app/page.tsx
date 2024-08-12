@@ -45,9 +45,9 @@ export default async function Home() {
               Latest news
             </h2>
             <div>
-              <ul className="grid 2xl:grid-cols-3 2xl:grid-rows-3 gap-8 2xl:gap-3">
+              <ul className="grid sm:grid-cols-2 md:grid-cols-3 grid-rows-6 sm:grid-rows-3 xl:grid-rows-3 gap-8 sm:gap-3">
                 {articles.map((article: Article) => (
-                  <li key={article._id} className="flex gap-2">
+                  <li key={article._id} className="gap-2 w-full">
                     <ArticleThumbnail
                       imageUrl={article.mainImage}
                       title={article.title}
