@@ -12,7 +12,13 @@ import Button from "./Button";
 import Menu from "./Menu";
 import { Category } from "@/types";
 
-const Navbar = ({ categories }: { categories: Category[] }) => {
+const Navbar = ({
+  categories,
+  showCategoryBar = true,
+}: {
+  categories: Category[];
+  showCategoryBar?: boolean;
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -36,23 +42,25 @@ const Navbar = ({ categories }: { categories: Category[] }) => {
         <Button>Subscribe</Button>
       </div>
       {/* CATEGORIES BAR */}
-      <div className="pt-10 pb-4">
-        <ul className="flex gap-10 justify-center">
-          {categories.map((category) => (
-            <li
-              key={category.slug.current}
-              className={clsx(
-                archivo.className,
-                "text-primary-700 text-right hover:text-primary-500 transition"
-              )}
-            >
-              <Link href={`/category/${category.slug.current}`}>
-                {category.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {showCategoryBar && (
+        <div className="pt-10 pb-4">
+          <ul className="flex gap-10 justify-center">
+            {categories.map((category) => (
+              <li
+                key={category.slug.current}
+                className={clsx(
+                  archivo.className,
+                  "text-primary-700 text-right hover:text-primary-500 transition"
+                )}
+              >
+                <Link href={`/category/${category.slug.current}`}>
+                  {category.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
       {/* MENU */}
       <Menu
         isOpen={isMenuOpen}

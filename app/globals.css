@@ -31,6 +31,11 @@ body {
     margin: 0 auto;
   }
 
+  .small-box {
+    width: 100%;
+    margin: 0 auto;
+  }
+
   @media screen and (min-width: theme(screens.md)) {
     .default-box {
       padding-left: 24px;
@@ -43,6 +48,10 @@ body {
       max-width: 1333px;
       padding-left: 0;
       padding-right: 0;
+    }
+
+    .small-box {
+      max-width: 735px;
     }
   }
 }
