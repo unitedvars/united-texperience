@@ -6,7 +6,6 @@ import Link from "next/link";
 import moment from "moment";
 
 const article = ({ article }: { article: Article }) => {
-  console.log(article);
   return (
     <Link className="flex" href={`/articles/${article.slug.current}`}>
       <div className="grow bg-primary-200 h-[611px] relative rounded-lg overflow-hidden">
