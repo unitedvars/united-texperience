@@ -26,7 +26,7 @@ const ArticleThumbnail = ({
     <Link href={url || "#"}>
       <div className={clsx(className, "flex gap-2 flex-col")}>
         {imageUrl && (
-          <div className="min-w-[150px] h-[150px] relative">
+          <div className="min-w-[150px] h-[150px] relative rounded-sm overflow-hidden">
             <Image src={imageUrl} alt={title} fill className="object-cover" />
           </div>
         )}
