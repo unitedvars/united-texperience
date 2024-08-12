@@ -34,6 +34,12 @@ export const article = {
       to: [{ type: "category" }],
     },
     {
+      title: "Content",
+      name: "content",
+      type: "array",
+      of: [{ type: "block" }],
+    },
+    {
       title: "Slug",
       name: "slug",
       type: "slug",

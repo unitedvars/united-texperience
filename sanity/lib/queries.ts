@@ -47,5 +47,6 @@ export const ARTICLE = groq`*[_type == "article" && slug.current == $slug][0] {
   },
   category->,
   "mainImage": mainImage.asset->url,
-  slug
+  slug,
+  content
 }`;

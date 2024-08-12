@@ -6,6 +6,7 @@ import Image from "next/image";
 import { orbitron } from "@/utils/fonts";
 import { Category } from "@/types";
 import moment from "moment";
+import { PortableText } from "next-sanity";
 
 const Article = async ({ params }: { params: { id: string } }) => {
   const categories = await sanityFetch<Category[]>({
@@ -22,7 +23,7 @@ const Article = async ({ params }: { params: { id: string } }) => {
   return (
     <div>
       <header className="flex flex-col">
-        <Navbar categories={categories} />
+        <Navbar categories={categories} showCategoryBar={false} />
       </header>
       <main>
         <article className="flex flex-col items-center w-full default-box">
@@ -68,6 +69,9 @@ const Article = async ({ params }: { params: { id: string } }) => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="py-20 small-box">
+            <PortableText value={article.content} />
           </div>
         </article>
       </main>

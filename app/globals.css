@@ -43,7 +43,7 @@ body {
     }
   }
 
-  @media screen and (min-width: theme(screens.2xl)) {
+  @media screen and (min-width: theme(screens.xl)) {
     .default-box {
       max-width: 1333px;
       padding-left: 0;
