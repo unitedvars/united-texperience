@@ -6,11 +6,17 @@ export const CATEGORIES_QUERY = groq`*[_type == "category"]`;
 
 export const HOME_QUERY = groq`*[_type == "home"][0] {
   featuredArticle->{
+    _createdAt,
     title,
     subtitle,
-    author->,
+    author->{
+      role->,
+      institution->,
+      name
+    },
     category->,
-    "mainImage": mainImage.asset->url
+    "mainImage": mainImage.asset->url,
+    slug,
   }
 }`;
 

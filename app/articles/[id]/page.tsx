@@ -3,13 +3,12 @@ import { sanityFetch } from "@/sanity/lib/fetch";
 import Navbar from "@/app/components/common/Navbar";
 import { SanityDocument } from "sanity";
 import clsx from "clsx";
-import { Orbitron } from "next/font/google";
 import Image from "next/image";
-
-const orbitron = Orbitron({ subsets: ["latin"] });
+import { orbitron } from "@/utils/fonts";
+import { Category } from "@/types";
 
 const Article = async ({ params }: { params: { id: string } }) => {
-  const categories = await sanityFetch<SanityDocument[]>({
+  const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
 

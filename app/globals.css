@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  @font-face {
-    font-family: "Knockout";
-    font-style: normal;
-    font-weight: 400;
-    src: url("/fonts/Knockout.otf");
-  }
-}
-
 :root {
   --foreground-rgb: #111111;
   --background: #ffffff;
@@ -32,5 +23,26 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .default-box {
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: theme(screens.md)) {
+    .default-box {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  @media screen and (min-width: theme(screens.2xl)) {
+    .default-box {
+      max-width: 1333px;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }

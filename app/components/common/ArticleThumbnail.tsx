@@ -1,10 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
-import { Maitree, Orbitron } from "next/font/google";
+import { maitree, orbitron } from "@/utils/fonts";
 import Link from "next/link";
-
-const maitree = Maitree({ weight: ["400"], subsets: ["latin"] });
-const orbitron = Orbitron({ subsets: ["latin"] });
 
 interface ArticleThumbnailProps {
   title: string;
@@ -27,9 +24,9 @@ const ArticleThumbnail = ({
 }: ArticleThumbnailProps) => {
   return (
     <Link href={url || "#"}>
-      <div className={clsx(className, "flex gap-2")}>
+      <div className={clsx(className, "flex gap-2 flex-col")}>
         {imageUrl && (
-          <div className="min-w-[150px] h-[124px] relative">
+          <div className="min-w-[150px] h-[150px] relative">
             <Image src={imageUrl} alt={title} fill className="object-cover" />
           </div>
         )}
@@ -55,7 +52,7 @@ const ArticleThumbnail = ({
               "block mt-auto text-xs opacity-70",
               maitree.className
             )}
-          >{`Por ${author}`}</span>
+          >{`By ${author}`}</span>
         </div>
       </div>
     </Link>
