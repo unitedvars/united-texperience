@@ -39,11 +39,11 @@ const Navbar = ({
         <Link href="/">
           <Logo variant="isologo" />
         </Link>
-        <Button>Subscribe</Button>
+        <Button className={"hidden lg:block"}>Subscribe</Button>
       </div>
       {/* CATEGORIES BAR */}
       {showCategoryBar && (
-        <div className="pt-10 pb-4">
+        <div className="hidden lg:block pt-10 pb-4">
           <ul className="flex gap-10 justify-center">
             {categories.map((category) => (
               <li

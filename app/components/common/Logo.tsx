@@ -13,7 +13,9 @@ const Logo = ({
       className={clsx(
         "relative",
         className,
-        variant === "logo" ? "w-[53px] h-[66px]" : "w-56 h-28"
+        variant === "logo"
+          ? "w-[32px] h-[32px] lg:w-[53px] lg:h-[66px]"
+          : "w-36 h-20 lg:w-56 lg:h-28"
       )}
     >
       <Image
