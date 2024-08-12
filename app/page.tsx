@@ -3,10 +3,11 @@ import Navbar from "./components/common/Navbar";
 import { CATEGORIES_QUERY, HOME_QUERY, ARTICLES } from "@/sanity/lib/queries";
 
 import ArticleThumbnail from "./components/common/ArticleThumbnail";
-import FeaturedArticle from "./components/FeaturedArticle";
 import { Article, Category } from "@/types";
 import clsx from "clsx";
 import { orbitron } from "@/utils/fonts";
+import Link from "next/link";
+import LargeArticle from "./components/LargeArticle";
 
 export default async function Home() {
   const { featuredArticle } = await sanityFetch<any>({
@@ -27,7 +28,12 @@ export default async function Home() {
         <Navbar categories={categories} />
       </header>
       <main className="flex flex-col min-h-screen pb-16 default-box">
-        <FeaturedArticle article={featuredArticle} />
+        <Link
+          className="flex"
+          href={`/articles/${featuredArticle.slug.current}`}
+        >
+          <LargeArticle article={featuredArticle} />
+        </Link>
         <div className="flex-col lg:flex-row flex gap-4 mt-8 items-stretch">
           <div className="w-full lg:w-9/12 bg-white rounded-lg p-4">
             <h2
