@@ -51,7 +51,7 @@ export const ARTICLE = groq`*[_type == "article" && slug.current == $slug][0] {
   content
 }`;
 
-export const ARTICLE_BY_CATEGORY = groq`*[_type == "article"] {
+export const ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category] {
   _createdAt,
   _id,
   title,

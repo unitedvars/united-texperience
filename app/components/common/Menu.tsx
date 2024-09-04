@@ -26,7 +26,7 @@ const Menu = ({
       ></div>
       <div
         className={clsx(
-          "fixed bg-white h-screen 2xl:w-[550px] 2xl:top-[2vh] 2xl:left-4 opacity-0 pointer-events-none transition-all duration-500 -translate-x-48 px-8 2xl:px-[50px] py-[36px] z-40 2xl:h-[96vh] shadow-lg w-full top-0 left-0 2xl:rounded-lg",
+          "fixed bg-white h-screen xl:w-[550px] xl:top-[2vh] xl:left-4 opacity-0 pointer-events-none transition-all duration-500 -translate-x-48 px-8 xl:px-[50px] py-[36px] z-40 xl:h-[96vh] shadow-lg w-full top-0 left-0 xl:rounded-lg",
           isOpen && "opacity-100 pointer-events-auto !translate-x-0"
         )}
       >

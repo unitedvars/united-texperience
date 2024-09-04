@@ -36,7 +36,6 @@ const Navbar = ({
           bounce: 0,
         }}
       >
-        {/*  */}
         <div className="h-[52px] flex items-center justify-between">
           <div className="flex gap-3 items-center">
             <HamburgerIcon

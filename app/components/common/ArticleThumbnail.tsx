@@ -38,7 +38,7 @@ const ArticleThumbnail = ({
       >
         <div className={clsx(className, "flex gap-2 flex-col")}>
           {imageUrl && (
-            <div className="w-full min-w-[150px] h-[220px] 2xl:h-[150px] relative rounded-sm overflow-hidden">
+            <div className="w-full min-w-[150px] h-[220px] 2xl:h-[150px] relative rounded-md overflow-hidden">
               <Image src={imageUrl} alt={title} fill className="object-cover" />
             </div>
           )}
@@ -53,7 +53,7 @@ const ArticleThumbnail = ({
             </strong>
             <h3
               className={clsx(
-                "text-lg leading-[22px] mt-1",
+                "text-lg leading-[22px] mt-1 mb-2",
                 titleSize === "large" && "text-[26px] leading-[26px]"
               )}
             >
