@@ -2,7 +2,7 @@ import menuLinks from "@/app/ui/menuLinks";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { CATEGORIES_QUERY } from "@/sanity/lib/queries";
 import { Category } from "@/types";
-import { archivo } from "@/utils/fonts";
+import { archivo, orbitron } from "@/utils/fonts";
 import clsx from "clsx";
 import Link from "next/link";
 import Logo from "./Logo";
@@ -15,26 +15,38 @@ export default async function Footer() {
 
   return (
     <footer className="flex flex-col gap-12 px-8">
-      <div className="flex justify-between">
-        <div className="flex flex-col">
+      <div className="flex justify-between gap-8">
+        <div className="flex flex-col lg:w-1/2">
           <Link href="/">
             <Logo variant="isologo" />
           </Link>
-          <p>
+          <p className={clsx(archivo.className)}>
             Lorem ipsum dolor sit amet consectetur. Nulla elementum tortor
             pulvinar id tellus purus iaculis egestas tempor. Fermentum quis nunc
             egestas gravida faucibus urna.
           </p>
         </div>
-        <div className="flex flex-col">
-          <div>
-            <strong>Subscribe</strong>
-            <p>Get alerts of all the news we have for you</p>
+        <div className="flex flex-col lg:w-1/2 gap-8">
+          <div className="flex flex-col items-end">
+            <strong
+              className={clsx(
+                orbitron.className,
+                "text-xl text-right font-normal text-primary-900"
+              )}
+            >
+              Subscribe
+            </strong>
+            <p className={clsx(archivo.className)}>
+              Get alerts of all the news we have for you
+            </p>
           </div>
           <form className="flex items-center gap-4 justify-end h-full">
             <input
               type="text"
-              className="border border-primary-600 h-12 rounded-md grow px-4"
+              className={clsx(
+                archivo.className,
+                "border border-primary-600 h-12 rounded-md grow px-4"
+              )}
               placeholder="Please enter your email..."
             />
             <Button className={"hidden lg:block"}>Subscribe</Button>

@@ -15,7 +15,7 @@ const Logo = ({
         className,
         variant === "logo"
           ? "w-[32px] h-[32px] lg:w-[53px] lg:h-[66px]"
-          : "w-36 h-20 lg:w-56 lg:h-28"
+          : "w-36 h-20 lg:w-56 lg:h-16"
       )}
     >
       <Image

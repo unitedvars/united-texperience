@@ -12,6 +12,7 @@ import Button from "./Button";
 import Menu from "./Menu";
 import { Category } from "@/types";
 import { motion } from "framer-motion";
+import CategoryBar from "../CategoryBar";
 
 const Navbar = ({
   categories,
@@ -36,8 +37,8 @@ const Navbar = ({
           bounce: 0,
         }}
       >
-        <div className="h-[52px] flex items-center justify-between">
-          <div className="flex gap-3 items-center">
+        <div className="h-[52px] flex items-center justify-center">
+          <div className="flex gap-3 items-center basis-0">
             <HamburgerIcon
               setIsActive={setIsMenuOpen}
               active={isMenuOpen}
@@ -48,29 +49,15 @@ const Navbar = ({
             />
             <label className={orbitron.className}>menu</label>
           </div>
-          <Link href="/">
+          <Link href="/" className="mx-auto">
             <Logo variant="isologo" />
           </Link>
-          <Button className={"hidden lg:block"}>Subscribe</Button>
+          <Button className={"hidden lg:block basis-0"}>Subscribe</Button>
         </div>
         {/* CATEGORIES BAR */}
         {showCategoryBar && (
           <div className="hidden lg:block pt-10 pb-4">
-            <ul className="flex gap-10 justify-center">
-              {categories.map((category) => (
-                <li
-                  key={category.slug.current}
-                  className={clsx(
-                    archivo.className,
-                    "text-primary-700 text-right hover:text-primary-500 transition"
-                  )}
-                >
-                  <Link href={`/category/${category.slug.current}`}>
-                    {category.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <CategoryBar categories={categories} />
           </div>
         )}
         {/* MENU */}

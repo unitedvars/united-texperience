@@ -170,7 +170,10 @@ export default async function Home() {
               <div className="flex items-center gap-4 justify-end h-full">
                 <input
                   type="text"
-                  className="border border-primary-600 h-12 rounded-md grow px-4"
+                  className={clsx(
+                    archivo.className,
+                    "border border-primary-600 h-12 rounded-md grow px-4"
+                  )}
                   placeholder="Please enter your email..."
                 />
                 <Button className={"hidden lg:block"}>Subscribe</Button>
