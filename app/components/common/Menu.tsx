@@ -20,8 +20,9 @@ const Menu = ({
           setIsOpen(false);
         }}
         className={clsx(
-          "fixed bg-primary-800 opacity-0 w-screen h-screen z-30 top-0 left-0 pointer-events-none transition",
-          isOpen && "opacity-60 pointer-events-auto"
+          "fixed bg-[rgba(5,50,65,0.0)] w-screen h-screen z-30 top-0 left-0 pointer-events-none transition ",
+          isOpen &&
+            "bg-[rgba(5,50,65,0.4)] pointer-events-auto backdrop-blur-lg"
         )}
       ></div>
       <div
