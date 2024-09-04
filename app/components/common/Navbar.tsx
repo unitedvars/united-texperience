@@ -37,8 +37,8 @@ const Navbar = ({
           bounce: 0,
         }}
       >
-        <div className="h-[52px] flex items-center justify-center">
-          <div className="flex gap-3 items-center basis-0">
+        <div className="h-[52px] flex items-center w-full">
+          <div className="flex gap-3 items-center w-1/3 ">
             <HamburgerIcon
               setIsActive={setIsMenuOpen}
               active={isMenuOpen}
@@ -49,10 +49,14 @@ const Navbar = ({
             />
             <label className={orbitron.className}>menu</label>
           </div>
-          <Link href="/" className="mx-auto">
-            <Logo variant="isologo" />
-          </Link>
-          <Button className={"hidden lg:block basis-0"}>Subscribe</Button>
+          <div className="w-1/3 flex justify-center">
+            <Link href="/">
+              <Logo variant="isologo" />
+            </Link>
+          </div>
+          <div className="w-1/3 justify-end flex">
+            <Button className={"hidden lg:block"}>Subscribe</Button>
+          </div>
         </div>
         {/* CATEGORIES BAR */}
         {showCategoryBar && (

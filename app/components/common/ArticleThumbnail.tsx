@@ -15,6 +15,7 @@ interface ArticleThumbnailProps {
   titleSize?: "large";
   className?: string;
   url?: string;
+  subtitle?: string;
 }
 
 const ArticleThumbnail = ({
@@ -25,6 +26,7 @@ const ArticleThumbnail = ({
   titleSize,
   className,
   url,
+  subtitle,
 }: ArticleThumbnailProps) => {
   return (
     <Link href={url || "#"}>
@@ -42,7 +44,7 @@ const ArticleThumbnail = ({
               <Image src={imageUrl} alt={title} fill className="object-cover" />
             </div>
           )}
-          <div className="flex flex-col pr-1">
+          <div className="flex flex-col pr-1 gap-2">
             <strong
               className={clsx(
                 "uppercase text-primary-500 text-xs font-medium",
@@ -53,17 +55,15 @@ const ArticleThumbnail = ({
             </strong>
             <h3
               className={clsx(
-                "text-lg leading-[22px] mt-1 mb-2",
+                "text-lg leading-[22px]",
                 titleSize === "large" && "text-[26px] leading-[26px]"
               )}
             >
               {title}
             </h3>
+            <p className="text-sm text-gray-600">{subtitle}</p>
             <span
-              className={clsx(
-                "block mt-auto text-xs opacity-70",
-                maitree.className
-              )}
+              className={clsx("block text-xs opacity-70", maitree.className)}
             >{`By ${author}`}</span>
           </div>
         </div>
