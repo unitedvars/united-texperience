@@ -124,15 +124,15 @@ export default async function Home() {
             >
               Techpoint
             </h2>
-            <div className="grid grid-cols-4 gap-4">
-              <div className="col-span-3">
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="md:col-span-2 lg:col-span-3">
                 <LargeArticle article={techpoint_articles[0]} />
               </div>
               <div>
                 <ul className="flex flex-col gap-8">
                   {techpoint_articles.map(
                     (article: Article, index: number) =>
-                      index >= 0 &&
+                      index > 0 &&
                       index < 3 && (
                         <li key={article._id}>
                           <ArticleThumbnail
@@ -153,8 +153,8 @@ export default async function Home() {
           </div>
         </div>
         <div className="flex-col lg:flex-row flex mt-8 items-stretch">
-          <div className="w-full bg-white rounded-lg p-8 flex gap-4">
-            <div className="w-7/12">
+          <div className="flex flex-col w-full bg-white rounded-lg p-8 lg:flex-row gap-4">
+            <div className="w-full lg:w-7/12">
               <strong
                 className={`text-6xl font-medium mb-3 inline-block ${archivo.className}`}
               >
@@ -166,7 +166,7 @@ export default async function Home() {
                 rhoncus tempus.
               </p>
             </div>
-            <div className="w-5/12 h-full">
+            <div className="w-full lg:w-5/12 h-full">
               <div className="flex items-center gap-4 justify-end h-full">
                 <input
                   type="text"
@@ -182,32 +182,34 @@ export default async function Home() {
           </div>
         </div>
         <div className="flex-col lg:flex-row flex gap-4 mt-8 items-stretch">
-          <div className="w-full bg-white rounded-lg p-4">
-            <h2
-              className={clsx(
-                "text-primary-500 text-2xl border-b pb-4 mb-4",
-                orbitron.className
-              )}
-            >
-              What&apos;s coming up
-            </h2>
+          <div className="w-full bg-white rounded-lg p-4 flex flex-col gap-32">
             <div>
-              <ul className="grid sm:grid-cols-2 md:grid-cols-4 grid-rows-6 sm:grid-rows-3 xl:grid-rows-2 gap-8 sm:gap-x-3 sm:gap-y-16">
-                {whats_coming_articles.map(
-                  (article: Article, index: number) =>
-                    index < 6 && (
-                      <li key={article._id} className="gap-2 w-full">
-                        <ArticleThumbnail
-                          imageUrl={article.mainImage}
-                          title={article.title}
-                          category={article.category.name}
-                          author={article.author.name}
-                          url={`/articles/${article.slug.current}`}
-                        />
-                      </li>
-                    )
+              <h2
+                className={clsx(
+                  "text-primary-500 text-2xl border-b pb-4 mb-4",
+                  orbitron.className
                 )}
-              </ul>
+              >
+                What&apos;s coming up
+              </h2>
+              <div>
+                <ul className="grid sm:grid-cols-2 md:grid-cols-4 grid-rows-auto gap-8 sm:gap-x-3 sm:gap-y-16">
+                  {whats_coming_articles.map(
+                    (article: Article, index: number) =>
+                      index < 6 && (
+                        <li key={article._id} className="gap-2 w-full">
+                          <ArticleThumbnail
+                            imageUrl={article.mainImage}
+                            title={article.title}
+                            category={article.category.name}
+                            author={article.author.name}
+                            url={`/articles/${article.slug.current}`}
+                          />
+                        </li>
+                      )
+                  )}
+                </ul>
+              </div>
             </div>
             <Footer />
           </div>
