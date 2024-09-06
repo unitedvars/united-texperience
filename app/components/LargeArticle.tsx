@@ -21,10 +21,15 @@ const LargeArticle = ({ article }: { article: Article }) => {
         ease: "easeOut",
         bounce: 0,
       }}
-      className="grow bg-primary-200 h-[611px] relative rounded-lg overflow-hidden w-full"
+      className="grow bg-primary-200 h-[611px] relative rounded-xl w-full"
     >
-      <Image src={article.mainImage} alt="" fill className="object-cover" />
-      <div className="w-full rounded-none bg-white absolute z-10 xl:w-[882px] bottom-0 left-0 p-4 flex flex-col xl:rounded-tr-lg group">
+      <Image
+        src={article.mainImage}
+        alt=""
+        fill
+        className="object-cover rounded-lg xl:rounded-xl"
+      />
+      <div className="w-full rounded-b bg-white absolute z-10 xl:w-[882px] bottom-0 left-0 p-4 flex flex-col xl:rounded-tr-lg xl:rounded-bl-lg group">
         <div
           className={clsx(
             "uppercase text-primary-500 text-sm mb-4 flex gap-1",
