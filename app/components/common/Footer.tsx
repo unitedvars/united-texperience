@@ -65,7 +65,9 @@ export default async function Footer() {
             >
               <Link href={`${href}`}>{label}</Link>
               {idx < menuLinks.length - 1 && (
-                <span className="mx-6 hidden lg:inline-block">|</span>
+                <span className="mx-3 opacity-30 xl:mx-6 hidden lg:inline-block">
+                  |
+                </span>
               )}
             </li>
           ))}
@@ -83,7 +85,9 @@ export default async function Footer() {
                 {category.name}
               </Link>
               {idx < categories.length - 1 && (
-                <span className="mx-6 hidden lg:inline-block">|</span>
+                <span className="mx-3 opacity-30 xl:mx-6 hidden lg:inline-block">
+                  |
+                </span>
               )}
             </li>
           ))}

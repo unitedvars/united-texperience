@@ -29,7 +29,7 @@ const LargeArticle = ({ article }: { article: Article }) => {
         fill
         className="object-cover rounded-lg xl:rounded-xl"
       />
-      <div className="w-full rounded-b bg-white absolute z-10 xl:w-[882px] bottom-0 left-0 p-4 flex flex-col xl:rounded-tr-lg xl:rounded-bl-lg group">
+      <div className="w-full rounded-b bg-white absolute z-10 xl:w-[882px] bottom-0 left-0 py-4 px-0 lg:p-4 flex flex-col xl:rounded-tr-lg xl:rounded-bl-lg group">
         <div
           className={clsx(
             "uppercase text-primary-500 text-sm mb-4 flex gap-1",
@@ -50,19 +50,19 @@ const LargeArticle = ({ article }: { article: Article }) => {
           {article.title}
         </h1>
         <strong className="font-thin line-clamp-2">{article.subtitle}</strong>
-        <div className="flex gap-2 items-center mt-2">
+        <div className="flex flex-row gap-2 justify-between md:justify-normal md:items-center mt-2">
           <div
             className={clsx("text-xs opacity-70")}
           >{`By ${article.author.name}`}</div>
-          <div className="h-3 w-px bg-gray-300" />
-          <div className={clsx("text-xs opacity-70")}>
+          <div className="h-3 w-px bg-gray-300 hidden md:block" />
+          <div className={clsx("text-xs opacity-70 hidden md:block")}>
             {article.author.role.name}
           </div>
-          <div className="h-3 w-px bg-gray-300" />
-          <div className={clsx("text-xs opacity-70")}>
+          <div className="h-3 w-px bg-gray-300 hidden md:block" />
+          <div className={clsx("text-xs opacity-70 hidden md:block")}>
             {article.author.institution.name}
           </div>
-          <div className="h-3 w-px bg-gray-300" />
+          <div className="h-3 w-px bg-gray-300 hidden md:block" />
           <div className={clsx("text-xs text-primary-800")}>
             {moment(article._createdAt).fromNow()}
           </div>

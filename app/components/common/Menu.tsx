@@ -42,7 +42,7 @@ const Menu = ({
       ></div>
       <div
         className={clsx(
-          "fixed bg-white h-screen xl:w-[550px] xl:top-[2vh] xl:left-4 opacity-0 pointer-events-none transition-all duration-500 -translate-x-48 px-8 xl:px-[50px] py-[36px] z-40 xl:h-[96vh] shadow-lg w-full top-0 left-0 xl:rounded-lg flex flex-col",
+          "fixed bg-white max-h-screen xl:w-[550px] xl:top-[2vh] xl:left-4 opacity-0 pointer-events-none transition-all duration-500 -translate-x-48 px-8 xl:px-[50px] py-[36px] z-40 xl:h-[96vh] shadow-lg w-full top-0 left-0 xl:rounded-lg flex flex-col overflow-y-auto",
           isOpen && "opacity-100 pointer-events-auto !translate-x-0"
         )}
       >

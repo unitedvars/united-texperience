@@ -55,7 +55,7 @@ const ArticleThumbnail = ({
             </strong>
             <h3
               className={clsx(
-                "text-lg leading-[22px] group-hover:underline bg-black bg-no-repeat transition-all duration-400 hover:bg-[length:100%_0.1em,0_0.1em] hover:bg-position-[100%_100%,0_100%]",
+                "text-lg leading-[22px] bg-no-repeat transition-all duration-400 hover:bg-[length:100%_0.1em,0_0.1em] hover:bg-position-[100%_100%,0_100%]",
                 titleSize === "large" && "text-[26px] leading-[26px] "
               )}
             >
