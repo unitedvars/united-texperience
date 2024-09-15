@@ -23,6 +23,10 @@ export default async function Home() {
 
   const articles = await sanityFetch<any>({
     query: ARTICLES,
+    params: {
+      trim_start: 0,
+      trim_end: 6,
+    },
   });
 
   const categories = await sanityFetch<Category[]>({
@@ -67,20 +71,17 @@ export default async function Home() {
             </h2>
             <div>
               <ul className="grid sm:grid-cols-2 md:grid-cols-3 grid-rows-6 sm:grid-rows-3 xl:grid-rows-2 gap-8 sm:gap-x-3 sm:gap-y-16">
-                {articles.map(
-                  (article: Article, index: number) =>
-                    index < 6 && (
-                      <li key={article._id} className="gap-2 w-full">
-                        <ArticleThumbnail
-                          imageUrl={article.mainImage}
-                          title={article.title}
-                          category={article.category.name}
-                          author={article.author.name}
-                          url={`/articles/${article.slug.current}`}
-                        />
-                      </li>
-                    )
-                )}
+                {articles.map((article: Article) => (
+                  <li key={article._id} className="gap-2 w-full">
+                    <ArticleThumbnail
+                      imageUrl={article.mainImage}
+                      title={article.title}
+                      category={article.category.name}
+                      author={article.author.name}
+                      url={`/articles/${article.slug.current}`}
+                    />
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
