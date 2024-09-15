@@ -20,7 +20,7 @@ export const HOME_QUERY = groq`*[_type == "home"][0] {
   }
 }`;
 
-export const ARTICLES = groq`*[_type == "article"] {
+export const ARTICLES = groq`*[_type == "article"] | order(_id)[$trim_start...$trim_end] {
   _createdAt,
   _id,
   title,
@@ -84,3 +84,5 @@ export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && categ
 }`;
 
 export const CATEGORY_COUNT = groq`count(*[_type == "article" && category->slug.current == $category])`;
+
+export const ALL_COUNT = groq`count(*[_type == "article"])`;

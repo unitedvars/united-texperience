@@ -6,6 +6,14 @@ import Link from "next/link";
 const CategoryBar = ({ categories }: { categories: Category[] }) => {
   return (
     <ul className="flex gap-10 justify-center">
+      <li
+        className={clsx(
+          archivo.className,
+          "text-primary-700 text-right hover:text-primary-500 transition"
+        )}
+      >
+        <Link href={`/category/all?page=1`}>All</Link>
+      </li>
       {categories.map((category) => (
         <li
           key={category.slug.current}

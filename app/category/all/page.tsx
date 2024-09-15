@@ -1,5 +1,7 @@
 import { sanityFetch } from "@/sanity/lib/fetch";
 import {
+  ALL_COUNT,
+  ARTICLES,
   CATEGORIES_QUERY,
   CATEGORY_COUNT,
   PAGINATED_ARTICLES_BY_CATEGORY,
@@ -21,25 +23,21 @@ const Article = async ({
     query: CATEGORIES_QUERY,
   });
 
-  const categoryCount = await sanityFetch<number>({
-    query: CATEGORY_COUNT,
-    params: {
-      category: params.category,
-    },
+  const allCount = await sanityFetch<number>({
+    query: ALL_COUNT,
   });
 
   const currentPage = parseInt(searchParams.page);
 
   const pageSize = 6;
-  let totalPages = Math.ceil(categoryCount / pageSize);
+  let totalPages = Math.ceil(allCount / pageSize);
 
   const trim_start = currentPage == 1 ? 0 : (currentPage - 1) * pageSize;
   const trim_end = currentPage == 1 ? pageSize : currentPage * pageSize;
 
   const articles = await sanityFetch<any>({
-    query: PAGINATED_ARTICLES_BY_CATEGORY,
+    query: ARTICLES,
     params: {
-      category: params.category,
       trim_start: trim_start,
       trim_end: trim_end,
     },

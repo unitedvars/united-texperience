@@ -16,13 +16,15 @@ const ArticleList = ({
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  const page = searchParams.get("page");
+  const page = parseInt(searchParams.get("page") as string);
+
+  console.log(totalPages);
 
   return (
     <Suspense>
       <div className="pt-8">
         <ul className="grid sm:grid-cols-2 md:grid-cols-3 grid-rows-6 sm:grid-rows-3 xl:grid-rows-none gap-8 sm:gap-x-3 sm:gap-y-16">
-          {articles?.map((article: Article, index: number) => (
+          {articles?.map((article: Article) => (
             <li key={article._id} className="gap-2 w-full h flex flex-col">
               <div className="grow rounded-md bg-white p-4">
                 <ArticleThumbnail
@@ -38,10 +40,10 @@ const ArticleList = ({
           ))}
         </ul>
         <div className="w-full flex items-center justify-center py-8">
-          {page && (
+          {page && totalPages && (
             <Pagination
               count={totalPages}
-              page={parseInt(page)}
+              page={page}
               onChange={(_, page) => {
                 router.push(`${pathname}?page=${page}`);
               }}
