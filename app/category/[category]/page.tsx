@@ -21,8 +21,6 @@ const Article = async ({ params }: { params: { category: string } }) => {
     },
   });
 
-  console.log(articles);
-
   return (
     <div className="pb-12">
       <header className="flex flex-col">

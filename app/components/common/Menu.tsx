@@ -46,19 +46,18 @@ const Menu = ({
           isOpen && "opacity-100 pointer-events-auto !translate-x-0"
         )}
       >
-        <div className="pt-3 pb-8 flex items-center gap-3">
-          <HamburgerIcon
-            setIsActive={setIsOpen}
-            active
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          />
+        <div
+          className="pt-3 pb-8 flex items-center gap-3 cursor-pointer"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          <HamburgerIcon setIsActive={setIsOpen} active />
           <label className={clsx(orbitron.className, "text-gray-500")}>
             close
           </label>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col grow">
           <div className="border-t py-5 border-gray-400">
             <strong
               className={clsx(

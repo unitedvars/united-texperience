@@ -29,7 +29,7 @@ const ArticleThumbnail = ({
   subtitle,
 }: ArticleThumbnailProps) => {
   return (
-    <Link href={url || "#"}>
+    <Link href={url || "#"} className="group">
       <motion.div
         initial={{ transform: "translateY(40px)", opacity: 0 }}
         whileInView={{ transform: "translateY(0)", opacity: 1 }}
@@ -55,7 +55,7 @@ const ArticleThumbnail = ({
             </strong>
             <h3
               className={clsx(
-                "text-lg leading-[22px] bg-no-repeat transition-all duration-400 hover:bg-[length:100%_0.1em,0_0.1em] hover:bg-position-[100%_100%,0_100%]",
+                "text-lg leading-[22px] bg-no-repeat transition-all duration-400 hover:bg-[length:100%_0.1em,0_0.1em] hover:bg-position-[100%_100%,0_100%] group-hover:underline",
                 titleSize === "large" && "text-[26px] leading-[26px] "
               )}
             >

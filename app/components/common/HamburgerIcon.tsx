@@ -10,7 +10,7 @@ const HamburgerIcon = ({
   active?: boolean;
   className?: string;
   setIsActive: (isActive: boolean) => void;
-  onClick: () => void;
+  onClick?: () => void;
 }) => {
   const LINE_STYLES = "w-full h-0.5 bg-gray-500 transition";
   return (
@@ -20,7 +20,7 @@ const HamburgerIcon = ({
         "flex flex-col h-[14px] w-[20px] justify-between cursor-pointer"
       )}
       onClick={() => {
-        onClick();
+        if (onClick) onClick();
         setIsActive(!active);
       }}
     >

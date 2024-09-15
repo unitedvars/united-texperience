@@ -38,14 +38,16 @@ const Navbar = ({
         }}
       >
         <div className="h-[52px] flex items-center w-full">
-          <div className="flex gap-3 items-center w-1/3 ">
+          <div
+            className="flex gap-3 items-center w-1/3 cursor-pointer"
+            onClick={() => {
+              setIsMenuOpen(!isMenuOpen);
+            }}
+          >
             <HamburgerIcon
               setIsActive={setIsMenuOpen}
               active={isMenuOpen}
               className="z-30"
-              onClick={() => {
-                setIsMenuOpen(!isMenuOpen);
-              }}
             />
             <label className={orbitron.className}>menu</label>
           </div>
