@@ -5,6 +5,7 @@ import Navbar from "@/app/components/common/Navbar";
 import LargeArticle from "@/app/components/LargeArticle";
 import { Category } from "@/types";
 import MotionWrapper from "@/app/components/common/MotionWrapper";
+import Footer from "@/app/components/common/Footer";
 
 const Article = async ({ params }: { params: { id: string } }) => {
   const categories = await sanityFetch<Category[]>({
@@ -24,8 +25,8 @@ const Article = async ({ params }: { params: { id: string } }) => {
         <Navbar categories={categories} showCategoryBar={false} />
       </header>
       <main>
-        <article className="flex flex-col items-center w-full default-box">
-          <LargeArticle article={article} />
+        <article className="flex flex-col items-center w-full default-box pb-6 md:pb-12">
+          <LargeArticle article={article} clickable={false} />
           <MotionWrapper
             initial={{ transform: "translateY(100px)", opacity: 0 }}
             animate={{
@@ -39,10 +40,11 @@ const Article = async ({ params }: { params: { id: string } }) => {
               delay: 0.5,
             }}
           >
-            <div className="py-20 small-box">
+            <div className="py-20 small-box [&>p]:my-4 [&>h1]:text-xl">
               <PortableText value={article.content} />
             </div>
           </MotionWrapper>
+          <Footer />
         </article>
       </main>
     </div>

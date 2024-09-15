@@ -8,7 +8,13 @@ import { orbitron } from "@/utils/fonts";
 
 import { motion } from "framer-motion";
 
-const LargeArticle = ({ article }: { article: Article }) => {
+const LargeArticle = ({
+  article,
+  clickable = true,
+}: {
+  article: Article;
+  clickable: boolean;
+}) => {
   return (
     <motion.div
       initial={{ transform: "translateY(100px)", opacity: 0 }}
@@ -44,7 +50,8 @@ const LargeArticle = ({ article }: { article: Article }) => {
         </div>
         <h1
           className={clsx(
-            "text-2xl xl:text-[56px] leading-none mb-4 group-hover:underline"
+            "text-2xl xl:text-[56px] leading-none mb-4",
+            clickable && "group-hover:underline"
           )}
         >
           {article.title}
