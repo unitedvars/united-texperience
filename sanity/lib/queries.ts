@@ -66,3 +66,21 @@ export const ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.
   slug,
   content
 }`;
+
+export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category] | order(_id)[$trim_start...$trim_end] {
+  _createdAt,
+  _id,
+  title,
+  subtitle,
+  author->{
+    role->,
+    institution->,
+    name
+  },
+  category->,
+  "mainImage": mainImage.asset->url,
+  slug,
+  content
+}`;
+
+export const CATEGORY_COUNT = groq`count(*[_type == "article" && category->slug.current == $category])`;

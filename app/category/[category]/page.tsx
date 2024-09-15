@@ -1,23 +1,53 @@
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { PortableText } from "next-sanity";
-import { ARTICLES_BY_CATEGORY, CATEGORIES_QUERY } from "@/sanity/lib/queries";
+import {
+  ARTICLES_BY_CATEGORY,
+  CATEGORIES_QUERY,
+  CATEGORY_COUNT,
+  PAGINATED_ARTICLES_BY_CATEGORY,
+} from "@/sanity/lib/queries";
 import Navbar from "@/app/components/common/Navbar";
-import LargeArticle from "@/app/components/LargeArticle";
 import { Category } from "@/types";
 import CategoryBar from "@/app/components/CategoryBar";
-import { Article as ArticleType } from "@/types";
-import ArticleThumbnail from "@/app/components/common/ArticleThumbnail";
 import Footer from "@/app/components/common/Footer";
+import ArticleList from "@/app/components/common/ArticleList";
 
-const Article = async ({ params }: { params: { category: string } }) => {
+import { useRouter } from "next/navigation";
+
+const Article = async ({
+  params,
+  searchParams,
+}: {
+  params: { category: string; page: string };
+  searchParams: any;
+}) => {
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
 
-  const articles = await sanityFetch<any>({
-    query: ARTICLES_BY_CATEGORY,
+  const categoryCount = await sanityFetch<number>({
+    query: CATEGORY_COUNT,
     params: {
       category: params.category,
+    },
+  });
+
+  const currentPage = parseInt(searchParams.page);
+
+  console.log(currentPage);
+
+  const pageSize = 6;
+  const trim_start = currentPage == 1 ? 0 : (currentPage - 1) * pageSize;
+  const trim_end = currentPage == 1 ? pageSize : currentPage * pageSize;
+
+  console.log("start: ", trim_start);
+  console.log("end: ", trim_end);
+
+  const articles = await sanityFetch<any>({
+    query: PAGINATED_ARTICLES_BY_CATEGORY,
+    params: {
+      category: params.category,
+      trim_start: trim_start,
+      trim_end: trim_end,
     },
   });
 
@@ -31,24 +61,10 @@ const Article = async ({ params }: { params: { category: string } }) => {
         <div className="divide-y py-8 border-t border-b mt-6">
           <CategoryBar categories={categories} />
         </div>
-        <div className="pt-8">
-          <ul className="grid sm:grid-cols-2 md:grid-cols-3 grid-rows-6 sm:grid-rows-3 xl:grid-rows-none gap-8 sm:gap-x-3 sm:gap-y-16">
-            {articles.map((article: ArticleType, index: number) => (
-              <li key={article._id} className="gap-2 w-full h flex flex-col">
-                <div className="grow rounded-md bg-white p-4">
-                  <ArticleThumbnail
-                    imageUrl={article.mainImage}
-                    title={article.title}
-                    category={article.category.name}
-                    author={article.author.name}
-                    url={`/articles/${article.slug.current}`}
-                    subtitle={article.subtitle}
-                  />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ArticleList
+          articles={articles}
+          totalPages={categoryCount / pageSize}
+        />
       </main>
       <div className="bg-white rounded-lg p-8 default-box">
         <Footer />

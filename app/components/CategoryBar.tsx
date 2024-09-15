@@ -14,7 +14,7 @@ const CategoryBar = ({ categories }: { categories: Category[] }) => {
             "text-primary-700 text-right hover:text-primary-500 transition"
           )}
         >
-          <Link href={`/category/${category.slug.current}`}>
+          <Link href={`/category/${category.slug.current}?page=1`}>
             {category.name}
           </Link>
         </li>
