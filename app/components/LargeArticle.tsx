@@ -13,7 +13,7 @@ const LargeArticle = ({
   clickable = true,
 }: {
   article: Article;
-  clickable: boolean;
+  clickable?: boolean;
 }) => {
   return (
     <motion.div
