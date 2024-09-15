@@ -68,6 +68,11 @@ const Menu = ({
               Categories
             </strong>
             <ul className="flex flex-col gap-1">
+              <li
+                className={clsx(orbitron.className, "text-primary-800 text-xl")}
+              >
+                <Link href={`/category/all?page=1`}>All</Link>
+              </li>
               {categories.map((category) => (
                 <li
                   key={category.slug.current}
@@ -76,7 +81,7 @@ const Menu = ({
                     "text-primary-800 text-xl"
                   )}
                 >
-                  <Link href={`/category/${category.slug.current}`}>
+                  <Link href={`/category/${category.slug.current}?page=1`}>
                     {category.name}
                   </Link>
                 </li>
