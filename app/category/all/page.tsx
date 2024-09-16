@@ -5,6 +5,7 @@ import { Category } from "@/types";
 import CategoryBar from "@/app/components/CategoryBar";
 import Footer from "@/app/components/common/Footer";
 import ArticleList from "@/app/components/common/ArticleList";
+import SearchBar from "@/app/components/common/SearchBar";
 
 const Article = async ({
   params,
@@ -47,7 +48,10 @@ const Article = async ({
         <div className="divide-y py-8 border-t border-b mt-6">
           <CategoryBar categories={categories} />
         </div>
-        <ArticleList articles={articles} totalPages={totalPages} />
+        <div>
+          <SearchBar />
+          <ArticleList articles={articles} totalPages={totalPages} />
+        </div>
       </main>
       <div className="bg-white rounded-lg p-8 default-box">
         <Footer />

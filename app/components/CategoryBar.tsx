@@ -1,9 +1,15 @@
+"use client";
+
 import { Category } from "@/types";
 import { archivo } from "@/utils/fonts";
 import clsx from "clsx";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const CategoryBar = ({ categories }: { categories: Category[] }) => {
+  const params = useParams();
+
+  console.log(params);
   return (
     <ul className="flex gap-10 justify-center">
       <li
