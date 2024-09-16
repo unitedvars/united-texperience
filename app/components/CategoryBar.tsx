@@ -9,7 +9,6 @@ import { useParams } from "next/navigation";
 const CategoryBar = ({ categories }: { categories: Category[] }) => {
   const params = useParams();
 
-  console.log(params);
   return (
     <ul className="flex gap-10 justify-center">
       <li
@@ -25,7 +24,8 @@ const CategoryBar = ({ categories }: { categories: Category[] }) => {
           key={category.slug.current}
           className={clsx(
             archivo.className,
-            "text-primary-700 text-right hover:text-primary-500 transition"
+            "text-primary-700 text-right hover:text-primary-500 transition",
+            params.category === category.slug.current && "!text-primary-500"
           )}
         >
           <Link href={`/category/${category.slug.current}?page=1`}>

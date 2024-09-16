@@ -6,14 +6,9 @@ import CategoryBar from "@/app/components/CategoryBar";
 import Footer from "@/app/components/common/Footer";
 import ArticleList from "@/app/components/common/ArticleList";
 import SearchBar from "@/app/components/common/SearchBar";
+import { getArticlePageParams, getTotalPages } from "@/utils/utils";
 
-const Article = async ({
-  params,
-  searchParams,
-}: {
-  params: { category: string; page: string };
-  searchParams: any;
-}) => {
+const Article = async ({ searchParams }: { searchParams: any }) => {
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
@@ -24,18 +19,13 @@ const Article = async ({
 
   const currentPage = parseInt(searchParams.page);
 
-  const pageSize = 6;
-  let totalPages = Math.ceil(allCount / pageSize);
+  let totalPages = getTotalPages(allCount);
 
-  const trim_start = currentPage == 1 ? 0 : (currentPage - 1) * pageSize;
-  const trim_end = currentPage == 1 ? pageSize : currentPage * pageSize;
+  console.log(getArticlePageParams(currentPage));
 
   const articles = await sanityFetch<any>({
     query: ARTICLES,
-    params: {
-      trim_start: trim_start,
-      trim_end: trim_end,
-    },
+    params: getArticlePageParams(currentPage),
   });
 
   return (
