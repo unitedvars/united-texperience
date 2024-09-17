@@ -25,7 +25,7 @@ const ArticleList = ({
   return (
     <Suspense>
       <div className="pt-8">
-        <ul className="grid gap-8 sm:gap-x-3 sm:gap-y-16 w-full max-w-96 mx-auto">
+        <ul className="grid gap-y-8 w-full max-w-96 mx-auto">
           {articles?.map((article: Article) => (
             <li key={article._id} className="gap-2 w-full h flex flex-col">
               <div className="grow rounded-md bg-white p-4">
