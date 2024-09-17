@@ -64,9 +64,14 @@ export default async function Footer() {
                   "text-primary-500 lg:text-right hover:text-primary-500 transition"
                 )}
               >
-                <Link href={`${href}`}>{label}</Link>
+                <Link
+                  className="hover:border-primary-200 pb-1 border-transparent transition border-b"
+                  href={`${href}`}
+                >
+                  {label}
+                </Link>
                 {idx < menuLinks.length - 1 && (
-                  <span className="mx-3 opacity-30 xl:mx-6 hidden lg:inline-block">
+                  <span className="mx-3 opacity-30 xl:mx-6 hidden lg:inline-block group-hover:border-b">
                     |
                   </span>
                 )}
@@ -82,7 +87,10 @@ export default async function Footer() {
                   "text-primary-500 lg:text-right hover:text-primary-500 transition"
                 )}
               >
-                <Link href={`/category/${category.slug.current}`}>
+                <Link
+                  className="hover:border-primary-200 pb-1 border-transparent transition border-b"
+                  href={`/category/${category.slug.current}`}
+                >
                   {category.name}
                 </Link>
                 {idx < categories.length - 1 && (
@@ -99,9 +107,15 @@ export default async function Footer() {
             Copyright © {new Date().getFullYear()} UnitedVars
           </div>
           <div className="mx-2">-</div>
-          <div className={clsx(archivo.className, "text-primary-500")}>
+          <Link
+            href="#"
+            className={clsx(
+              archivo.className,
+              "hover:border-primary-200 pb-1 border-transparent transition border-b text-primary-500"
+            )}
+          >
             All rights reserved
-          </div>
+          </Link>
         </div>
       </footer>
     </div>
