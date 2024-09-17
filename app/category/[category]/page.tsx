@@ -59,9 +59,7 @@ const Article = async ({
           <ArticleList articles={articles} totalPages={totalPages} />
         </div>
       </main>
-      <div className="bg-white rounded-lg p-8 default-box">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 };

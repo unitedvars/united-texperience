@@ -41,13 +41,7 @@ const ArticleList = ({
             </li>
           ))}
         </ul>
-        <div
-          className={clsx(
-            "w-full flex items-center justify-center py-8",
-            orbitron.className,
-            "[&>.MuiSelected]:!bg-black"
-          )}
-        >
+        <div className={clsx("w-full flex items-center justify-center py-8")}>
           {page && totalPages && (
             <Pagination
               count={totalPages}

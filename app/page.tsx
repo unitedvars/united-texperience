@@ -52,14 +52,14 @@ export default async function Home() {
       <header className="flex flex-col">
         <Navbar categories={categories} />
       </header>
-      <main className="flex flex-col min-h-screen pb-16 default-box">
+      <main className="flex flex-col min-h-screen pb-16 default-box gap-8">
         <Link
           className="flex"
           href={`/articles/${featuredArticle.slug.current}`}
         >
           <LargeArticle article={featuredArticle} />
         </Link>
-        <div className="flex-col lg:flex-row flex gap-4 mt-8 items-stretch">
+        <div className="flex-col lg:flex-row flex gap-4 items-stretch">
           <div className="w-full lg:w-9/12 bg-white rounded-lg p-4">
             <h2
               className={clsx(
@@ -115,7 +115,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className="flex-col lg:flex-row flex mt-8 items-stretch">
+        <div className="flex-col lg:flex-row flex items-stretch">
           <div className="w-full lg:w-full bg-white rounded-lg p-4">
             <h2
               className={clsx(
@@ -153,7 +153,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className="flex-col lg:flex-row flex mt-8 items-stretch">
+        <div className="flex-col lg:flex-row flex  items-stretch">
           <div className="flex flex-col w-full bg-white rounded-lg p-8 lg:flex-row gap-4">
             <div className="w-full lg:w-7/12">
               <strong
@@ -182,7 +182,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className="flex-col lg:flex-row flex gap-4 mt-8 items-stretch">
+        <div className="flex-col lg:flex-row flex gap-4  items-stretch">
           <div className="w-full bg-white rounded-lg p-4 flex flex-col gap-32">
             <div>
               <h2
@@ -212,9 +212,9 @@ export default async function Home() {
                 </ul>
               </div>
             </div>
-            <Footer />
           </div>
         </div>
+        <Footer />
       </main>
     </>
   );
