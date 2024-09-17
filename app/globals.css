@@ -60,3 +60,8 @@ body {
   scrollbar-color: theme("colors.primary.700") transparent;
   scrollbar-width: thin;
 }
+
+.Mui-selected {
+  color: theme("colors.primary.500") !important;
+  background: transparent !important;
+}

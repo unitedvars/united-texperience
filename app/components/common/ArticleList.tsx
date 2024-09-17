@@ -5,6 +5,8 @@ import ArticleThumbnail from "./ArticleThumbnail";
 import { Suspense, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Pagination from "@mui/material/Pagination";
+import clsx from "clsx";
+import { orbitron } from "@/utils/fonts";
 
 const ArticleList = ({
   articles,
@@ -23,7 +25,7 @@ const ArticleList = ({
   return (
     <Suspense>
       <div className="pt-8">
-        <ul className="grid sm:grid-cols-2 md:grid-cols-3 grid-rows-6 sm:grid-rows-3 xl:grid-rows-none gap-8 sm:gap-x-3 sm:gap-y-16">
+        <ul className="grid gap-8 sm:gap-x-3 sm:gap-y-16 w-full max-w-96 mx-auto">
           {articles?.map((article: Article) => (
             <li key={article._id} className="gap-2 w-full h flex flex-col">
               <div className="grow rounded-md bg-white p-4">
@@ -39,7 +41,13 @@ const ArticleList = ({
             </li>
           ))}
         </ul>
-        <div className="w-full flex items-center justify-center py-8">
+        <div
+          className={clsx(
+            "w-full flex items-center justify-center py-8",
+            orbitron.className,
+            "[&>.MuiSelected]:!bg-black"
+          )}
+        >
           {page && totalPages && (
             <Pagination
               count={totalPages}
