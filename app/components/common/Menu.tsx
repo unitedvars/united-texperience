@@ -42,20 +42,27 @@ const Menu = ({
       ></div>
       <div
         className={clsx(
-          "fixed bg-white max-h-screen xl:w-[550px] xl:top-[2vh] xl:left-4 opacity-0 pointer-events-none transition-all duration-500 -translate-x-48 px-8 xl:px-[50px] py-[36px] z-40 xl:h-[96vh] shadow-lg w-full top-0 left-0 xl:rounded-lg flex flex-col overflow-y-auto",
+          "fixed bg-white max-h-screen xl:w-[550px] xl:top-[2vh] xl:left-4 opacity-0 pointer-events-none transition-all duration-500 -translate-x-48 px-4 lg:px-6 py-4 lg:py-4 z-40 xl:h-[96dvh] shadow-lg w-full top-0 left-0 xl:rounded-lg flex flex-col overflow-y-auto h-screen",
           isOpen && "opacity-100 pointer-events-auto !translate-x-0"
         )}
       >
         <div
-          className="pt-3 pb-8 flex items-center gap-3 cursor-pointer"
+          className="pt-3 pb-8 "
           onClick={() => {
             setIsOpen(false);
           }}
         >
-          <HamburgerIcon setIsActive={setIsOpen} active />
-          <label className={clsx(orbitron.className, "text-gray-500")}>
-            close
-          </label>
+          <div className="group cursor-pointer w-fit flex items-center gap-3">
+            <HamburgerIcon setIsActive={setIsOpen} active />
+            <label
+              className={clsx(
+                orbitron.className,
+                "cursor-pointer text-primary-800 group-hover:text-primary-500"
+              )}
+            >
+              close
+            </label>
+          </div>
         </div>
         <div className="flex flex-col grow">
           <div className="border-t py-5 border-gray-400">
@@ -69,7 +76,10 @@ const Menu = ({
             </strong>
             <ul className="flex flex-col gap-1">
               <li
-                className={clsx(orbitron.className, "text-primary-800 text-xl")}
+                className={clsx(
+                  orbitron.className,
+                  "text-primary-800 text-xl hover:text-primary-500 transition"
+                )}
               >
                 <Link href={`/category/all?page=1`}>All</Link>
               </li>
@@ -78,7 +88,7 @@ const Menu = ({
                   key={category.slug.current}
                   className={clsx(
                     orbitron.className,
-                    "text-primary-800 text-xl"
+                    "text-primary-800 text-xl hover:text-primary-500 transition"
                   )}
                 >
                   <Link href={`/category/${category.slug.current}?page=1`}>
@@ -103,7 +113,7 @@ const Menu = ({
                   key={link.label}
                   className={clsx(
                     orbitron.className,
-                    "text-primary-800 text-xl"
+                    "text-primary-800 text-xl hover:text-primary-500 transition"
                   )}
                 >
                   <Link href={link.href}>{link.label}</Link>

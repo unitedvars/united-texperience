@@ -12,7 +12,8 @@ const HamburgerIcon = ({
   setIsActive: (isActive: boolean) => void;
   onClick?: () => void;
 }) => {
-  const LINE_STYLES = "w-full h-0.5 bg-gray-500 transition";
+  const LINE_STYLES =
+    "w-full h-0.5 bg-primary-800 transition group-hover:bg-primary-500";
   return (
     <div
       className={clsx(

@@ -39,17 +39,26 @@ const Navbar = ({
       >
         <div className="h-[52px] flex items-center w-full">
           <div
-            className="flex gap-3 items-center w-1/3 cursor-pointer"
+            className="w-1/3"
             onClick={() => {
               setIsMenuOpen(!isMenuOpen);
             }}
           >
-            <HamburgerIcon
-              setIsActive={setIsMenuOpen}
-              active={isMenuOpen}
-              className="z-30"
-            />
-            <label className={orbitron.className}>menu</label>
+            <div className="group cursor-pointer flex items-center gap-3 w-fit">
+              <HamburgerIcon
+                setIsActive={setIsMenuOpen}
+                active={isMenuOpen}
+                className="z-30"
+              />
+              <label
+                className={clsx(
+                  orbitron.className,
+                  "cursor-pointer text-primary-800 group-hover:text-primary-500"
+                )}
+              >
+                menu
+              </label>
+            </div>
           </div>
           <div className="w-1/3 flex justify-center">
             <Link href="/">

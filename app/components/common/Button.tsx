@@ -8,7 +8,7 @@ const Button = (props: ButtonHTMLAttributes<HTMLButtonElement>) => {
       {...props}
       className={clsx(
         props.className,
-        "bg-secondary-600 text-secondary-100  flex items-center justify-center h-[48px] text-white px-8 rounded bg-button-gradient hover:opacity-80 transition",
+        "text-secondary-100  flex items-center justify-center h-[48px] text-white px-8 rounded bg-button-gradient transition",
         orbitron.className
       )}
     >
