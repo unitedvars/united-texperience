@@ -102,7 +102,7 @@ const Article = async ({ params }: { params: { id: string } }) => {
               <div>
                 <ul className="flex flex-col gap-4 lg:flex-row">
                   {other_articles.map((article: ArticleType) => (
-                    <li key={article._id} className="w-1/4">
+                    <li key={article._id} className="lg:w-1/4">
                       <ArticleThumbnail
                         imageUrl={article.mainImage}
                         title={article.title}
