@@ -19,5 +19,10 @@ export const category = {
         source: "name",
       },
     },
+    {
+      title: "Hide in Category Bar",
+      name: "hide_in_category_bar",
+      type: "boolean",
+    },
   ],
 };

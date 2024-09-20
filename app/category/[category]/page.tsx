@@ -34,8 +34,6 @@ const Article = async ({
 
   let totalPages = getTotalPages(categoryCount);
 
-  console.log(getArticlePageParams(currentPage));
-
   const articles = await sanityFetch<any>({
     query: PAGINATED_ARTICLES_BY_CATEGORY,
     params: {

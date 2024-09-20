@@ -21,8 +21,6 @@ const Article = async ({ searchParams }: { searchParams: any }) => {
 
   let totalPages = getTotalPages(allCount);
 
-  console.log(getArticlePageParams(currentPage));
-
   const articles = await sanityFetch<any>({
     query: ARTICLES,
     params: getArticlePageParams(currentPage),

@@ -20,20 +20,19 @@ const ArticleList = ({
   const pathname = usePathname();
   const page = parseInt(searchParams.get("page") as string);
 
-  console.log(totalPages);
-
   return (
     <Suspense>
       <div className="pt-8">
-        <ul className="grid gap-y-8 w-full max-w-96 mx-auto">
+        <ul className="grid gap-y-8 w-full max-w-[32rem] mx-auto">
           {articles?.map((article: Article) => (
             <li key={article._id} className="gap-2 w-full h flex flex-col">
               <div className="grow rounded-md bg-white p-4">
                 <ArticleThumbnail
+                  showAuthorDetails
                   imageUrl={article.mainImage}
                   title={article.title}
                   category={article.category.name}
-                  author={article.author.name}
+                  author={article.author}
                   url={`/articles/${article.slug.current}`}
                   subtitle={article.subtitle}
                 />

@@ -1,6 +1,7 @@
 "use client";
 
 import { PiFadersFill } from "react-icons/pi";
+import { IoChevronDownSharp } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -20,15 +21,15 @@ const SearchBar = () => {
 
   return (
     <div className="flex gap-6 py-6">
-      <div className="flex items-center gap-2">
-        <PiFadersFill />
-        <span>filter</span>
+      <div className="flex items-center gap-2 group cursor-pointer">
+        <PiFadersFill className="group-hover:text-primary-500 transition" />
+        <span className="group-hover:text-primary-500 transition">filter</span>
       </div>
-      <div className="flex items-center gap-2">
-        <IoIosSearch />
+      <div className="flex items-center gap-2 cursor-pointer group">
+        <IoIosSearch className="group-hover:text-primary-500 transition" />
         <input
           placeholder={"search"}
-          className="bg-transparent placeholder:text-primary-900 focus:outline-none"
+          className="bg-transparent placeholder:text-primary-900 focus:outline-none "
         />
       </div>
       <div className="flex ml-auto items-center gap-2">
@@ -38,11 +39,16 @@ const SearchBar = () => {
         <div>
           <button
             onClick={handleClick}
-            className={clsx(orbitron.className, "text-primary-500")}
+            className={clsx(
+              orbitron.className,
+              "text-primary-500 flex items-center gap-2"
+            )}
           >
             Latest
+            <IoChevronDownSharp />
           </button>
           <Menu
+            elevation={2}
             id="basic-menu"
             anchorEl={anchorEl}
             open={open}

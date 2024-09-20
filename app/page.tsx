@@ -77,7 +77,7 @@ export default async function Home() {
                       imageUrl={article.mainImage}
                       title={article.title}
                       category={article.category.name}
-                      author={article.author.name}
+                      author={article.author}
                       url={`/articles/${article.slug.current}`}
                     />
                   </li>
@@ -103,7 +103,7 @@ export default async function Home() {
                         <ArticleThumbnail
                           title={article.title}
                           category={article.category.name}
-                          author={article.author.name}
+                          author={article.author}
                           titleSize={"large"}
                           className={"min-h-[124px]"}
                           url={`/articles/${article.slug.current}`}
@@ -127,7 +127,9 @@ export default async function Home() {
             </h2>
             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
               <div className="md:col-span-2 lg:col-span-3">
-                <LargeArticle article={techpoint_articles[0]} />
+                <Link href={`/articles/${techpoint_articles[0].slug.current}`}>
+                  <LargeArticle article={techpoint_articles[0]} />
+                </Link>
               </div>
               <div>
                 <ul className="flex flex-col gap-8">
@@ -140,7 +142,7 @@ export default async function Home() {
                             imageUrl={article.mainImage}
                             title={article.title}
                             category={article.category.name}
-                            author={article.author.name}
+                            author={article.author}
                             titleSize={"large"}
                             className={"min-h-[124px]"}
                             url={`/articles/${article.slug.current}`}
@@ -182,7 +184,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className="flex-col lg:flex-row flex gap-4  items-stretch">
+        {/* <div className="flex-col lg:flex-row flex gap-4  items-stretch">
           <div className="w-full bg-white rounded-lg p-4 flex flex-col gap-32">
             <div>
               <h2
@@ -203,7 +205,7 @@ export default async function Home() {
                             imageUrl={article.mainImage}
                             title={article.title}
                             category={article.category.name}
-                            author={article.author.name}
+                            author={article.author}
                             url={`/articles/${article.slug.current}`}
                           />
                         </li>
@@ -213,7 +215,7 @@ export default async function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <Footer />
       </main>
     </>

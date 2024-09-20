@@ -79,7 +79,11 @@ const Article = async ({ params }: { params: { id: string } }) => {
               delay: 0.5,
             }}
           >
-            <div className="py-20 small-box [&>p]:my-4 [&>h1]:text-xl">
+            <div
+              className={clsx(
+                "py-20 small-box [&>p]:my-4 [&>h1]:text-xl portable-text"
+              )}
+            >
               <PortableText value={article.content} />
             </div>
           </MotionWrapper>
@@ -103,7 +107,7 @@ const Article = async ({ params }: { params: { id: string } }) => {
                         imageUrl={article.mainImage}
                         title={article.title}
                         category={article.category.name}
-                        author={article.author.name}
+                        author={article.author}
                         titleSize={"large"}
                         className={"min-h-[124px]"}
                         url={`/articles/${article.slug.current}`}

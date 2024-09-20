@@ -6,19 +6,22 @@ import { maitree, orbitron } from "@/utils/fonts";
 import Link from "next/link";
 
 import { motion } from "framer-motion";
+import { Author } from "@/types";
 
 interface ArticleThumbnailProps {
   title: string;
   category: string;
-  author: string;
+  author: Author;
   imageUrl?: string;
   titleSize?: "large";
   className?: string;
   url?: string;
   subtitle?: string;
+  showAuthorDetails?: boolean;
 }
 
 const ArticleThumbnail = ({
+  showAuthorDetails = false,
   imageUrl,
   title,
   category,
@@ -62,9 +65,29 @@ const ArticleThumbnail = ({
               {title}
             </h3>
             <p className="text-sm text-gray-600">{subtitle}</p>
-            <span
-              className={clsx("block text-xs opacity-70", maitree.className)}
-            >{`By ${author}`}</span>
+            <div className="flex gap-2 items-center">
+              <span
+                className={clsx("block text-xs opacity-70", maitree.className)}
+              >{`By ${author.name}`}</span>
+              {showAuthorDetails && (
+                <>
+                  <span className="text-xs opacity-50">|</span>
+                  <span
+                    className={clsx(
+                      "block text-xs opacity-70",
+                      maitree.className
+                    )}
+                  >{`${author.role.name}`}</span>
+                  <span className="text-xs opacity-50">|</span>
+                  <span
+                    className={clsx(
+                      "block text-xs opacity-70",
+                      maitree.className
+                    )}
+                  >{`${author.institution.name}`}</span>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </motion.div>
