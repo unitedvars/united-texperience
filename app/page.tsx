@@ -156,30 +156,32 @@ export default async function Home() {
           </div>
         </div>
         <div className="flex-col lg:flex-row flex  items-stretch">
-          <div className="flex flex-col w-full bg-white rounded-lg p-8 lg:flex-row gap-4">
+          <div className="flex flex-col w-full bg-white rounded-lg p-4 lg:p-8 lg:flex-row gap-4">
             <div className="w-full lg:w-7/12">
               <strong
-                className={`text-6xl font-medium mb-3 inline-block ${archivo.className}`}
+                className={`text-3xl lg:text-6xl font-medium mb-3 inline-block ${archivo.className}`}
               >
                 Stronger than One
               </strong>
-              <p className="text-xl">
+              <p className="text-lg lg:text-xl">
                 Lorem ipsum dolor sit amet consectetur. In sed sed orci rhoncus
                 tempus. Lorem ipsum dolor sit amet consectetur. In sed sed orci
                 rhoncus tempus.
               </p>
             </div>
             <div className="w-full lg:w-5/12 h-full">
-              <div className="flex items-center gap-4 justify-end h-full">
+              <div className="flex flex-col lg:flex-row items-center gap-4 justify-end h-full">
                 <input
                   type="text"
                   className={clsx(
                     archivo.className,
-                    "border border-primary-600 h-12 rounded-md grow px-4"
+                    "border border-primary-600 h-12 rounded-md grow px-4 w-full lg:w-auto"
                   )}
                   placeholder="Please enter your email..."
                 />
-                <Button className={"hidden lg:block"}>Subscribe</Button>
+                <Button className={"w-full lg:w-auto lg:block"}>
+                  Subscribe
+                </Button>
               </div>
             </div>
           </div>
