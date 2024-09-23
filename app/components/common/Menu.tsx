@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { orbitron, archivo } from "@/utils/fonts";
 import Link from "next/link";
 import HamburgerIcon from "./HamburgerIcon";
-import Button from "./Button";
 
 const Menu = ({
   categories,
@@ -74,15 +73,8 @@ const Menu = ({
             >
               Categories
             </strong>
+
             <ul className="flex flex-col gap-1">
-              <li
-                className={clsx(
-                  orbitron.className,
-                  "text-primary-800 text-xl hover:text-primary-500 transition"
-                )}
-              >
-                <Link href={`/category/all?page=1`}>All</Link>
-              </li>
               {categories.map((category) => (
                 <li
                   key={category.slug.current}
@@ -97,6 +89,8 @@ const Menu = ({
                 </li>
               ))}
             </ul>
+
+
           </div>
           <div className="border-t py-5 border-gray-400">
             <strong
@@ -121,34 +115,7 @@ const Menu = ({
               ))}
             </ul>
           </div>
-          <div className="flex flex-col mt-auto gap-4 pt-8 border-t border-gray-400">
-            <div>
-              <strong
-                className={clsx(
-                  orbitron.className,
-                  "text-xl lg:text-right font-normal text-primary-900"
-                )}
-              >
-                Subscribe
-              </strong>
-              <p className={clsx(archivo.className)}>
-                Get alerts of all the news we have for you
-              </p>
-            </div>
-            <div>
-              <form className="flex flex-col lg:flex-row items-center gap-4 justify-end h-full ">
-                <input
-                  type="text"
-                  className={clsx(
-                    archivo.className,
-                    "w-full lg:w-auto border border-primary-600 h-12 rounded-md grow px-4"
-                  )}
-                  placeholder="Please enter your email..."
-                />
-                <Button className="w-full lg:w-auto">Subscribe</Button>
-              </form>
-            </div>
-          </div>
+          
         </div>
       </div>
     </>

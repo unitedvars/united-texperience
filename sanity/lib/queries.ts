@@ -35,6 +35,12 @@ export const ARTICLES = groq`*[_type == "article"] | order(_id)[$trim_start...$t
   slug
 }`;
 
+export const STATS = groq`*[_type == "stat"] | order(_id)[$trim_start...$trim_end] {
+  stat,
+  description,
+  "mainImage": mainImage.asset->url
+}`;
+
 export const ARTICLE = groq`*[_type == "article" && slug.current == $slug][0] {
   _createdAt,
   _id,
@@ -49,6 +55,12 @@ export const ARTICLE = groq`*[_type == "article" && slug.current == $slug][0] {
   "mainImage": mainImage.asset->url,
   slug,
   content
+}`;
+
+export const STAT = groq`*[_type == "stat" {
+  stat,
+  "mainImage": mainImage.asset->url,
+  description
 }`;
 
 export const ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category] {

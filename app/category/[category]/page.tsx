@@ -6,6 +6,7 @@ import {
 } from "@/sanity/lib/queries";
 import Navbar from "@/app/components/common/Navbar";
 import { Category } from "@/types";
+import CategoryBarList from "@/app/components/CategoryBarList";
 import CategoryBar from "@/app/components/CategoryBar";
 import Footer from "@/app/components/common/Footer";
 import ArticleList from "@/app/components/common/ArticleList";
@@ -50,7 +51,7 @@ const Article = async ({
       <main className="flex flex-col pb-16 pt-10 default-box">
         <h1 className="text-6xl text-center">Articles</h1>
         <div className="divide-y py-8 border-t border-b mt-6">
-          <CategoryBar categories={categories} />
+          <CategoryBarList categories={categories} />
         </div>
         <div>
           <SearchBar />

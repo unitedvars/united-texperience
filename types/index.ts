@@ -9,6 +9,13 @@ export interface Article {
   category: Category;
 }
 
+export interface Stats {
+  _id: string;
+  mainImage: string;
+  stat: string;
+  description: string;
+}
+
 export interface Category {
   hide_in_category_bar: boolean;
   name: string;

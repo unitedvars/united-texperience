@@ -78,7 +78,7 @@ export default async function Footer() {
               </li>
             ))}
           </ul>
-          <ul className="flex justify-start flex-col lg:flex-row">
+          <ul className="flex flex-wrap gap-3 justify-start flex-col lg:flex-row">
             {categories.map((category, idx: number) => (
               <li
                 key={category.slug.current}

@@ -5,10 +5,12 @@ import {
   HOME_QUERY,
   ARTICLES,
   ARTICLES_BY_CATEGORY,
+  STATS
 } from "@/sanity/lib/queries";
 
 import ArticleThumbnail from "./components/common/ArticleThumbnail";
-import { Article, Category } from "@/types";
+import StatThumbnail from "./components/common/StatThumbnail";
+import { Article, Category, Stats } from "@/types";
 import clsx from "clsx";
 import { archivo, maitree, orbitron } from "@/utils/fonts";
 import Link from "next/link";
@@ -29,6 +31,14 @@ export default async function Home() {
     },
   });
 
+  const stats = await sanityFetch<any>({
+    query: STATS,
+    params: {
+      trim_start: 0,
+      trim_end: 6,
+    },
+  });
+
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
@@ -40,18 +50,12 @@ export default async function Home() {
     },
   });
 
-  const whats_coming_articles = await sanityFetch<any[]>({
-    query: ARTICLES_BY_CATEGORY,
-    params: {
-      category: "what-s-coming-up",
-    },
-  });
-
   return (
     <>
       <header className="flex flex-col">
         <Navbar categories={categories} />
       </header>
+
       <main className="flex flex-col min-h-screen pb-16 default-box gap-8">
         <Link
           className="flex"
@@ -59,6 +63,38 @@ export default async function Home() {
         >
           <LargeArticle article={featuredArticle} />
         </Link>
+
+        <div className="flex-col lg:flex-row flex items-stretch">
+          <div className="w-full lg:w-full bg-white rounded-lg p-4">
+            <h2
+              className={clsx(
+                "text-primary-500 text-2xl border-b pb-4 mb-4",
+                orbitron.className
+              )}
+            >
+              Stats & Trainings
+            </h2>
+            
+            <div className="overflow-scroll">
+              <ul className="flex flex-row gap-8">
+                {stats.map((stat: Stats) => (
+                  <li key={stat._id}
+                    className="w-[500px]">
+                    <StatThumbnail
+                      imageUrl={stat.mainImage}
+                      stat={stat.stat}
+                      description={stat.description}
+                      className={"min-h-[124px]"}
+                    />
+                  </li>
+                  /* A chequear si levanta STATS o no */
+                  )
+                )}
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <div className="flex-col lg:flex-row flex gap-4 items-stretch">
           <div className="w-full lg:w-9/12 bg-white rounded-lg p-4">
             <h2
@@ -115,6 +151,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
+
         <div className="flex-col lg:flex-row flex items-stretch">
           <div className="w-full lg:w-full bg-white rounded-lg p-4">
             <h2
@@ -155,69 +192,6 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className="flex-col lg:flex-row flex  items-stretch">
-          <div className="flex flex-col w-full bg-white rounded-lg p-4 lg:p-8 lg:flex-row gap-4">
-            <div className="w-full lg:w-7/12">
-              <strong
-                className={`text-3xl lg:text-6xl font-medium mb-3 inline-block ${archivo.className}`}
-              >
-                Stronger than One
-              </strong>
-              <p className="text-lg lg:text-xl">
-                Lorem ipsum dolor sit amet consectetur. In sed sed orci rhoncus
-                tempus. Lorem ipsum dolor sit amet consectetur. In sed sed orci
-                rhoncus tempus.
-              </p>
-            </div>
-            <div className="w-full lg:w-5/12 h-full">
-              <div className="flex flex-col lg:flex-row items-center gap-4 justify-end h-full">
-                <input
-                  type="text"
-                  className={clsx(
-                    archivo.className,
-                    "border border-primary-600 h-12 rounded-md grow px-4 w-full lg:w-auto"
-                  )}
-                  placeholder="Please enter your email..."
-                />
-                <Button className={"w-full lg:w-auto lg:block"}>
-                  Subscribe
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* <div className="flex-col lg:flex-row flex gap-4  items-stretch">
-          <div className="w-full bg-white rounded-lg p-4 flex flex-col gap-32">
-            <div>
-              <h2
-                className={clsx(
-                  "text-primary-500 text-2xl border-b pb-4 mb-4",
-                  orbitron.className
-                )}
-              >
-                What&apos;s coming up
-              </h2>
-              <div>
-                <ul className="grid sm:grid-cols-2 md:grid-cols-4 grid-rows-auto gap-8 sm:gap-x-3 sm:gap-y-16">
-                  {whats_coming_articles.map(
-                    (article: Article, index: number) =>
-                      index < 6 && (
-                        <li key={article._id} className="gap-2 w-full">
-                          <ArticleThumbnail
-                            imageUrl={article.mainImage}
-                            title={article.title}
-                            category={article.category.name}
-                            author={article.author}
-                            url={`/articles/${article.slug.current}`}
-                          />
-                        </li>
-                      )
-                  )}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div> */}
         <Footer />
       </main>
     </>
