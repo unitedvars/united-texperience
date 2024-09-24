@@ -17,11 +17,5 @@ export const author = {
       type: "reference",
       to: [{ type: "role" }],
     },
-    {
-      title: "Institution",
-      name: "institution",
-      type: "reference",
-      to: [{ type: "institution" }],
-    },
   ],
 };

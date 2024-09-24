@@ -88,35 +88,38 @@ const Article = async ({ params }: { params: { id: string } }) => {
             </div>
           </MotionWrapper>
         </article>
-        <Link href={`/articles/${randomArticle.slug.current}`}>
-          <div className="default-box flex flex-col gap-6">
-            <div className="w-full bg-white rounded-lg p-4">
-              <h2
-                className={clsx(
-                  orbitron.className,
-                  "text-primary-500 text-2xl pb-4 mb-4 border-b"
-                )}
-              >
-                What to read next
-              </h2>
-              <div>
-                <ul className="flex flex-col gap-4 lg:flex-row">
-                  {other_articles.map((article: ArticleType) => (
-                    <li key={article._id} className="lg:w-1/4">
-                      <ArticleThumbnail
-                        imageUrl={article.mainImage}
-                        title={article.title}
-                        category={article.category.name}
-                        author={article.author}
-                        titleSize={"large"}
-                        className={"min-h-[124px]"}
-                        url={`/articles/${article.slug.current}`}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        
+        <div className="default-box flex flex-col gap-6">
+          <div className="w-full bg-white rounded-lg p-4">
+            <h2
+              className={clsx(
+                orbitron.className,
+                "text-primary-500 text-2xl pb-4 mb-4 border-b"
+              )}
+            >
+              What to read next
+            </h2>
+
+            <div>
+              <ul className="flex flex-col gap-4 lg:flex-row">
+                {other_articles.map((article: ArticleType) => (
+                  <li key={article._id} className="lg:w-1/4">
+                    <ArticleThumbnail
+                      imageUrl={article.mainImage}
+                      title={article.title}
+                      category={article.category.name}
+                      author={article.author}
+                      titleSize={"large"}
+                      className={"min-h-[124px]"}
+                      url={`/articles/${article.slug.current}`}
+                    />
+                  </li>
+                ))}
+              </ul>
             </div>
+          </div>
+          
+          <Link href={`/articles/${randomArticle.slug.current}`}>
             <div className="w-full bg-white rounded-lg p-4 flex flex-col lg:flex-row gap-4">
               <div className="lg:w-1/2 relative min-h-96">
                 <Image
@@ -137,7 +140,7 @@ const Article = async ({ params }: { params: { id: string } }) => {
                     <span>{randomArticle.category.name}</span>
                     <span className="text-gray-400">-</span>
                     <span className="text-gray-600">
-                      {moment(randomArticle._createdAt).format(`YY-MM-DD`)}
+                      {moment(randomArticle._createdAt).format(`DD-MM-YY`)}
                     </span>
                   </div>
                   <h1
@@ -159,22 +162,19 @@ const Article = async ({ params }: { params: { id: string } }) => {
                       {randomArticle.author.role.name}
                     </div>
                     <div className="h-3 w-px bg-gray-300 hidden md:block" />
-                    <div className={clsx("text-xs opacity-70 hidden md:block")}>
-                      {randomArticle.author.institution.name}
-                    </div>
-                    <div className="h-3 w-px bg-gray-300 hidden md:block" />
                     <div className={clsx("text-xs text-primary-800")}>
-                      {moment(randomArticle._createdAt).fromNow()}
+                    Edition 01
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="w-full bg-white rounded-lg p-4">
-              <Footer />
-            </div>
+          </Link>
+
+          <div className="w-full bg-white rounded-lg p-4">
+            <Footer />
           </div>
-        </Link>
+        </div>
       </main>
     </div>
   );

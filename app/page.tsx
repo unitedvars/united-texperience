@@ -5,12 +5,11 @@ import {
   HOME_QUERY,
   ARTICLES,
   ARTICLES_BY_CATEGORY,
-  STATS
 } from "@/sanity/lib/queries";
 
 import ArticleThumbnail from "./components/common/ArticleThumbnail";
 import StatThumbnail from "./components/common/StatThumbnail";
-import { Article, Category, Stats } from "@/types";
+import { Article, Category } from "@/types";
 import clsx from "clsx";
 import { archivo, maitree, orbitron } from "@/utils/fonts";
 import Link from "next/link";
@@ -31,14 +30,6 @@ export default async function Home() {
     },
   });
 
-  const stats = await sanityFetch<any>({
-    query: STATS,
-    params: {
-      trim_start: 0,
-      trim_end: 6,
-    },
-  });
-
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
@@ -47,6 +38,13 @@ export default async function Home() {
     query: ARTICLES_BY_CATEGORY,
     params: {
       category: "techpoint",
+    },
+  });
+
+  const hotnews_articles = await sanityFetch<any[]>({
+    query: ARTICLES_BY_CATEGORY,
+    params: {
+      category: "hot-news",
     },
   });
 
@@ -72,12 +70,12 @@ export default async function Home() {
                 orbitron.className
               )}
             >
-              Stats & Trainings
+              Stats & Numbers
             </h2>
             
             <div className="overflow-scroll">
               <ul className="flex flex-row gap-8">
-                {stats.map((stat: Stats) => (
+                {/*{stats.map((stat: Stats) => (
                   <li key={stat._id}
                     className="w-[500px]">
                     <StatThumbnail
@@ -87,9 +85,9 @@ export default async function Home() {
                       className={"min-h-[124px]"}
                     />
                   </li>
-                  /* A chequear si levanta STATS o no */
+                  ====== A chequear si levanta STATS o no ======
                   )
-                )}
+                )}*/}
               </ul>
             </div>
           </div>
@@ -103,21 +101,25 @@ export default async function Home() {
                 orbitron.className
               )}
             >
-              Latest
+              Hot News
             </h2>
             <div>
               <ul className="grid sm:grid-cols-2 md:grid-cols-3 grid-rows-6 sm:grid-rows-3 xl:grid-rows-2 gap-8 sm:gap-x-3 sm:gap-y-16">
-                {articles.map((article: Article) => (
-                  <li key={article._id} className="gap-2 w-full">
-                    <ArticleThumbnail
-                      imageUrl={article.mainImage}
-                      title={article.title}
-                      category={article.category.name}
-                      author={article.author}
-                      url={`/articles/${article.slug.current}`}
-                    />
-                  </li>
-                ))}
+                  {hotnews_articles.map(
+                    (article: Article, index: number) =>
+                      index > 0 &&
+                      index < 7 && (
+                        <li key={article._id} className="gap-2 w-full">
+                          <ArticleThumbnail
+                            imageUrl={article.mainImage}
+                            title={article.title}
+                            category={article.category.name}
+                            author={article.author}
+                            url={`/articles/${article.slug.current}`}
+                          />
+                        </li>
+                      )
+                  )}
               </ul>
             </div>
           </div>
@@ -134,7 +136,7 @@ export default async function Home() {
               <ul className="flex flex-col gap-8">
                 {articles.map(
                   (article: Article, index: number) =>
-                    index < 4 && (
+                    index < 5 && (
                       <li key={article._id}>
                         <ArticleThumbnail
                           title={article.title}
@@ -164,7 +166,7 @@ export default async function Home() {
             </h2>
             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
               <div className="md:col-span-2 lg:col-span-3">
-                <Link href={`/articles/${techpoint_articles[0].slug.current}`}>
+                <Link className="h-full block" href={`/articles/${techpoint_articles[0].slug.current}`}>
                   <LargeArticle article={techpoint_articles[0]} />
                 </Link>
               </div>

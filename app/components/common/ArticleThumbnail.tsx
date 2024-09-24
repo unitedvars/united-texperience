@@ -47,6 +47,7 @@ const ArticleThumbnail = ({
               <Image src={imageUrl} alt={title} fill className="object-cover" />
             </div>
           )}
+
           <div className="flex flex-col pr-1 gap-2">
             <strong
               className={clsx(
@@ -56,6 +57,7 @@ const ArticleThumbnail = ({
             >
               {category}
             </strong>
+
             <h3
               className={clsx(
                 "text-lg leading-[22px] bg-no-repeat transition-all duration-400 hover:bg-[length:100%_0.1em,0_0.1em] hover:bg-position-[100%_100%,0_100%] group-hover:underline",
@@ -64,11 +66,14 @@ const ArticleThumbnail = ({
             >
               {title}
             </h3>
+            
             <p className="text-sm text-gray-600">{subtitle}</p>
+
             <div className="flex gap-2 items-center">
               <span
                 className={clsx("block text-xs opacity-70", maitree.className)}
               >{`By ${author.name}`}</span>
+              
               {showAuthorDetails && (
                 <>
                   <span className="text-xs opacity-50">|</span>
@@ -78,15 +83,18 @@ const ArticleThumbnail = ({
                       maitree.className
                     )}
                   >{`${author.role.name}`}</span>
-                  <span className="text-xs opacity-50">|</span>
-                  <span
-                    className={clsx(
-                      "block text-xs opacity-70",
-                      maitree.className
-                    )}
-                  >{`${author.institution.name}`}</span>
-                </>
+                  </>
               )}
+
+              <span className="text-xs opacity-50">|</span>
+              
+              <span
+                className={clsx(
+                  "text-xs text-primary-800",
+                  maitree.className
+                )}
+              >Edition 01</span>
+                
             </div>
           </div>
         </div>

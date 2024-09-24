@@ -27,7 +27,7 @@ const LargeArticle = ({
         ease: "easeOut",
         bounce: 0,
       }}
-      className="grow bg-primary-200 h-[611px] relative rounded-xl w-full group"
+      className="grow bg-primary-200 min-h-[611px] h-full relative rounded-xl w-full group"
     >
       <Image
         src={article.mainImage}
@@ -45,7 +45,7 @@ const LargeArticle = ({
           <span>{article.category.name}</span>
           <span className="text-gray-400">-</span>
           <span className="text-gray-600">
-            {moment(article._createdAt).format(`YY-MM-DD`)}
+            {moment(article._createdAt).format(`DD-MM-YY`)}
           </span>
         </div>
         <h1
@@ -66,12 +66,8 @@ const LargeArticle = ({
             {article.author.role.name}
           </div>
           <div className="h-3 w-px bg-gray-300 hidden md:block" />
-          <div className={clsx("text-xs opacity-70 hidden md:block")}>
-            {article.author.institution.name}
-          </div>
-          <div className="h-3 w-px bg-gray-300 hidden md:block" />
           <div className={clsx("text-xs text-primary-800")}>
-            {moment(article._createdAt).fromNow()}
+           Edition 01
           </div>
         </div>
       </div>
