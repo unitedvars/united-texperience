@@ -67,7 +67,7 @@ const LargeArticle = ({
           </div>
           <div className="h-3 w-px bg-gray-300 hidden md:block" />
           <div className={clsx("text-xs text-primary-800")}>
-           Edition 01
+          {article.editorial.name}
           </div>
         </div>
       </div>

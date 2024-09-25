@@ -40,7 +40,7 @@ const StatThumbnail = ({
 
           <h3
             className={clsx(
-              "text-primary-500 text-2xl",
+              "text-primary-500 text-6xl",
                 orbitron.className
             )}
           > <strong>
@@ -50,7 +50,7 @@ const StatThumbnail = ({
 
           <p
             className={clsx(
-              "text-secondary-100 text-1xl",
+              "text-secondary-100 text-1xl font-light",
                 archivo.className
             )}
           >

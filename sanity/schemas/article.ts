@@ -28,6 +28,12 @@ export const article = {
       to: [{ type: "author" }],
     },
     {
+      title: "Editorial",
+      name: "editorial",
+      type: "reference",
+      to: [{ type: "editorial" }],
+    },
+    {
       title: "Category",
       name: "category",
       type: "reference",

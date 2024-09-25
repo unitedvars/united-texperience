@@ -14,6 +14,7 @@ export const HOME_QUERY = groq`*[_type == "home"][0] {
       name
     },
     category->,
+    editorial->,
     "mainImage": mainImage.asset->url,
     slug,
   }
@@ -29,6 +30,7 @@ export const ARTICLES = groq`*[_type == "article"] | order(_id)[$trim_start...$t
     name
   },
   category->,
+  editorial->,
   "mainImage": mainImage.asset->url,
   slug
 }`;
@@ -43,6 +45,7 @@ export const ARTICLE = groq`*[_type == "article" && slug.current == $slug][0] {
     name
   },
   category->,
+  editorial->,
   "mainImage": mainImage.asset->url,
   slug,
   content
@@ -58,6 +61,7 @@ export const ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.
     name
   },
   category->,
+  editorial->,
   "mainImage": mainImage.asset->url,
   slug,
   content
@@ -85,6 +89,7 @@ export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && categ
     name
   },
   category->,
+  editorial->,
   "mainImage": mainImage.asset->url,
   slug,
   content

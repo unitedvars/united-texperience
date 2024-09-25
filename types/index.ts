@@ -3,6 +3,7 @@ export interface Article {
   _createdAt: string;
   mainImage: string;
   title: string;
+  editorial: Editorial;
   subtitle: string;
   slug: Slug;
   author: Author;
@@ -25,6 +26,10 @@ export interface Slug {
 }
 
 export interface Role {
+  name: string;
+}
+
+export interface Editorial {
   name: string;
 }
 

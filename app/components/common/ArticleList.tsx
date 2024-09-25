@@ -33,6 +33,7 @@ const ArticleList = ({
                   title={article.title}
                   category={article.category.name}
                   author={article.author}
+                  editorial={article.editorial.name}
                   url={`/articles/${article.slug.current}`}
                   subtitle={article.subtitle}
                 />

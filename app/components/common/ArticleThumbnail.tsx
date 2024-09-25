@@ -12,6 +12,7 @@ interface ArticleThumbnailProps {
   title: string;
   category: string;
   author: Author;
+  editorial: string;
   imageUrl?: string;
   titleSize?: "large";
   className?: string;
@@ -26,6 +27,7 @@ const ArticleThumbnail = ({
   title,
   category,
   author,
+  editorial,
   titleSize,
   className,
   url,
@@ -93,7 +95,9 @@ const ArticleThumbnail = ({
                   "text-xs text-primary-800",
                   maitree.className
                 )}
-              >Edition 01</span>
+              >
+                {editorial}
+              </span>
                 
             </div>
           </div>

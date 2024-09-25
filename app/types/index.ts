@@ -11,4 +11,7 @@ export interface Article {
   category: {
     name: string;
   };
+  editorial: {
+    name: string;
+  };
 }

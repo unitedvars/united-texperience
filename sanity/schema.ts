@@ -5,7 +5,8 @@ import { article } from "./schemas/article";
 import { author } from "./schemas/author";
 import { role } from "./schemas/role";
 import { stats } from "./schemas/stats";
+import { editorial } from "./schemas/editorial";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [category, home, article, stats, author, role],
+  types: [category, home, article, stats, editorial, author, role],
 };
