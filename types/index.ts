@@ -27,3 +27,10 @@ export interface Slug {
 export interface Role {
   name: string;
 }
+
+export interface Stats {
+  _id: string;
+  mainImage: string;
+  title: string;
+  description: string;
+}

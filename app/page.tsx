@@ -4,17 +4,17 @@ import {
   CATEGORIES_QUERY,
   HOME_QUERY,
   ARTICLES,
+  STATS,
   ARTICLES_BY_CATEGORY,
 } from "@/sanity/lib/queries";
 
 import ArticleThumbnail from "./components/common/ArticleThumbnail";
 import StatThumbnail from "./components/common/StatThumbnail";
-import { Article, Category } from "@/types";
+import { Article, Category, Stats } from "@/types";
 import clsx from "clsx";
 import { archivo, maitree, orbitron } from "@/utils/fonts";
 import Link from "next/link";
 import LargeArticle from "./components/LargeArticle";
-import Button from "./components/common/Button";
 import Footer from "./components/common/Footer";
 
 export default async function Home() {
@@ -24,6 +24,14 @@ export default async function Home() {
 
   const articles = await sanityFetch<any>({
     query: ARTICLES,
+    params: {
+      trim_start: 0,
+      trim_end: 6,
+    },
+  });
+
+  const stats = await sanityFetch<any>({
+    query: STATS,
     params: {
       trim_start: 0,
       trim_end: 6,
@@ -75,19 +83,18 @@ export default async function Home() {
             
             <div className="overflow-scroll">
               <ul className="flex flex-row gap-8">
-                {/*{stats.map((stat: Stats) => (
+                {stats.map((stat: Stats) => (
                   <li key={stat._id}
                     className="w-[500px]">
                     <StatThumbnail
                       imageUrl={stat.mainImage}
-                      stat={stat.stat}
+                      title={stat.title}
                       description={stat.description}
                       className={"min-h-[124px]"}
                     />
                   </li>
-                  ====== A chequear si levanta STATS o no ======
                   )
-                )}*/}
+                )}
               </ul>
             </div>
           </div>
@@ -149,6 +156,25 @@ export default async function Home() {
                       </li>
                     )
                 )}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex-col lg:flex-row flex items-stretch">
+          <div className="w-full lg:w-full bg-white rounded-lg p-4">
+            <h2
+              className={clsx(
+                "text-primary-500 text-2xl border-b pb-4 mb-4",
+                orbitron.className
+              )}
+            >
+              Events & Trainings
+            </h2>
+            
+            <div className="overflow-scroll">
+              <ul className="flex flex-row gap-8">
+                
               </ul>
             </div>
           </div>

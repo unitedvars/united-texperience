@@ -5,7 +5,6 @@ import Image from "next/image";
 import moment from "moment";
 import { Article } from "@/types";
 import { orbitron } from "@/utils/fonts";
-
 import { motion } from "framer-motion";
 
 const LargeArticle = ({
@@ -35,7 +34,8 @@ const LargeArticle = ({
         fill
         className="object-cover rounded-lg xl:rounded-xl"
       />
-      <div className="w-full rounded-b bg-white absolute z-10 xl:w-[882px] bottom-0 left-0 py-4 px-0 lg:p-4 flex flex-col xl:rounded-tr-lg xl:rounded-bl-lg">
+      
+      <div className="w-full bg-white absolute z-10 xl:w-[882px] bottom-0 left-0 py-4 px-0 lg:p-4 flex flex-col xl:rounded-tr-lg xl:rounded-bl-lg">
         <div
           className={clsx(
             "uppercase text-primary-500 text-sm mb-4 flex gap-1",

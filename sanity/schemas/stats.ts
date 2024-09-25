@@ -7,8 +7,8 @@ export const stats = {
   icon: DocumentTextIcon,
   fields: [
     {
-      title: "Stat",
-      name: "stat",
+      title: "Title",
+      name: "title",
       type: "string",
     },
     {

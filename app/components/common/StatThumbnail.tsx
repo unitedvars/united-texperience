@@ -7,7 +7,7 @@ import { maitree, orbitron, archivo } from "@/utils/fonts";
 import { motion } from "framer-motion";
 
 interface StatThumbnailProps {
-  stat: string;
+  title: string;
   description: string;
   imageUrl?: string;
   className?: string;
@@ -15,7 +15,7 @@ interface StatThumbnailProps {
 
 const StatThumbnail = ({
   imageUrl,
-  stat,
+  title,
   description,
   className,
 }: StatThumbnailProps) => {
@@ -32,7 +32,7 @@ const StatThumbnail = ({
       <div className={clsx(className, "flex gap-2 flex-row group")}>
         {imageUrl && (
           <div className="w-full min-w-[200px] h-[200px] relative rounded-md overflow-hidden">
-            <Image src={imageUrl} alt={description} fill className="object-cover" />
+            <Image src={imageUrl} alt={title} fill className="object-cover" />
           </div>
         )}
         
@@ -44,7 +44,7 @@ const StatThumbnail = ({
                 orbitron.className
             )}
           > <strong>
-            {stat}
+            {title}
           </strong>
           </h3>
 
