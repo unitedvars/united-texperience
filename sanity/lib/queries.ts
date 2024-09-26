@@ -79,6 +79,20 @@ export const STATS = groq`*[_type == "stats"] | order(_id)[$trim_start...$trim_e
   "mainImage": mainImage.asset->url,
 }`;
 
+export const EVENT = groq`*[_type == "events" && slug.current == $slug][0] {
+  title,
+  subtitle,
+  "mainImage": mainImage.asset->url,
+  url,
+}`;
+
+export const EVENTS = groq`*[_type == "events"] | order(_id)[$trim_start...$trim_end] {
+  title,
+  subtitle,
+  "mainImage": mainImage.asset->url,
+  url,
+}`;
+
 export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category] | order(_id)[$trim_start...$trim_end] {
   _createdAt,
   _id,

@@ -39,3 +39,11 @@ export interface Stats {
   title: string;
   description: string;
 }
+
+export interface Events {
+  _id: string;
+  mainImage: string;
+  title: string;
+  subtitle: string;
+  url: string;
+}

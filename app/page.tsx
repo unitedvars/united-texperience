@@ -6,11 +6,13 @@ import {
   ARTICLES,
   STATS,
   ARTICLES_BY_CATEGORY,
+  EVENTS
 } from "@/sanity/lib/queries";
 
 import ArticleThumbnail from "./components/common/ArticleThumbnail";
+import EventsThumbnail from "./components/common/EventsThumbnail";
 import StatThumbnail from "./components/common/StatThumbnail";
-import { Article, Category, Stats } from "@/types";
+import { Article, Category, Stats, Events } from "@/types";
 import clsx from "clsx";
 import { archivo, maitree, orbitron } from "@/utils/fonts";
 import Link from "next/link";
@@ -32,6 +34,14 @@ export default async function Home() {
 
   const stats = await sanityFetch<any>({
     query: STATS,
+    params: {
+      trim_start: 0,
+      trim_end: 6,
+    },
+  });
+
+  const events = await sanityFetch<any>({
+    query: EVENTS,
     params: {
       trim_start: 0,
       trim_end: 6,
@@ -81,7 +91,7 @@ export default async function Home() {
               Stats & Numbers
             </h2>
             
-            <div className="overflow-scroll">
+            <div className="overflow-x-scroll">
               <ul className="flex flex-row gap-8">
                 {stats.map((stat: Stats) => (
                   <li key={stat._id}
@@ -111,7 +121,7 @@ export default async function Home() {
               Hot News
             </h2>
             <div>
-              <ul className="grid sm:grid-cols-2 md:grid-cols-3 grid-rows-6 sm:grid-rows-3 xl:grid-rows-2 gap-8 sm:gap-x-3 sm:gap-y-16">
+              <ul className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-rows-2 gap-8 sm:gap-x-3 sm:gap-y-16">
                   {hotnews_articles.map(
                     (article: Article, index: number) =>
                       index > 0 &&
@@ -174,9 +184,21 @@ export default async function Home() {
               Events & Trainings
             </h2>
             
-            <div className="overflow-scroll">
+            <div className="overflow-x-scroll overflow-y-hidden">
               <ul className="flex flex-row gap-8">
-                
+                {events.map((event: Events) => (
+                  <li key={event._id}
+                    className="w-[500px]">
+                    <EventsThumbnail
+                      url={event.url}
+                      imageUrl={event.mainImage}
+                      title={event.title}
+                      subtitle={event.subtitle}
+                      className={"min-h-[124px]"}
+                    />
+                  </li>
+                  )
+                )}
               </ul>
             </div>
           </div>
