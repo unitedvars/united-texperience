@@ -44,7 +44,7 @@ export default async function Home() {
     query: EVENTS,
     params: {
       trim_start: 0,
-      trim_end: 6,
+      trim_end: 100,
     },
   });
 
