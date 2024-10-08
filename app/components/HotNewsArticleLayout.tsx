@@ -4,10 +4,11 @@ import moment from "moment";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
 import { Article } from "@/types";
+import Link from "next/link";
 
 const HotNewsArticleLayout = ({ article }: { article: Article }) => {
   return (
-    <article className="flex flex-col items-center w-full default-box pb-6 md:pb-12">
+    <article className="flex flex-col items-center w-full default-box pb-6 md:pb-12 md:my-16">
       <div className="flex flex-col md:flex-row gap-6">
         <div className="bg-white p-4 rounded-lg grow max-w-[50%]">
           <div
@@ -27,7 +28,24 @@ const HotNewsArticleLayout = ({ article }: { article: Article }) => {
             {article.title}
           </h1>
           <div className={clsx("py-0 [&>p]:my-4 [&>h1]:text-xl")}>
-            <PortableText value={article.content} />
+            <PortableText
+              value={article.content}
+              components={{
+                types: {
+                  slug: (props) => (
+                    <p className="youtube-embed">
+                      Read full article{" "}
+                      <Link
+                        className={"text-primary-500"}
+                        href={props.value.current}
+                      >
+                        here
+                      </Link>
+                    </p>
+                  ),
+                },
+              }}
+            />
           </div>
         </div>
 
