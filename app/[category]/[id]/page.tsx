@@ -17,6 +17,8 @@ import clsx from "clsx";
 import ArticleThumbnail from "@/app/components/common/ArticleThumbnail";
 import moment from "moment";
 import Link from "next/link";
+import DefaultArticleLayout from "@/app/components/DefaultArticleLayout";
+import HotNewsArticleLayout from "@/app/components/HotNewsArticleLayout";
 
 const Article = async ({ params }: { params: { id: string } }) => {
   const categories = await sanityFetch<Category[]>({
@@ -58,37 +60,20 @@ const Article = async ({ params }: { params: { id: string } }) => {
 
   const randomArticle = randomArticles[0];
 
+  console.log(article);
+
   return (
     <div className="pb-10">
       <header className="flex flex-col">
         <Navbar categories={categories} showCategoryBar={false} />
       </header>
       <main>
-        <article className="flex flex-col items-center w-full default-box pb-6 md:pb-12">
-          <LargeArticle article={article} clickable={false} />
-          <MotionWrapper
-            initial={{ transform: "translateY(100px)", opacity: 0 }}
-            animate={{
-              transform: "translateY(0px)",
-              opacity: 1,
-            }}
-            transition={{
-              type: "spring",
-              ease: "easeOut",
-              bounce: 0,
-              delay: 0.5,
-            }}
-          >
-            <div
-              className={clsx(
-                "py-20 small-box [&>p]:my-4 [&>h1]:text-xl portable-text"
-              )}
-            >
-              <PortableText value={article.content} />
-            </div>
-          </MotionWrapper>
-        </article>
-        
+        {article.category.slug.current === "hot-news" ? (
+          <HotNewsArticleLayout article={article} />
+        ) : (
+          <DefaultArticleLayout article={article} />
+        )}
+
         <div className="default-box flex flex-col gap-6">
           <div className="w-full bg-white rounded-lg p-4">
             <h2
@@ -107,20 +92,22 @@ const Article = async ({ params }: { params: { id: string } }) => {
                     <ArticleThumbnail
                       imageUrl={article.mainImage}
                       title={article.title}
-                      category={article.category.name}
+                      category={article.category}
                       author={article.author}
                       editorial={article.editorial.name}
                       titleSize={"large"}
                       className={"min-h-[124px]"}
-                      url={`/articles/${article.slug.current}`}
+                      url={`/${article.category.slug.current}/${article.slug.current}`}
                     />
                   </li>
                 ))}
               </ul>
             </div>
           </div>
-          
-          <Link href={`/articles/${randomArticle.slug.current}`}>
+
+          <Link
+            href={`/${randomArticle.category.slug.current}/${randomArticle.slug.current}`}
+          >
             <div className="w-full bg-white rounded-lg p-4 flex flex-col lg:flex-row gap-4">
               <div className="lg:w-1/2 relative min-h-96">
                 <Image
@@ -164,7 +151,7 @@ const Article = async ({ params }: { params: { id: string } }) => {
                     </div>
                     <div className="h-3 w-px bg-gray-300 hidden md:block" />
                     <div className={clsx("text-xs text-primary-800")}>
-                    Edition 01
+                      Edition 01
                     </div>
                   </div>
                 </div>

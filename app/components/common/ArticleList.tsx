@@ -31,10 +31,10 @@ const ArticleList = ({
                   showAuthorDetails
                   imageUrl={article.mainImage}
                   title={article.title}
-                  category={article.category.name}
+                  category={article.category}
                   author={article.author}
                   editorial={article.editorial.name}
-                  url={`/articles/${article.slug.current}`}
+                  url={`${article.category.slug.current}/${article.slug.current}`}
                   subtitle={article.subtitle}
                 />
               </div>

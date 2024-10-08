@@ -89,7 +89,7 @@ export default async function Footer() {
               >
                 <Link
                   className="hover:border-primary-200 pb-1 border-transparent transition border-b"
-                  href={`/category/${category.slug.current}`}
+                  href={`/${category.slug.current}`}
                 >
                   {category.name}
                 </Link>

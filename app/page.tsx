@@ -6,7 +6,7 @@ import {
   ARTICLES,
   STATS,
   ARTICLES_BY_CATEGORY,
-  EVENTS
+  EVENTS,
 } from "@/sanity/lib/queries";
 
 import ArticleThumbnail from "./components/common/ArticleThumbnail";
@@ -73,10 +73,7 @@ export default async function Home() {
       </header>
 
       <main className="flex flex-col min-h-screen pb-16 default-box gap-8">
-        <Link
-          className="flex"
-          href={`/articles/${featuredArticle.slug.current}`}
-        >
+        <Link className="flex" href={`/${featuredArticle.slug.current}`}>
           <LargeArticle article={featuredArticle} />
         </Link>
 
@@ -90,12 +87,11 @@ export default async function Home() {
             >
               Stats & Numbers
             </h2>
-            
+
             <div className="overflow-x-scroll">
               <ul className="flex flex-row gap-8">
                 {stats.map((stat: Stats) => (
-                  <li key={stat._id}
-                    className="w-[500px]">
+                  <li key={stat._id} className="w-[500px]">
                     <StatThumbnail
                       imageUrl={stat.mainImage}
                       title={stat.title}
@@ -103,8 +99,7 @@ export default async function Home() {
                       className={"min-h-[124px]"}
                     />
                   </li>
-                  )
-                )}
+                ))}
               </ul>
             </div>
           </div>
@@ -122,22 +117,22 @@ export default async function Home() {
             </h2>
             <div>
               <ul className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-rows-2 gap-8 sm:gap-x-3 sm:gap-y-16">
-                  {hotnews_articles.map(
-                    (article: Article, index: number) =>
-                      index > 0 &&
-                      index < 7 && (
-                        <li key={article._id} className="gap-2 w-full">
-                          <ArticleThumbnail
-                            imageUrl={article.mainImage}
-                            title={article.title}
-                            category={article.category.name}
-                            author={article.author}
-                            editorial={article.editorial.name}
-                            url={`/articles/${article.slug.current}`}
-                          />
-                        </li>
-                      )
-                  )}
+                {hotnews_articles.map(
+                  (article: Article, index: number) =>
+                    index > 0 &&
+                    index < 7 && (
+                      <li key={article._id} className="gap-2 w-full">
+                        <ArticleThumbnail
+                          imageUrl={article.mainImage}
+                          title={article.title}
+                          category={article.category}
+                          author={article.author}
+                          editorial={article.editorial.name}
+                          url={`/${article.category.slug.current}/${article.slug.current}`}
+                        />
+                      </li>
+                    )
+                )}
               </ul>
             </div>
           </div>
@@ -158,12 +153,12 @@ export default async function Home() {
                       <li key={article._id}>
                         <ArticleThumbnail
                           title={article.title}
-                          category={article.category.name}
+                          category={article.category}
                           author={article.author}
                           editorial={article.editorial.name}
                           titleSize={"large"}
                           className={"min-h-[124px]"}
-                          url={`/articles/${article.slug.current}`}
+                          url={`/${article.category.slug.current}/${article.slug.current}`}
                         />
                       </li>
                     )
@@ -183,12 +178,11 @@ export default async function Home() {
             >
               Events & Trainings
             </h2>
-            
+
             <div className="overflow-x-scroll overflow-y-hidden">
               <ul className="flex flex-row gap-8">
                 {events.map((event: Events) => (
-                  <li key={event._id}
-                    className="w-[500px]">
+                  <li key={event._id} className="w-[500px]">
                     <EventsThumbnail
                       url={event.url}
                       imageUrl={event.mainImage}
@@ -197,8 +191,7 @@ export default async function Home() {
                       className={"min-h-[124px]"}
                     />
                   </li>
-                  )
-                )}
+                ))}
               </ul>
             </div>
           </div>
@@ -216,7 +209,10 @@ export default async function Home() {
             </h2>
             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
               <div className="md:col-span-2 lg:col-span-3">
-                <Link className="h-full block" href={`/articles/${techpoint_articles[0].slug.current}`}>
+                <Link
+                  className="h-full block"
+                  href={`/${techpoint_articles[0].category.slug.current}/${techpoint_articles[0].slug.current}`}
+                >
                   <LargeArticle article={techpoint_articles[0]} />
                 </Link>
               </div>
@@ -230,12 +226,12 @@ export default async function Home() {
                           <ArticleThumbnail
                             imageUrl={article.mainImage}
                             title={article.title}
-                            category={article.category.name}
+                            category={article.category}
                             author={article.author}
                             editorial={article.editorial.name}
                             titleSize={"large"}
                             className={"min-h-[124px]"}
-                            url={`/articles/${article.slug.current}`}
+                            url={`/${article.category.slug.current}/${article.slug.current}`}
                           />
                         </li>
                       )

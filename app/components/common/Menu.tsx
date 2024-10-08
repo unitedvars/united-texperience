@@ -83,14 +83,12 @@ const Menu = ({
                     "text-primary-800 text-xl hover:text-primary-500 transition"
                   )}
                 >
-                  <Link href={`/category/${category.slug.current}?page=1`}>
+                  <Link href={`/${category.slug.current}?page=1`}>
                     {category.name}
                   </Link>
                 </li>
               ))}
             </ul>
-
-
           </div>
           <div className="border-t py-5 border-gray-400">
             <strong
@@ -115,7 +113,6 @@ const Menu = ({
               ))}
             </ul>
           </div>
-          
         </div>
       </div>
     </>

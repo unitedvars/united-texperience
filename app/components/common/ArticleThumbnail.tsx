@@ -6,11 +6,11 @@ import { maitree, orbitron } from "@/utils/fonts";
 import Link from "next/link";
 
 import { motion } from "framer-motion";
-import { Author } from "@/types";
+import { Author, Category } from "@/types";
 
 interface ArticleThumbnailProps {
   title: string;
-  category: string;
+  category: Category;
   author: Author;
   editorial: string;
   imageUrl?: string;
@@ -34,7 +34,7 @@ const ArticleThumbnail = ({
   subtitle,
 }: ArticleThumbnailProps) => {
   return (
-    <Link href={url || "#"} className="group">
+    <Link href={`${url}` || "#"} className="group">
       <motion.div
         initial={{ transform: "translateY(40px)", opacity: 0 }}
         whileInView={{ transform: "translateY(0)", opacity: 1 }}
@@ -57,7 +57,7 @@ const ArticleThumbnail = ({
                 orbitron.className
               )}
             >
-              {category}
+              {category.name}
             </strong>
 
             <h3
@@ -68,14 +68,14 @@ const ArticleThumbnail = ({
             >
               {title}
             </h3>
-            
+
             <p className="text-sm text-gray-600">{subtitle}</p>
 
             <div className="flex gap-2 items-center">
               <span
                 className={clsx("block text-xs opacity-70", maitree.className)}
               >{`By ${author.name}`}</span>
-              
+
               {showAuthorDetails && (
                 <>
                   <span className="text-xs opacity-50">|</span>
@@ -85,20 +85,16 @@ const ArticleThumbnail = ({
                       maitree.className
                     )}
                   >{`${author.role.name}`}</span>
-                  </>
+                </>
               )}
 
               <span className="text-xs opacity-50">|</span>
-              
+
               <span
-                className={clsx(
-                  "text-xs text-primary-800",
-                  maitree.className
-                )}
+                className={clsx("text-xs text-primary-800", maitree.className)}
               >
                 {editorial}
               </span>
-                
             </div>
           </div>
         </div>

@@ -25,7 +25,7 @@ const CategoryBarList = ({ categories }: { categories: Category[] }) => {
                   "!text-primary-500 border-b border-primary-500"
               )}
             >
-              <Link href={`/category/${category.slug.current}?page=1`}>
+              <Link href={`/${category.slug.current}?page=1`}>
                 {category.name}
               </Link>
             </li>

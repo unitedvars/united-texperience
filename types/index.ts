@@ -8,6 +8,7 @@ export interface Article {
   slug: Slug;
   author: Author;
   category: Category;
+  content: any;
 }
 
 export interface Category {
