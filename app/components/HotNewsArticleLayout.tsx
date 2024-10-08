@@ -27,7 +27,7 @@ const HotNewsArticleLayout = ({ article }: { article: Article }) => {
           <h1 className={clsx("text-2xl xl:text-[48px] leading-none mb-4")}>
             {article.title}
           </h1>
-          <div className={clsx("py-0 [&>p]:my-4 [&>h1]:text-xl")}>
+          <div className={clsx("py-0 [&>p]:my-4 [&>h1]:text-xl portable-text")}>
             <PortableText
               value={article.content}
               components={{
@@ -35,12 +35,7 @@ const HotNewsArticleLayout = ({ article }: { article: Article }) => {
                   slug: (props) => (
                     <p className="youtube-embed">
                       Read full article{" "}
-                      <Link
-                        className={"text-primary-500"}
-                        href={props.value.current}
-                      >
-                        here
-                      </Link>
+                      <Link href={props.value.current}>here</Link>
                     </p>
                   ),
                 },

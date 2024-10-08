@@ -65,3 +65,7 @@ body {
   color: theme("colors.primary.500") !important;
   background: transparent !important;
 }
+
+.portable-text a {
+  color: theme("colors.primary.500") !important;
+}
