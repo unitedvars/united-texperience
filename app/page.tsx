@@ -14,7 +14,7 @@ import EventsThumbnail from "./components/common/EventsThumbnail";
 import StatThumbnail from "./components/common/StatThumbnail";
 import { Article, Category, Stats, Events } from "@/types";
 import clsx from "clsx";
-import { archivo, maitree, orbitron } from "@/utils/fonts";
+import { orbitron } from "@/utils/fonts";
 import Link from "next/link";
 import LargeArticle from "./components/LargeArticle";
 import Footer from "./components/common/Footer";
@@ -73,7 +73,10 @@ export default async function Home() {
       </header>
 
       <main className="flex flex-col min-h-screen pb-16 default-box gap-8">
-        <Link className="flex" href={`/${featuredArticle.slug.current}`}>
+        <Link
+          className="flex"
+          href={`/${featuredArticle.category.slug.current}/${featuredArticle.slug.current}`}
+        >
           <LargeArticle article={featuredArticle} />
         </Link>
 
@@ -168,7 +171,10 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="flex-col lg:flex-row flex items-stretch">
+        <div
+          className="flex-col lg:flex-row flex items-stretch"
+          id="events-and-training"
+        >
           <div className="w-full lg:w-full bg-white rounded-lg p-4">
             <h2
               className={clsx(

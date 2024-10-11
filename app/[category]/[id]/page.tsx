@@ -1,5 +1,4 @@
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { PortableText } from "next-sanity";
 import Image from "next/image";
 import {
   ALL_COUNT,
@@ -8,9 +7,7 @@ import {
   CATEGORIES_QUERY,
 } from "@/sanity/lib/queries";
 import Navbar from "@/app/components/common/Navbar";
-import LargeArticle from "@/app/components/LargeArticle";
 import { Category, Article as ArticleType } from "@/types";
-import MotionWrapper from "@/app/components/common/MotionWrapper";
 import Footer from "@/app/components/common/Footer";
 import { orbitron } from "@/utils/fonts";
 import clsx from "clsx";
@@ -150,9 +147,11 @@ const Article = async ({ params }: { params: { id: string } }) => {
                       {randomArticle.author.role.name}
                     </div>
                     <div className="h-3 w-px bg-gray-300 hidden md:block" />
-                    <div className={clsx("text-xs text-primary-800")}>
-                      Edition 01
-                    </div>
+                    {randomArticle.editorial && (
+                      <div className={clsx("text-xs text-primary-800")}>
+                        {randomArticle.editorial.name}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

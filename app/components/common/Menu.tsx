@@ -75,6 +75,15 @@ const Menu = ({
             </strong>
 
             <ul className="flex flex-col gap-1">
+              <li
+                key={"all"}
+                className={clsx(
+                  orbitron.className,
+                  "text-primary-800 text-xl hover:text-primary-500 transition"
+                )}
+              >
+                <Link href={`/all?page=1`}>All</Link>
+              </li>
               {categories.map((category) => (
                 <li
                   key={category.slug.current}
@@ -88,6 +97,21 @@ const Menu = ({
                   </Link>
                 </li>
               ))}
+              <li
+                key={"events-and-training"}
+                className={clsx(
+                  orbitron.className,
+                  "text-primary-800 text-xl hover:text-primary-500 transition cursor-pointer"
+                )}
+                onClick={() => {
+                  document
+                    .querySelector("#events-and-training")
+                    ?.scrollIntoView({ behavior: "smooth", block: "center" });
+                  setIsOpen(false);
+                }}
+              >
+                Events & Training
+              </li>
             </ul>
           </div>
           <div className="border-t py-5 border-gray-400">

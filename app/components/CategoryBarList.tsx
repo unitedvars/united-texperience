@@ -40,6 +40,20 @@ const CategoryBarList = ({ categories }: { categories: Category[] }) => {
             </li>
           )
       )}
+      <li
+        key={"events-and-training"}
+        className={clsx(
+          archivo.className,
+          "text-primary-700 text-right hover:text-primary-500 transition"
+        )}
+        onClick={() => {
+          document
+            .querySelector("#events-and-training")
+            ?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }}
+      >
+        Events & Training
+      </li>
     </ul>
   );
 };

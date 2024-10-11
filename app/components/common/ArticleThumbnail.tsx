@@ -89,7 +89,7 @@ const ArticleThumbnail = ({
               )}
               {editorial && (
                 <>
-                  <span className="text-xs opacity-50">|</span>
+                  <span className="text-xs opacity-50´">|</span>
 
                   <span
                     className={clsx(

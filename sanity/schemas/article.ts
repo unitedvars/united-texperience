@@ -43,7 +43,11 @@ export const article = {
       title: "Content",
       name: "content",
       type: "array",
-      of: [{ type: "block" }, { type: "slug", title: "Link URL" }],
+      of: [
+        { type: "block" },
+        { type: "slug", title: "Link URL" },
+        { type: "quote", title: "Blockquote" },
+      ],
     },
     {
       title: "Slug",
