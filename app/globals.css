@@ -69,3 +69,15 @@ body {
 .portable-text a {
   color: theme("colors.primary.500") !important;
 }
+
+.select__control {
+  border: 1px solid theme("colors.primary.500");
+}
+
+.select__indicator-separator {
+  background: theme("colors.primary.500");
+}
+
+.select__dropdown-indicator svg {
+  fill: theme("colors.primary.500");
+}

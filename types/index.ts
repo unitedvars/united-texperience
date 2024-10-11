@@ -48,3 +48,12 @@ export interface Events {
   subtitle: string;
   url: string;
 }
+
+export interface SelectOption {
+  label: string;
+  value: {
+    id: string;
+  };
+}
+
+export interface Editorial {}

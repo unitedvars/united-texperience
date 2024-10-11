@@ -43,7 +43,6 @@ const Article = async ({
     },
   });
 
-  console.log(articles);
   return (
     <div className="pb-12">
       <header className="flex flex-col">

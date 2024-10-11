@@ -46,7 +46,6 @@ const DefaultArticleLayout = ({ article }: { article: Article }) => {
                   </div>
                 ),
                 quote: (props) => {
-                  console.log(props);
                   return (
                     <figure>
                       <blockquote className="bg-gray-200 p-6 rounded-md text-xl leading-relaxed italic">

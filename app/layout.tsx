@@ -4,6 +4,8 @@ import "./globals.css";
 import clsx from "clsx";
 import ProgressBarWrapper from "./components/common/ProgressBarWrapper";
 
+import "react-datepicker/dist/react-datepicker.css";
+
 export const metadata: Metadata = {
   title: "Texperience",
   description: "",

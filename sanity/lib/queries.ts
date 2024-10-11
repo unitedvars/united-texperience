@@ -112,3 +112,7 @@ export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && categ
 export const CATEGORY_COUNT = groq`count(*[_type == "article" && category->slug.current == $category])`;
 
 export const ALL_COUNT = groq`count(*[_type == "article"])`;
+
+export const AUTHORS = groq`*[_type == "author"]`;
+
+export const EDITORIALS = groq`*[_type == "editorial"]`;

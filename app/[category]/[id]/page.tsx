@@ -57,8 +57,6 @@ const Article = async ({ params }: { params: { id: string } }) => {
 
   const randomArticle = randomArticles[0];
 
-  console.log(article);
-
   return (
     <div className="pb-10">
       <header className="flex flex-col">

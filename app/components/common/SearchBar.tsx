@@ -8,6 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
 import clsx from "clsx";
 import { archivo, orbitron } from "@/utils/fonts";
+import FilterMenu from "./FilterMenu";
 
 const SearchBar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -19,9 +20,17 @@ const SearchBar = () => {
     setAnchorEl(null);
   };
 
+  const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
+
   return (
     <div className="flex gap-6 py-6">
-      <div className="flex items-center gap-2 group cursor-pointer">
+      <FilterMenu isOpen={isFilterMenuOpen} setIsOpen={setIsFilterMenuOpen} />
+      <div
+        className="flex items-center gap-2 group cursor-pointer"
+        onClick={() => {
+          setIsFilterMenuOpen(true);
+        }}
+      >
         <PiFadersFill className="group-hover:text-primary-500 transition" />
         <span className="group-hover:text-primary-500 transition">filter</span>
       </div>
