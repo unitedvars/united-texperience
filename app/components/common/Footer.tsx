@@ -21,10 +21,11 @@ export default async function Footer() {
             <Link href="/">
               <Logo variant="isologo" />
             </Link>
-            <p className={clsx(archivo.className)}>
-              Lorem ipsum dolor sit amet consectetur. Nulla elementum tortor
-              pulvinar id tellus purus iaculis egestas tempor. Fermentum quis
-              nunc egestas gravida faucibus urna.
+            <p className={clsx(
+              "text-1xl font-light",
+                archivo.className
+            )}>
+            At Unitex Texperience, we believe in sharing news that empowers businesses and technology leaders to drive innovation. We spotlight the breakthroughs in enterprise solutions, cutting-edge software, and transformative technologies that are shaping the future of industries and the world.
             </p>
           </div>
           <div className="flex flex-col lg:w-1/2 gap-8">
