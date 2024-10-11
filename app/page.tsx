@@ -127,7 +127,7 @@ export default async function Home() {
                           title={article.title}
                           category={article.category}
                           author={article.author}
-                          editorial={article.editorial.name}
+                          editorial={article.editorial?.name}
                           url={`/${article.category.slug.current}/${article.slug.current}`}
                         />
                       </li>
@@ -155,7 +155,7 @@ export default async function Home() {
                           title={article.title}
                           category={article.category}
                           author={article.author}
-                          editorial={article.editorial.name}
+                          editorial={article.editorial?.name}
                           titleSize={"large"}
                           className={"min-h-[124px]"}
                           url={`/${article.category.slug.current}/${article.slug.current}`}
@@ -228,7 +228,7 @@ export default async function Home() {
                             title={article.title}
                             category={article.category}
                             author={article.author}
-                            editorial={article.editorial.name}
+                            editorial={article.editorial?.name}
                             titleSize={"large"}
                             className={"min-h-[124px]"}
                             url={`/${article.category.slug.current}/${article.slug.current}`}

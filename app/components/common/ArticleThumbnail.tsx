@@ -87,14 +87,20 @@ const ArticleThumbnail = ({
                   >{`${author.role.name}`}</span>
                 </>
               )}
+              {editorial && (
+                <>
+                  <span className="text-xs opacity-50">|</span>
 
-              <span className="text-xs opacity-50">|</span>
-
-              <span
-                className={clsx("text-xs text-primary-800", maitree.className)}
-              >
-                {editorial}
-              </span>
+                  <span
+                    className={clsx(
+                      "text-xs text-primary-800",
+                      maitree.className
+                    )}
+                  >
+                    {editorial}
+                  </span>
+                </>
+              )}
             </div>
           </div>
         </div>
