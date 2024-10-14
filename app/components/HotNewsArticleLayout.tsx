@@ -9,8 +9,8 @@ import Link from "next/link";
 const HotNewsArticleLayout = ({ article }: { article: Article }) => {
   return (
     <article className="flex flex-col items-center w-full default-box pb-6 md:pb-12 md:my-16">
-      <div className="flex flex-col md:flex-row gap-6">
-        <div className="bg-white p-4 rounded-lg grow max-w-[50%]">
+      <div className="flex flex-col-reverse gap-3 md:flex-row md:gap-6">
+        <div className="bg-white p-4 rounded-lg grow md:max-w-[50%]">
           <div
             className={clsx(
               "uppercase text-primary-500 text-sm mb-4 flex gap-1",
@@ -44,7 +44,7 @@ const HotNewsArticleLayout = ({ article }: { article: Article }) => {
           </div>
         </div>
 
-        <div className="relative min-w-[50%]">
+        <div className="relative w-full md:w-auto min-h-64 md:min-w-[50%]">
           <Image
             src={article.mainImage}
             alt=""

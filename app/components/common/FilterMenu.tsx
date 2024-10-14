@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { archivo } from "@/utils/fonts";
 import DatePicker from "react-datepicker";
 import Button from "./Button";
+import { useRouter } from "next/navigation";
 
 interface FilterFormData {
   author?: any;
@@ -23,20 +24,22 @@ const FilterMenu = ({
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
 }) => {
+  const fetchAuthors = fetch("/api/authors");
+  const fetchEditorials = fetch("/api/editorials");
+
   const [authors, setAuthors] = useState<SelectOption[]>([]);
   const [editorials, setEditorials] = useState<SelectOption[]>([]);
+
+  const router = useRouter();
 
   const [formData, setFormData] = useState<FilterFormData>({
     author: undefined,
     editorial: undefined,
     date: {
-      from: new Date(),
-      to: new Date(),
+      from: undefined,
+      to: undefined,
     },
   });
-
-  const fetchAuthors = fetch("/api/authors");
-  const fetchEditorials = fetch("/api/editorials");
 
   useEffect(() => {
     fetchAuthors.then((res) => {
@@ -68,12 +71,21 @@ const FilterMenu = ({
 
   const handleFilterSubmit = (e: any) => {
     e.preventDefault();
+    const { author, editorial, date } = formData;
     console.log(formData);
+    router.push(
+      `/all?page=1${author ? `&author=${author.label}` : ``}${editorial ? `&editorial=${editorial.label}` : ``}${date.from ? `&dateFrom=${date.from}` : ``}${date.to ? `&dateTo=${date.to}` : ``}`
+    );
   };
 
   useEffect(() => {
     console.log(editorials);
   }, [editorials]);
+
+  const DATE_RANGE_STYLES = clsx(
+    "border border-primary-500 w-full h-10 rounded px-2 placeholder:text-gray-500",
+    archivo.className
+  );
 
   return (
     <MenuContainer isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -120,10 +132,8 @@ const FilterMenu = ({
                 selectsStart
                 startDate={formData.date.from}
                 endDate={formData.date.to}
-                className={clsx(
-                  "border border-primary-500 w-full h-10 rounded px-2",
-                  archivo.className
-                )}
+                placeholderText="Enter start date..."
+                className={DATE_RANGE_STYLES}
               />
             </div>
             <div className="flex flex-col gap-2 grow">
@@ -145,10 +155,8 @@ const FilterMenu = ({
                 startDate={formData.date.from}
                 endDate={formData.date.to}
                 minDate={formData.date.from}
-                className={clsx(
-                  "border border-primary-500 w-full h-10 rounded px-2",
-                  archivo.className
-                )}
+                placeholderText="Enter end date..."
+                className={DATE_RANGE_STYLES}
               />
             </div>
           </div>

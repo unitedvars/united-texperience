@@ -3,7 +3,6 @@ import { ALL_COUNT, ARTICLES, CATEGORIES_QUERY } from "@/sanity/lib/queries";
 import Navbar from "@/app/components/common/Navbar";
 import { Category } from "@/types";
 import CategoryBarList from "@/app/components/CategoryBarList";
-import CategoryBar from "@/app/components/CategoryBar";
 import Footer from "@/app/components/common/Footer";
 import ArticleList from "@/app/components/common/ArticleList";
 import SearchBar from "@/app/components/common/SearchBar";
@@ -24,7 +23,13 @@ const Article = async ({ searchParams }: { searchParams: any }) => {
 
   const articles = await sanityFetch<any>({
     query: ARTICLES,
-    params: getArticlePageParams(currentPage),
+    params: {
+      ...getArticlePageParams(currentPage),
+      author: searchParams.author || "",
+      editorial: searchParams.editorial || "",
+      dateFrom: searchParams.dateFrom || "",
+      dateTo: searchParams.dateTo || "",
+    },
   });
 
   return (

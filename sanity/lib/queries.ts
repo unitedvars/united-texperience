@@ -116,3 +116,19 @@ export const ALL_COUNT = groq`count(*[_type == "article"])`;
 export const AUTHORS = groq`*[_type == "author"]`;
 
 export const EDITORIALS = groq`*[_type == "editorial"]`;
+
+export const FILTERED_ARTICLES = groq`*[_type == "article" && category->slug.current == $category && author->name === $author] | order(_id)[$trim_start...$trim_end] {
+  _createdAt,
+  _id,
+  title,
+  subtitle,
+  author->{
+    role->,
+    name
+  },
+  category->,
+  editorial->,
+  "mainImage": mainImage.asset->url,
+  slug,
+  content
+}`;
