@@ -45,8 +45,11 @@ export const article = {
       type: "array",
       of: [
         { type: "block" },
-        { type: "slug", title: "Link URL" },
+        { type: "slug", title: "YouTube Embed" },
         { type: "quote", title: "Blockquote" },
+        {
+          type: "image",
+        },
       ],
     },
     {

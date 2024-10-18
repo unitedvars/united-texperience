@@ -7,7 +7,6 @@ import LargeArticle from "./LargeArticle";
 import { Article } from "@/types";
 import ReactPlayer from "react-player";
 import Image from "next/image";
-import Link from "next/link";
 
 const DefaultArticleLayout = ({ article }: { article: Article }) => {
   return (
@@ -37,7 +36,11 @@ const DefaultArticleLayout = ({ article }: { article: Article }) => {
               types: {
                 image: (props) => (
                   <div className="image">
-                    <Image src={props.value.asset.url} alt="Shadow War" fill />
+                    <Image
+                      src={props.value.asset.url}
+                      alt="United Texperience"
+                      fill
+                    />
                   </div>
                 ),
                 slug: (props) => (

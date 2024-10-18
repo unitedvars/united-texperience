@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import MenuContainer from "./MenuContainer";
 import Select from "react-select";
@@ -72,15 +73,10 @@ const FilterMenu = ({
   const handleFilterSubmit = (e: any) => {
     e.preventDefault();
     const { author, editorial, date } = formData;
-    console.log(formData);
     router.push(
       `/all?page=1${author ? `&author=${author.label}` : ``}${editorial ? `&editorial=${editorial.label}` : ``}${date.from ? `&dateFrom=${date.from}` : ``}${date.to ? `&dateTo=${date.to}` : ``}`
     );
   };
-
-  useEffect(() => {
-    console.log(editorials);
-  }, [editorials]);
 
   const DATE_RANGE_STYLES = clsx(
     "border border-primary-500 w-full h-10 rounded px-2 placeholder:text-gray-500",
