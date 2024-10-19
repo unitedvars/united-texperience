@@ -76,6 +76,7 @@ const FilterMenu = ({
     router.push(
       `/all?page=1${author ? `&author=${author.label}` : ``}${editorial ? `&editorial=${editorial.label}` : ``}${date.from ? `&dateFrom=${date.from}` : ``}${date.to ? `&dateTo=${date.to}` : ``}`
     );
+    setIsOpen(false);
   };
 
   const DATE_RANGE_STYLES = clsx(

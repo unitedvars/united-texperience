@@ -25,10 +25,10 @@ const Article = async ({ searchParams }: { searchParams: any }) => {
     query: ARTICLES,
     params: {
       ...getArticlePageParams(currentPage),
-      author: searchParams.author || "",
-      editorial: searchParams.editorial || "",
-      dateFrom: searchParams.dateFrom || "",
-      dateTo: searchParams.dateTo || "",
+      author: searchParams.author || null,
+      editorial: searchParams.editorial || null,
+      dateFrom: searchParams.dateFrom || null,
+      dateTo: searchParams.dateTo || null,
     },
   });
 
