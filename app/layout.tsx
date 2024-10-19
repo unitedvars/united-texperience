@@ -3,6 +3,7 @@ import { maitree } from "@/utils/fonts";
 import "./globals.css";
 import clsx from "clsx";
 import ProgressBarWrapper from "./components/common/ProgressBarWrapper";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleTagManager gtmId="GTM-MFD53K6V" />
       <body className={clsx(maitree.className, "bg-gray-50")}>
         <ProgressBarWrapper />
         {children}
