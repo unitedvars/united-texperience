@@ -15,6 +15,12 @@ const Article = async ({ searchParams }: { searchParams: any }) => {
 
   const allCount = await sanityFetch<number>({
     query: ALL_COUNT,
+    params: {
+      author: searchParams.author || null,
+      editorial: searchParams.editorial || null,
+      dateFrom: searchParams.dateFrom || null,
+      dateTo: searchParams.dateTo || null,
+    },
   });
 
   const currentPage = parseInt(searchParams.page);

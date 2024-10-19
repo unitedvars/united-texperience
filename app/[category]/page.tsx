@@ -1,5 +1,6 @@
 import { sanityFetch } from "@/sanity/lib/fetch";
 import {
+  ALL_COUNT,
   CATEGORIES_QUERY,
   CATEGORY_COUNT,
   PAGINATED_ARTICLES_BY_CATEGORY,
@@ -27,6 +28,10 @@ const Article = async ({
     query: CATEGORY_COUNT,
     params: {
       category: params.category,
+      author: searchParams.author || null,
+      editorial: searchParams.editorial || null,
+      dateFrom: searchParams.dateFrom || null,
+      dateTo: searchParams.dateTo || null,
     },
   });
 
@@ -39,6 +44,10 @@ const Article = async ({
     params: {
       ...getArticlePageParams(currentPage),
       category: params.category,
+      author: searchParams.author || null,
+      editorial: searchParams.editorial || null,
+      dateFrom: searchParams.dateFrom || null,
+      dateTo: searchParams.dateTo || null,
     },
   });
 

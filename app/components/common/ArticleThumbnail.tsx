@@ -40,7 +40,7 @@ const ArticleThumbnail = ({
         whileInView={{ transform: "translateY(0)", opacity: 1 }}
         viewport={{
           once: true,
-          margin: "-100px 0px",
+          margin: "-200px 0px",
         }}
       >
         <div className={clsx(className, "flex gap-2 flex-col group")}>

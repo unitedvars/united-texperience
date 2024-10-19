@@ -29,6 +29,10 @@ export default async function Home() {
     params: {
       trim_start: 0,
       trim_end: 6,
+      editorial: null,
+      author: null,
+      dateFrom: null,
+      dateTo: null,
     },
   });
 
