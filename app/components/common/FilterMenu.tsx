@@ -74,7 +74,7 @@ const FilterMenu = ({
     e.preventDefault();
     const { author, editorial, date } = formData;
     router.push(
-      `/all?page=1${author ? `&author=${author.label}` : ``}${editorial ? `&editorial=${editorial.label}` : ``}${date.from ? `&dateFrom=${date.from}` : ``}${date.to ? `&dateTo=${date.to}` : ``}`
+      `/all?page=1${author ? `&author=${author.label}` : ``}${editorial ? `&editorial=${editorial.label}` : ``}${date.from ? `&dateFrom=${new Date(date.from).toISOString()}` : ``}${date.to ? `&dateTo=${new Date(date.to).toISOString()}` : ``}`
     );
     setIsOpen(false);
   };

@@ -20,7 +20,7 @@ export const HOME_QUERY = groq`*[_type == "home"][0] {
   }
 }`;
 
-export const ARTICLES = groq`*[_type == "article" && (!defined($editorial) || editorial->name == $editorial) && (!defined($author) || author->name == $author)] | order(_id)[$trim_start...$trim_end] {
+export const ARTICLES = groq`*[_type == "article" && (!defined($editorial) || editorial->name == $editorial) && (!defined($author) || author->name == $author) && (!defined($dateFrom) || _createdAt >= $dateFrom) && (!defined($dateTo) || _createdAt <= $dateTo)] | order(_id)[$trim_start...$trim_end] {
   _createdAt,
   _id,
   title,
