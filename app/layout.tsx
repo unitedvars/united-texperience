@@ -9,6 +9,9 @@ import "react-datepicker/dist/react-datepicker.css";
 export const metadata: Metadata = {
   title: "Texperience",
   description: "",
+  verification: {
+    google: "1AFwGEC99j7gnCtYv8MSQZCb9FHBqmZ9gcOo1qakQBs",
+  },
 };
 
 export default function RootLayout({
