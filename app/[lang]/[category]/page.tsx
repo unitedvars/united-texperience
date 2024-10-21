@@ -9,7 +9,7 @@ import Navbar from "@/app/components/common/Navbar";
 import { Category } from "@/types";
 import CategoryBarList from "@/app/components/CategoryBarList";
 import Footer from "@/app/components/common/Footer";
-import ArticleList from "../components/common/ArticleList";
+import ArticleList from "../../components/common/ArticleList";
 import SearchBar from "@/app/components/common/SearchBar";
 import { getArticlePageParams, getTotalPages } from "@/utils/utils";
 

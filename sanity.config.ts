@@ -6,6 +6,7 @@ import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import { structureTool } from "sanity/structure";
+import { documentInternationalization } from "@sanity/document-internationalization";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./sanity/env";
@@ -21,6 +22,14 @@ export default defineConfig({
     structureTool({ structure: myStructure }),
     deskTool(),
     visionTool({ defaultApiVersion: apiVersion }),
+    documentInternationalization({
+      // Required configuration
+      supportedLanguages: [
+        { id: "es", title: "Spanish" },
+        { id: "en", title: "English" },
+      ],
+      schemaTypes: ["article"],
+    }),
   ],
   schema: {
     types: schema.types,

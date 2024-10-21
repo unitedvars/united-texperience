@@ -35,11 +35,21 @@ const Article = async ({ params }: { params: { id: string } }) => {
       slug: params.id,
       trim_start: 0,
       trim_end: 4,
+      editorial: null,
+      author: null,
+      dateFrom: null,
+      dateTo: null,
     },
   });
 
   const countAll = await sanityFetch<number>({
     query: ALL_COUNT,
+    params: {
+      editorial: null,
+      author: null,
+      dateFrom: null,
+      dateTo: null,
+    },
   });
 
   const randomIntFromInterval = (min: number, max: number) =>
@@ -52,6 +62,10 @@ const Article = async ({ params }: { params: { id: string } }) => {
     params: {
       trim_start: randomArticlePos - 1,
       trim_end: randomArticlePos,
+      editorial: null,
+      author: null,
+      dateFrom: null,
+      dateTo: null,
     },
   });
 

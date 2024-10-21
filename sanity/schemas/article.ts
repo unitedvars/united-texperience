@@ -60,5 +60,11 @@ export const article = {
         source: "title",
       },
     },
+    {
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    },
   ],
 };

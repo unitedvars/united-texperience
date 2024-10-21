@@ -1,5 +1,5 @@
 import { sanityFetch } from "@/sanity/lib/fetch";
-import Navbar from "./components/common/Navbar";
+import Navbar from "../components/common/Navbar";
 import {
   CATEGORIES_QUERY,
   HOME_QUERY,
@@ -9,19 +9,29 @@ import {
   EVENTS,
 } from "@/sanity/lib/queries";
 
-import ArticleThumbnail from "./components/common/ArticleThumbnail";
-import EventsThumbnail from "./components/common/EventsThumbnail";
-import StatThumbnail from "./components/common/StatThumbnail";
+import ArticleThumbnail from "../components/common/ArticleThumbnail";
+import EventsThumbnail from "../components/common/EventsThumbnail";
+import StatThumbnail from "../components/common/StatThumbnail";
 import { Article, Category, Stats, Events } from "@/types";
 import clsx from "clsx";
 import { orbitron } from "@/utils/fonts";
 import Link from "next/link";
-import LargeArticle from "./components/LargeArticle";
-import Footer from "./components/common/Footer";
+import LargeArticle from "../components/LargeArticle";
+import Footer from "../components/common/Footer";
 
-export default async function Home() {
+export default async function Home({
+  params: { lang },
+}: {
+  params: {
+    lang: "en" | "es";
+  };
+}) {
+  console.log(lang);
   const { featuredArticle } = await sanityFetch<any>({
     query: HOME_QUERY,
+    params: {
+      language: lang,
+    },
   });
 
   const articles = await sanityFetch<any>({
@@ -33,6 +43,7 @@ export default async function Home() {
       author: null,
       dateFrom: null,
       dateTo: null,
+      language: lang,
     },
   });
 
