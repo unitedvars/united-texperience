@@ -54,6 +54,7 @@ const Article = async ({
   return (
     <div className="pb-12">
       <header className="flex flex-col">
+        a
         <Navbar categories={categories} showCategoryBar={false} />
       </header>
       <main className="flex flex-col pb-16 pt-10 default-box">

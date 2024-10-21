@@ -55,7 +55,7 @@ export const EVENT = groq`*[_type == "events" && slug.current == $slug][0] ${eve
 
 export const EVENTS = groq`*[_type == "events"] | order(_id)[$trim_start...$trim_end] ${eventParams}`;
 
-export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && ${articleParams}] | order(_id)[$trim_start...$trim_end] ${articlesQuery}`;
+export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && ${articleParams}] | order(_id)[$trim_start...$trim_end] ${articlesQuery}`;
 
 export const CATEGORY_COUNT = groq`count(*[_type == "article" && category->slug.current == $category])`;
 

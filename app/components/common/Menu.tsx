@@ -2,8 +2,8 @@ import { Category } from "@/types";
 import clsx from "clsx";
 import { orbitron, archivo } from "@/utils/fonts";
 import Link from "next/link";
-import HamburgerIcon from "./HamburgerIcon";
 import MenuContainer from "./MenuContainer";
+import { useParams } from "next/navigation";
 
 const Menu = ({
   categories,
@@ -14,6 +14,7 @@ const Menu = ({
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
 }) => {
+  const { lang } = useParams();
   const unitedVarsLinks = [
     {
       label: "About Us",
@@ -60,7 +61,7 @@ const Menu = ({
                     "text-primary-800 text-xl hover:text-primary-500 transition"
                   )}
                 >
-                  <Link href={`/${category.slug.current}?page=1`}>
+                  <Link href={`/${lang}/${category.slug.current}?page=1`}>
                     {category.name}
                   </Link>
                 </li>
