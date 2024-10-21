@@ -17,7 +17,11 @@ import Link from "next/link";
 import DefaultArticleLayout from "@/app/components/DefaultArticleLayout";
 import HotNewsArticleLayout from "@/app/components/HotNewsArticleLayout";
 
-const Article = async ({ params }: { params: { id: string } }) => {
+const Article = async ({
+  params,
+}: {
+  params: { id: string; lang: string };
+}) => {
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
@@ -39,6 +43,7 @@ const Article = async ({ params }: { params: { id: string } }) => {
       author: null,
       dateFrom: null,
       dateTo: null,
+      language: params.lang,
     },
   });
 
@@ -66,6 +71,7 @@ const Article = async ({ params }: { params: { id: string } }) => {
       author: null,
       dateFrom: null,
       dateTo: null,
+      language: params.lang,
     },
   });
 
@@ -113,62 +119,65 @@ const Article = async ({ params }: { params: { id: string } }) => {
               </ul>
             </div>
           </div>
-
-          <Link
-            href={`/${randomArticle.category.slug.current}/${randomArticle.slug.current}`}
-          >
-            <div className="w-full bg-white rounded-lg p-4 flex flex-col lg:flex-row gap-4">
-              <div className="lg:w-1/2 relative min-h-96">
-                <Image
-                  src={randomArticle.mainImage}
-                  alt=""
-                  fill
-                  className="object-cover rounded-lg xl:rounded-xl"
-                />
-              </div>
-              <div className="lg:w-1/2">
-                <div className="w-full py-4 px-0 lg:p-4 flex flex-col xl:rounded-tr-lg xl:rounded-bl-lg group">
-                  <div
-                    className={clsx(
-                      "uppercase text-primary-500 text-sm mb-4 flex gap-1",
-                      orbitron.className
-                    )}
-                  >
-                    <span>{randomArticle.category.name}</span>
-                    <span className="text-gray-400">-</span>
-                    <span className="text-gray-600">
-                      {moment(randomArticle._createdAt).format(`DD-MM-YY`)}
-                    </span>
-                  </div>
-                  <h1
-                    className={clsx(
-                      "text-2xl xl:text-5xl leading-none mb-4 group-hover:underline"
-                    )}
-                  >
-                    {randomArticle.title}
-                  </h1>
-                  <strong className="font-thin line-clamp-2">
-                    {randomArticle.subtitle}
-                  </strong>
-                  <div className="flex flex-row gap-2 justify-between md:justify-normal md:items-center mt-2">
+          {randomArticle && (
+            <Link
+              href={`${params.lang}/${randomArticle.category.slug.current}/${randomArticle.slug.current}`}
+            >
+              <div className="w-full bg-white rounded-lg p-4 flex flex-col lg:flex-row gap-4">
+                <div className="lg:w-1/2 relative min-h-96">
+                  <Image
+                    src={randomArticle.mainImage}
+                    alt=""
+                    fill
+                    className="object-cover rounded-lg xl:rounded-xl"
+                  />
+                </div>
+                <div className="lg:w-1/2">
+                  <div className="w-full py-4 px-0 lg:p-4 flex flex-col xl:rounded-tr-lg xl:rounded-bl-lg group">
                     <div
-                      className={clsx("text-xs opacity-70")}
-                    >{`By ${randomArticle.author.name}`}</div>
-                    <div className="h-3 w-px bg-gray-300 hidden md:block" />
-                    <div className={clsx("text-xs opacity-70 hidden md:block")}>
-                      {randomArticle.author.role.name}
+                      className={clsx(
+                        "uppercase text-primary-500 text-sm mb-4 flex gap-1",
+                        orbitron.className
+                      )}
+                    >
+                      <span>{randomArticle.category.name}</span>
+                      <span className="text-gray-400">-</span>
+                      <span className="text-gray-600">
+                        {moment(randomArticle._createdAt).format(`DD-MM-YY`)}
+                      </span>
                     </div>
-                    <div className="h-3 w-px bg-gray-300 hidden md:block" />
-                    {randomArticle.editorial && (
-                      <div className={clsx("text-xs text-primary-800")}>
-                        {randomArticle.editorial.name}
+                    <h1
+                      className={clsx(
+                        "text-2xl xl:text-5xl leading-none mb-4 group-hover:underline"
+                      )}
+                    >
+                      {randomArticle.title}
+                    </h1>
+                    <strong className="font-thin line-clamp-2">
+                      {randomArticle.subtitle}
+                    </strong>
+                    <div className="flex flex-row gap-2 justify-between md:justify-normal md:items-center mt-2">
+                      <div
+                        className={clsx("text-xs opacity-70")}
+                      >{`By ${randomArticle.author.name}`}</div>
+                      <div className="h-3 w-px bg-gray-300 hidden md:block" />
+                      <div
+                        className={clsx("text-xs opacity-70 hidden md:block")}
+                      >
+                        {randomArticle.author.role.name}
                       </div>
-                    )}
+                      <div className="h-3 w-px bg-gray-300 hidden md:block" />
+                      {randomArticle.editorial && (
+                        <div className={clsx("text-xs text-primary-800")}>
+                          {randomArticle.editorial.name}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          )}
 
           <div className="w-full bg-white rounded-lg p-4">
             <Footer />

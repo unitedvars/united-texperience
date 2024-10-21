@@ -6,6 +6,7 @@ import { maitree, orbitron } from "@/utils/fonts";
 import Link from "next/link";
 
 import { motion } from "framer-motion";
+import { useParams } from "next/navigation";
 
 interface EventsThumbnailProps {
   title: string;
@@ -24,8 +25,9 @@ const EventsThumbnail = ({
   className,
   url,
 }: EventsThumbnailProps) => {
+  const { lang } = useParams();
   return (
-    <Link href={url} target="_blank" className="group">
+    <Link href={`/${lang}/${url}`} target="_blank" className="group">
       <motion.div
         initial={{ transform: "translateY(40px)", opacity: 0 }}
         whileInView={{ transform: "translateY(0)", opacity: 1 }}
@@ -43,7 +45,6 @@ const EventsThumbnail = ({
           )}
 
           <div className="flex flex-col pr-1 gap-2">
-
             <h3
               className={clsx(
                 "text-lg leading-[22px] bg-no-repeat transition-all duration-400 hover:bg-[length:100%_0.1em,0_0.1em] hover:bg-position-[100%_100%,0_100%] group-hover:underline",
@@ -52,7 +53,7 @@ const EventsThumbnail = ({
             >
               {title}
             </h3>
-            
+
             <p className="text-sm text-gray-600">{subtitle}</p>
           </div>
         </div>

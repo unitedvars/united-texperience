@@ -7,6 +7,7 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 import { Author, Category } from "@/types";
+import { useParams } from "next/navigation";
 
 interface ArticleThumbnailProps {
   title: string;
@@ -33,8 +34,9 @@ const ArticleThumbnail = ({
   url,
   subtitle,
 }: ArticleThumbnailProps) => {
+  const { lang } = useParams();
   return (
-    <Link href={`${url}` || "#"} className="group">
+    <Link href={`/${lang}/${url}` || "#"} className="group">
       <motion.div
         initial={{ transform: "translateY(40px)", opacity: 0 }}
         whileInView={{ transform: "translateY(0)", opacity: 1 }}

@@ -26,7 +26,6 @@ export default async function Home({
     lang: "en" | "es";
   };
 }) {
-  console.log(lang);
   const { featuredArticle } = await sanityFetch<any>({
     query: HOME_QUERY,
     params: {
@@ -90,7 +89,7 @@ export default async function Home({
       <main className="flex flex-col min-h-screen pb-16 default-box gap-8">
         <Link
           className="flex"
-          href={`/${featuredArticle.category.slug.current}/${featuredArticle.slug.current}`}
+          href={`/${lang}/${featuredArticle.category.slug.current}/${featuredArticle.slug.current}`}
         >
           <LargeArticle article={featuredArticle} />
         </Link>
@@ -232,7 +231,7 @@ export default async function Home({
               <div className="md:col-span-2 lg:col-span-3">
                 <Link
                   className="h-full block"
-                  href={`/${techpoint_articles[0].category.slug.current}/${techpoint_articles[0].slug.current}`}
+                  href={`/${lang}/${techpoint_articles[0].category.slug.current}/${techpoint_articles[0].slug.current}`}
                 >
                   <LargeArticle article={techpoint_articles[0]} />
                 </Link>

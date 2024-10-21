@@ -5,8 +5,8 @@ import { Category } from "@/types";
 import { archivo, orbitron } from "@/utils/fonts";
 import clsx from "clsx";
 import Link from "next/link";
-import Logo from "./Logo";
 import Button from "./Button";
+import LogoLink from "./LogoLink";
 
 export default async function Footer() {
   const categories = await sanityFetch<Category[]>({
@@ -18,14 +18,14 @@ export default async function Footer() {
       <footer className="flex flex-col gap-12 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between gap-8">
           <div className="flex flex-col lg:w-1/2">
-            <Link href="/">
-              <Logo variant="isologo" />
-            </Link>
-            <p className={clsx(
-              "text-1xl font-light",
-                archivo.className
-            )}>
-            At Unitex Texperience, we believe in sharing news that empowers businesses and technology leaders to drive innovation. We spotlight the breakthroughs in enterprise solutions, cutting-edge software, and transformative technologies that are shaping the future of industries and the world.
+            <LogoLink />
+
+            <p className={clsx("text-1xl font-light", archivo.className)}>
+              At Unitex Texperience, we believe in sharing news that empowers
+              businesses and technology leaders to drive innovation. We
+              spotlight the breakthroughs in enterprise solutions, cutting-edge
+              software, and transformative technologies that are shaping the
+              future of industries and the world.
             </p>
           </div>
           <div className="flex flex-col lg:w-1/2 gap-8">

@@ -13,6 +13,7 @@ import Menu from "./Menu";
 import { Category } from "@/types";
 import { motion } from "framer-motion";
 import CategoryBar from "../CategoryBar";
+import { useParams } from "next/navigation";
 
 const Navbar = ({
   categories,
@@ -22,7 +23,7 @@ const Navbar = ({
   showCategoryBar?: boolean;
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const { lang } = useParams();
   return (
     <>
       <motion.div
@@ -61,7 +62,7 @@ const Navbar = ({
             </div>
           </div>
           <div className="w-1/3 flex justify-center">
-            <Link href="/">
+            <Link href={`/${lang}`}>
               <Logo variant="isologo" />
             </Link>
           </div>
