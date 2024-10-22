@@ -60,6 +60,12 @@
         "to": [
           {
             "type": "article"
+          },
+          {
+            "type": "stats"
+          },
+          {
+            "type": "events"
           }
         ],
         "name": "value",
@@ -103,7 +109,9 @@
       {
         "options": {
           "list": [
-            "article"
+            "article",
+            "stats",
+            "events"
           ]
         },
         "description": "Optional: Used to filter the reference fields above so all translations share the same types.",
@@ -410,6 +418,12 @@
       {
         "name": "description",
         "type": "string"
+      },
+      {
+        "readOnly": true,
+        "hidden": true,
+        "name": "language",
+        "type": "string"
       }
     ],
     "name": "stats",
@@ -432,6 +446,12 @@
       },
       {
         "name": "url",
+        "type": "string"
+      },
+      {
+        "readOnly": true,
+        "hidden": true,
+        "name": "language",
         "type": "string"
       }
     ],

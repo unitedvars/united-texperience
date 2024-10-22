@@ -95,7 +95,7 @@ export default async function Home({
         </Link>
 
         <div className="flex-col lg:flex-row flex items-stretch">
-          <div className="w-full lg:w-full bg-white rounded-lg p-4">
+          <div className="w-full lg:w-full bg-white rounded-lg p-4 pb-2">
             <h2
               className={clsx(
                 "text-primary-500 text-2xl border-b pb-4 mb-4",
@@ -105,7 +105,7 @@ export default async function Home({
               Stats & Numbers
             </h2>
 
-            <div className="overflow-x-scroll">
+            <div className="overflow-x-scroll pb-2">
               <ul className="flex flex-row gap-8">
                 {stats.map((stat: Stats) => (
                   <li key={stat._id} className="w-[500px]">

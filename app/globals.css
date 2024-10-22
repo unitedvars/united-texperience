@@ -57,7 +57,7 @@ body {
 }
 
 * {
-  scrollbar-color: theme("colors.primary.700") transparent;
+  scrollbar-color: theme("colors.gray.400") transparent;
   scrollbar-width: thin;
 }
 
