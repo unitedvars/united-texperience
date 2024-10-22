@@ -27,7 +27,7 @@ const EventsThumbnail = ({
 }: EventsThumbnailProps) => {
   const { lang } = useParams();
   return (
-    <Link href={`/${lang}/${url}`} target="_blank" className="group">
+    <Link href={`${url}`} target="_blank" className="group">
       <motion.div
         initial={{ transform: "translateY(40px)", opacity: 0 }}
         whileInView={{ transform: "translateY(0)", opacity: 1 }}
