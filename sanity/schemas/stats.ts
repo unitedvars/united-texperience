@@ -21,5 +21,11 @@ export const stats = {
       name: "description",
       type: "string",
     },
+    {
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    },
   ],
 };

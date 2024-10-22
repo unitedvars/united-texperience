@@ -26,5 +26,11 @@ export const events = {
       name: "url",
       type: "string",
     },
+    {
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    },
   ],
 };

@@ -28,7 +28,7 @@ export default defineConfig({
         { id: "es", title: "Spanish" },
         { id: "en", title: "English" },
       ],
-      schemaTypes: ["article"],
+      schemaTypes: ["article", "stats", "events"],
     }),
   ],
   schema: {
