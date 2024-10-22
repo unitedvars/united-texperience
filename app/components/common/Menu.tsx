@@ -44,7 +44,7 @@ const Menu = ({
             </strong>
 
             <ul className="flex flex-col gap-1">
-              <li
+              {/* <li
                 key={"all"}
                 className={clsx(
                   orbitron.className,
@@ -52,7 +52,7 @@ const Menu = ({
                 )}
               >
                 <Link href={`/all?page=1`}>All</Link>
-              </li>
+              </li> */}
               {categories.map((category) => (
                 <li
                   key={category.slug.current}

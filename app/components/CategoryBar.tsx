@@ -18,7 +18,7 @@ const CategoryBarList = ({ categories }: { categories: Category[] }) => {
 
   return (
     <ul className="flex gap-x-[2.5rem] gap-y-[1rem] justify-center flex-wrap">
-      <li
+      {/* <li
         className={clsx(
           archivo.className,
           "text-primary-700 text-right hover:text-primary-500 transition",
@@ -26,7 +26,7 @@ const CategoryBarList = ({ categories }: { categories: Category[] }) => {
         )}
       >
         <Link href={`/${params.lang}/all?page=1`}>All</Link>
-      </li>
+      </li> */}
       {categories.map(
         (category) =>
           !category.hide_in_category_bar && (
