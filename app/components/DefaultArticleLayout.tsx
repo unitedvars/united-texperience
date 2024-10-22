@@ -7,6 +7,7 @@ import LargeArticle from "./LargeArticle";
 import { Article } from "@/types";
 import ReactPlayer from "react-player";
 import Image from "next/image";
+import { urlForImage } from "@/sanity/lib/image";
 
 const DefaultArticleLayout = ({ article }: { article: Article }) => {
   return (
@@ -34,15 +35,19 @@ const DefaultArticleLayout = ({ article }: { article: Article }) => {
             value={article.content}
             components={{
               types: {
-                image: (props) => (
-                  <div className="image">
-                    <Image
-                      src={props.value.asset.url}
-                      alt="United Texperience"
-                      fill
-                    />
-                  </div>
-                ),
+                image: (props) => {
+                  console.log(props);
+                  return (
+                    <div className="relative aspect-video w-full bg-gray-200 rounded-md overflow-hidden">
+                      <Image
+                        src={props.value.asset.url}
+                        alt="United Texperience"
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  );
+                },
                 slug: (props) => (
                   <div className="youtube-embed">
                     <ReactPlayer url={props.value.current} />

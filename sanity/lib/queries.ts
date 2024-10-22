@@ -19,7 +19,12 @@ const articlesQuery = `{
   editorial->,
   "mainImage": mainImage.asset->url,
   slug,
-  content
+  content[]{
+    ...,
+    _type == "image" => {
+      asset->
+    }
+  },
 }`;
 
 const eventParams = `{

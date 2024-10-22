@@ -40,7 +40,7 @@ const Navbar = ({
       >
         <div className="h-[52px] flex items-center w-full">
           <div
-            className="w-1/3"
+            className="w-1/3 flex gap-12 items-center"
             onClick={() => {
               setIsMenuOpen(!isMenuOpen);
             }}
@@ -66,7 +66,17 @@ const Navbar = ({
               <Logo variant="isologo" />
             </Link>
           </div>
-          <div className="w-1/3 justify-end flex">
+          <div className="w-1/3 justify-end flex gap-6 text-primary-600">
+            <div
+              className={clsx(
+                orbitron.className,
+                "flex items-center gap-2 text-sm"
+              )}
+            >
+              <Link href="/en">EN</Link>
+              <span>|</span>
+              <Link href="/es">ES</Link>
+            </div>
             <Button className={"hidden lg:block"}>Subscribe</Button>
           </div>
         </div>
