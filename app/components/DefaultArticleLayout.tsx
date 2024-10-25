@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import { PortableText } from "next-sanity";
 import MotionWrapper from "./common/MotionWrapper";
-import LargeArticle from "./LargeArticle";
+import DefaultArticleHeader from "./DefaultArticleHeader";
 import { Article } from "@/types";
 import ReactPlayer from "react-player";
 import Image from "next/image";
@@ -12,7 +12,7 @@ import { urlForImage } from "@/sanity/lib/image";
 const DefaultArticleLayout = ({ article }: { article: Article }) => {
   return (
     <article className="flex flex-col items-center w-full default-box pb-6 md:pb-12">
-      <LargeArticle article={article} clickable={false} />
+      <DefaultArticleHeader article={article} clickable={false} />
       <MotionWrapper
         initial={{ transform: "translateY(100px)", opacity: 0 }}
         animate={{
