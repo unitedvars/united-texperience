@@ -1,5 +1,6 @@
 import { sanityFetch } from "@/sanity/lib/fetch";
 import Navbar from "@/app/components/common/Navbar";
+import Footer from "@/app/components/common/Footer";
 import { CATEGORIES_QUERY } from "@/sanity/lib/queries";
 
 import { Category } from "@/types";
@@ -16,7 +17,7 @@ export default async function Home() {
       <header className="flex flex-col">
         <Navbar categories={categories} showCategoryBar={false} />
       </header>
-      <main>
+      <main className="pb-16">
         <div
           className={clsx(
             "flex flex-col min-h-screen pb-16 small-box [&>p]:mb-6 pt-8",
@@ -910,6 +911,8 @@ export default async function Home() {
             declaration at: https://www.linkedin.com/legal/privacy-policy.
           </p>
         </div>
+
+        <Footer />
       </main>
     </>
   );
