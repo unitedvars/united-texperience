@@ -21,7 +21,7 @@ export default async function Footer() {
             <LogoLink />
 
             <p className={clsx("text-1xl font-light", archivo.className)}>
-              At Unitex Texperience, we believe in sharing news that empowers
+              At United TeXperience, we believe in sharing news that empowers
               businesses and technology leaders to drive innovation. We
               spotlight the breakthroughs in enterprise solutions, cutting-edge
               software, and transformative technologies that are shaping the
@@ -105,7 +105,7 @@ export default async function Footer() {
         </div>
         <div className="flex flex-col gap-2 lg:gap-0 text-center lg:text-left lg:flex-row">
           <div className={clsx(archivo.className, "text-primary-900")}>
-            Copyright © {new Date().getFullYear()} UnitedVars
+            Copyright © {new Date().getFullYear()} United VARs
           </div>
           <div className="hidden lg:inline-block mx-2">-</div>
           <Link
