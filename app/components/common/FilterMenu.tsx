@@ -34,7 +34,6 @@ const FilterMenu = ({
 
   const router = useRouter();
   const params = useParams();
-  console.log(params);
 
   const [formData, setFormData] = useState<FilterFormData>({
     author: undefined,
@@ -72,8 +71,6 @@ const FilterMenu = ({
       });
     });
   }, []);
-
-  console.log(router);
 
   const handleFilterSubmit = (e: any) => {
     e.preventDefault();

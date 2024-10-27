@@ -19,8 +19,6 @@ const Article = async ({
     query: CATEGORIES_QUERY,
   });
 
-  console.log(searchParams);
-
   const allCount = await sanityFetch<number>({
     query: ALL_COUNT,
     params: {
