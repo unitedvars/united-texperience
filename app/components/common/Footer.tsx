@@ -7,6 +7,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import Button from "./Button";
 import LogoLink from "./LogoLink";
+import FooterLinks from "./FooterLinks";
 
 export default async function Footer() {
   const categories = await sanityFetch<Category[]>({
@@ -56,52 +57,7 @@ export default async function Footer() {
           </div>
         </div>
         <div className="flex flex-row lg:flex-col gap-8 lg:gap-4">
-          <ul className="flex justify-start flex-col lg:flex-row">
-            {menuLinks.map(({ label, href }, idx: number) => (
-              <li
-                key={label}
-                className={clsx(
-                  archivo.className,
-                  "text-primary-500 lg:text-right hover:text-primary-500 transition"
-                )}
-              >
-                <Link
-                  className="hover:border-primary-200 pb-1 border-transparent transition border-b"
-                  href={`${href}`}
-                >
-                  {label}
-                </Link>
-                {idx < menuLinks.length - 1 && (
-                  <span className="mx-3 opacity-30 xl:mx-6 hidden lg:inline-block group-hover:border-b">
-                    |
-                  </span>
-                )}
-              </li>
-            ))}
-          </ul>
-          <ul className="flex flex-wrap gap-3 justify-start flex-col lg:flex-row">
-            {categories.map((category, idx: number) => (
-              <li
-                key={category.slug.current}
-                className={clsx(
-                  archivo.className,
-                  "text-primary-500 lg:text-right hover:text-primary-500 transition"
-                )}
-              >
-                <Link
-                  className="hover:border-primary-200 pb-1 border-transparent transition border-b"
-                  href={`/${category.slug.current}`}
-                >
-                  {category.name}
-                </Link>
-                {idx < categories.length - 1 && (
-                  <span className="mx-3 opacity-30 xl:mx-6 hidden lg:inline-block">
-                    |
-                  </span>
-                )}
-              </li>
-            ))}
-          </ul>
+          <FooterLinks categories={categories} />
         </div>
         <div className="flex flex-col gap-2 lg:gap-0 text-center lg:text-left lg:flex-row">
           <div className={clsx(archivo.className, "text-primary-900")}>
