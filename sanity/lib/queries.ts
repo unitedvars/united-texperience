@@ -50,17 +50,17 @@ export const ARTICLES = groq`*[_type == "article" && ${articleParams} && languag
 
 export const ARTICLE = groq`*[_type == "article" && slug.current == $slug][0] ${articlesQuery}`;
 
-export const ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category] ${articlesQuery}`;
+export const ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language] ${articlesQuery}`;
 
 export const STAT = groq`*[_type == "stats" && slug.current == $slug][0] ${statParams}`;
 
-export const STATS = groq`*[_type == "stats"] | order(_id)[$trim_start...$trim_end] ${statParams}`;
+export const STATS = groq`*[_type == "stats" && language == $language] | order(_id)[$trim_start...$trim_end] ${statParams}`;
 
 export const EVENT = groq`*[_type == "events" && slug.current == $slug][0] ${eventParams}`;
 
-export const EVENTS = groq`*[_type == "events"] | order(_id)[$trim_start...$trim_end] ${eventParams}`;
+export const EVENTS = groq`*[_type == "events" && language == $language] | order(_id)[$trim_start...$trim_end] ${eventParams}`;
 
-export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && ${articleParams}] | order(_id)[$trim_start...$trim_end] ${articlesQuery}`;
+export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language && ${articleParams}] | order(_id)[$trim_start...$trim_end] ${articlesQuery}`;
 
 export const CATEGORY_COUNT = groq`count(*[_type == "article" && category->slug.current == $category])`;
 

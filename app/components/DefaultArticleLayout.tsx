@@ -36,7 +36,6 @@ const DefaultArticleLayout = ({ article }: { article: Article }) => {
             components={{
               types: {
                 image: (props) => {
-                  console.log(props);
                   return (
                     <div className="relative aspect-video w-full bg-gray-200 rounded-md overflow-hidden">
                       <Image

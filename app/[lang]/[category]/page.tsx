@@ -17,7 +17,7 @@ const Article = async ({
   params,
   searchParams,
 }: {
-  params: { category: string; page: string };
+  params: { category: string; page: string; lang: "es" | "en" };
   searchParams: any;
 }) => {
   const categories = await sanityFetch<Category[]>({
@@ -27,6 +27,7 @@ const Article = async ({
   const categoryCount = await sanityFetch<number>({
     query: CATEGORY_COUNT,
     params: {
+      language: params.lang,
       category: params.category,
       author: searchParams.author || null,
       editorial: searchParams.editorial || null,
@@ -43,6 +44,7 @@ const Article = async ({
     query: PAGINATED_ARTICLES_BY_CATEGORY,
     params: {
       ...getArticlePageParams(currentPage),
+      language: params.lang,
       category: params.category,
       author: searchParams.author || null,
       editorial: searchParams.editorial || null,

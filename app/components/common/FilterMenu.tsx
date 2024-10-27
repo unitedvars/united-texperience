@@ -8,6 +8,7 @@ import { archivo } from "@/utils/fonts";
 import DatePicker from "react-datepicker";
 import Button from "./Button";
 import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 
 interface FilterFormData {
   author?: any;
@@ -32,6 +33,8 @@ const FilterMenu = ({
   const [editorials, setEditorials] = useState<SelectOption[]>([]);
 
   const router = useRouter();
+  const params = useParams();
+  console.log(params);
 
   const [formData, setFormData] = useState<FilterFormData>({
     author: undefined,
@@ -70,11 +73,13 @@ const FilterMenu = ({
     });
   }, []);
 
+  console.log(router);
+
   const handleFilterSubmit = (e: any) => {
     e.preventDefault();
     const { author, editorial, date } = formData;
     router.push(
-      `/all?page=1${author ? `&author=${author.label}` : ``}${editorial ? `&editorial=${editorial.label}` : ``}${date.from ? `&dateFrom=${new Date(date.from).toISOString()}` : ``}${date.to ? `&dateTo=${new Date(date.to).toISOString()}` : ``}`
+      `/${params.lang}/all?page=1${author ? `&author=${author.label}` : ``}${editorial ? `&editorial=${editorial.label}` : ``}${date.from ? `&dateFrom=${new Date(date.from).toISOString()}` : ``}${date.to ? `&dateTo=${new Date(date.to).toISOString()}` : ``}`
     );
     setIsOpen(false);
   };

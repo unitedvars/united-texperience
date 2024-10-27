@@ -100,24 +100,26 @@ const Article = async ({
               What to read next
             </h2>
 
-            <div>
-              <ul className="flex flex-col gap-4 lg:flex-row">
-                {other_articles.map((article: ArticleType) => (
-                  <li key={article._id} className="lg:w-1/4">
-                    <ArticleThumbnail
-                      imageUrl={article.mainImage}
-                      title={article.title}
-                      category={article.category}
-                      author={article.author}
-                      editorial={article.editorial?.name}
-                      titleSize={"large"}
-                      className={"min-h-[124px]"}
-                      url={`/${article.category.slug.current}/${article.slug.current}`}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {other_articles && (
+              <div>
+                <ul className="flex flex-col gap-4 lg:flex-row">
+                  {other_articles.map((article: ArticleType) => (
+                    <li key={article._id} className="lg:w-1/4">
+                      <ArticleThumbnail
+                        imageUrl={article.mainImage}
+                        title={article.title}
+                        category={article.category}
+                        author={article.author}
+                        editorial={article.editorial?.name}
+                        titleSize={"large"}
+                        className={"min-h-[124px]"}
+                        url={`/${article.category.slug.current}/${article.slug.current}`}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
           {randomArticle && (
             <Link
@@ -161,11 +163,13 @@ const Article = async ({
                         className={clsx("text-xs opacity-70")}
                       >{`By ${randomArticle.author.name}`}</div>
                       <div className="h-3 w-px bg-gray-300 hidden md:block" />
-                      <div
-                        className={clsx("text-xs opacity-70 hidden md:block")}
-                      >
-                        {randomArticle.author.role.name}
-                      </div>
+                      {randomArticle.author.role && (
+                        <div
+                          className={clsx("text-xs opacity-70 hidden md:block")}
+                        >
+                          {randomArticle.author.role.name}
+                        </div>
+                      )}
                       <div className="h-3 w-px bg-gray-300 hidden md:block" />
                       {randomArticle.editorial && (
                         <div className={clsx("text-xs text-primary-800")}>

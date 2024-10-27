@@ -51,6 +51,7 @@ export default async function Home({
     params: {
       trim_start: 0,
       trim_end: 6,
+      language: lang,
     },
   });
 
@@ -59,6 +60,7 @@ export default async function Home({
     params: {
       trim_start: 0,
       trim_end: 100,
+      language: lang,
     },
   });
 
@@ -70,6 +72,7 @@ export default async function Home({
     query: ARTICLES_BY_CATEGORY,
     params: {
       category: "techpoint",
+      language: lang,
     },
   });
 
@@ -77,6 +80,7 @@ export default async function Home({
     query: ARTICLES_BY_CATEGORY,
     params: {
       category: "hot-news",
+      language: lang,
     },
   });
 
@@ -94,33 +98,35 @@ export default async function Home({
           <LargeArticle article={featuredArticle} />
         </Link>
 
-        <div className="flex-col lg:flex-row flex items-stretch">
-          <div className="w-full lg:w-full bg-white rounded-lg p-4 pb-2">
-            <h2
-              className={clsx(
-                "text-primary-500 text-2xl border-b pb-4 mb-4",
-                orbitron.className
-              )}
-            >
-              Stats & Numbers
-            </h2>
+        {stats.length > 0 && (
+          <div className="flex-col lg:flex-row flex items-stretch">
+            <div className="w-full lg:w-full bg-white rounded-lg p-4 pb-2">
+              <h2
+                className={clsx(
+                  "text-primary-500 text-2xl border-b pb-4 mb-4",
+                  orbitron.className
+                )}
+              >
+                Stats & Numbers
+              </h2>
 
-            <div className="overflow-x-scroll pb-2">
-              <ul className="flex flex-row gap-8">
-                {stats.map((stat: Stats) => (
-                  <li key={stat._id} className="w-[500px]">
-                    <StatThumbnail
-                      imageUrl={stat.mainImage}
-                      title={stat.title}
-                      description={stat.description}
-                      className={"min-h-[124px]"}
-                    />
-                  </li>
-                ))}
-              </ul>
+              <div className="overflow-x-scroll pb-2">
+                <ul className="flex flex-row gap-8">
+                  {stats.map((stat: Stats) => (
+                    <li key={stat._id} className="w-[500px]">
+                      <StatThumbnail
+                        imageUrl={stat.mainImage}
+                        title={stat.title}
+                        description={stat.description}
+                        className={"min-h-[124px]"}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         <div className="flex-col lg:flex-row flex gap-4 items-stretch">
           <div className="w-full lg:w-9/12 bg-white rounded-lg p-4">
@@ -185,37 +191,39 @@ export default async function Home({
           </div>
         </div>
 
-        <div
-          className="flex-col lg:flex-row flex items-stretch"
-          id="events-and-training"
-        >
-          <div className="w-full lg:w-full bg-white rounded-lg p-4">
-            <h2
-              className={clsx(
-                "text-primary-500 text-2xl border-b pb-4 mb-4",
-                orbitron.className
-              )}
-            >
-              Events & Trainings
-            </h2>
+        {events.length > 0 && (
+          <div
+            className="flex-col lg:flex-row flex items-stretch"
+            id="events-and-training"
+          >
+            <div className="w-full lg:w-full bg-white rounded-lg p-4">
+              <h2
+                className={clsx(
+                  "text-primary-500 text-2xl border-b pb-4 mb-4",
+                  orbitron.className
+                )}
+              >
+                Events & Trainings
+              </h2>
 
-            <div className="overflow-x-scroll overflow-y-hidden">
-              <ul className="flex flex-row gap-8">
-                {events.map((event: Events) => (
-                  <li key={event._id} className="w-[500px]">
-                    <EventsThumbnail
-                      url={event.url}
-                      imageUrl={event.mainImage}
-                      title={event.title}
-                      subtitle={event.subtitle}
-                      className={"min-h-[124px]"}
-                    />
-                  </li>
-                ))}
-              </ul>
+              <div className="overflow-x-scroll overflow-y-hidden">
+                <ul className="flex flex-row gap-8">
+                  {events.map((event: Events) => (
+                    <li key={event._id} className="w-[500px]">
+                      <EventsThumbnail
+                        url={event.url}
+                        imageUrl={event.mainImage}
+                        title={event.title}
+                        subtitle={event.subtitle}
+                        className={"min-h-[124px]"}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         <div className="flex-col lg:flex-row flex items-stretch">
           <div className="w-full lg:w-full bg-white rounded-lg p-4">

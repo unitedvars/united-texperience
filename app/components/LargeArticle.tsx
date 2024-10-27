@@ -28,13 +28,15 @@ const LargeArticle = ({
       }}
       className="grow bg-primary-200 min-h-[611px] h-full relative rounded-xl w-full group"
     >
-      <Image
-        src={article.mainImage}
-        alt={article.title}
-        fill
-        className="object-cover rounded-lg xl:rounded-xl"
-      />
-      
+      {article.mainImage && (
+        <Image
+          src={article.mainImage}
+          alt={article.title}
+          fill
+          className="object-cover rounded-lg xl:rounded-xl"
+        />
+      )}
+
       <div className="w-full bg-white absolute z-10 xl:w-[882px] bottom-0 left-0 p-4 lg:p-4 flex flex-col xl:rounded-tr-lg xl:rounded-bl-lg">
         <div
           className={clsx(
@@ -62,12 +64,14 @@ const LargeArticle = ({
             className={clsx("text-xs opacity-70")}
           >{`By ${article.author.name}`}</div>
           <div className="h-3 w-px bg-gray-300 hidden md:block" />
-          <div className={clsx("text-xs opacity-70 hidden md:block")}>
-            {article.author.role.name}
-          </div>
+          {article.author.role && (
+            <div className={clsx("text-xs opacity-70 hidden md:block")}>
+              {article.author.role.name}
+            </div>
+          )}
           <div className="h-3 w-px bg-gray-300 hidden md:block" />
           <div className={clsx("text-xs text-primary-800")}>
-          {article.editorial.name}
+            {article.editorial.name}
           </div>
         </div>
       </div>

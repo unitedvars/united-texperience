@@ -21,5 +21,11 @@ export const home = {
       to: [{ type: "article" }],
       validation: (Rule: Rule) => Rule.required(),
     },
+    {
+      name: "language",
+      type: "string",
+      readOnly: true,
+      hidden: true,
+    },
   ],
 };

@@ -8,14 +8,23 @@ import ArticleList from "@/app/components/common/ArticleList";
 import SearchBar from "@/app/components/common/SearchBar";
 import { getArticlePageParams, getTotalPages } from "@/utils/utils";
 
-const Article = async ({ searchParams }: { searchParams: any }) => {
+const Article = async ({
+  params,
+  searchParams,
+}: {
+  params: { lang: "en" | "es" };
+  searchParams: any;
+}) => {
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
 
+  console.log(searchParams);
+
   const allCount = await sanityFetch<number>({
     query: ALL_COUNT,
     params: {
+      language: params.lang,
       author: searchParams.author || null,
       editorial: searchParams.editorial || null,
       dateFrom: searchParams.dateFrom || null,
@@ -31,6 +40,7 @@ const Article = async ({ searchParams }: { searchParams: any }) => {
     query: ARTICLES,
     params: {
       ...getArticlePageParams(currentPage),
+      language: params.lang,
       author: searchParams.author || null,
       editorial: searchParams.editorial || null,
       dateFrom: searchParams.dateFrom || null,
