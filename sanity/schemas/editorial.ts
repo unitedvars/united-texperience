@@ -1,7 +1,7 @@
 import {FolderIcon} from '@sanity/icons'
 
 export const editorial = {
-  title: "Editorial",
+  title: "Edition",
   name: "editorial",
   type: "document",
   icon: FolderIcon,

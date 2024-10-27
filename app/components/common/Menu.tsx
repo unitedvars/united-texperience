@@ -17,16 +17,12 @@ const Menu = ({
   const { lang } = useParams();
   const unitedVarsLinks = [
     {
-      label: "About Us",
-      href: "#",
+      label: "Copyright and Legal Notice",
+      href: "en/copyright-and-legal-notice",
     },
     {
-      label: "Partner with us",
-      href: "#",
-    },
-    {
-      label: "Privacy Policy",
-      href: "#",
+      label: "Data Protection Notice",
+      href: "en/data-and-protection-notice",
     },
   ];
   return (

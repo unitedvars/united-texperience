@@ -1,23 +1,11 @@
 const menuLinks = [
   {
-    label: "About us",
-    href: "#",
-  },
-  {
-    label: "Partner with us",
-    href: "#",
-  },
-  {
-    label: "Privacy Policy",
-    href: "#",
-  },
-  {
     label: "Copyright and Legal Notice",
-    href: "#",
+    href: "en/copyright-and-legal-notice",
   },
   {
     label: "Data Protection Notice",
-    href: "#",
+    href: "en/data-and-protection-notice",
   },
 ];
 
