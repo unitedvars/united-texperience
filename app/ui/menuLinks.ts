@@ -1,11 +1,11 @@
 const menuLinks = [
   {
     label: "Copyright and Legal Notice",
-    href: "en/copyright-and-legal-notice",
+    href: "copyright-and-legal-notice",
   },
   {
     label: "Data Protection Notice",
-    href: "en/data-and-protection-notice",
+    href: "data-and-protection-notice",
   },
 ];
 

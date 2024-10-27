@@ -20,7 +20,7 @@ export default async function Home() {
       <main className="pb-16">
         <div
           className={clsx(
-            "flex flex-col min-h-screen pb-16 small-box [&>p]:mb-6 pt-8",
+            "flex flex-col min-h-screen pb-16 px-8 lg:px-0 lg:max-w-4xl [&>p]:mb-6 pt-8 mx-auto",
             archivo.className
           )}
         >
@@ -66,7 +66,7 @@ export default async function Home() {
           <p>
             The purpose to use your data is to guarantee the error free
             provision of the website. Other data may be used to analyze your
-            user patterns. 
+            user patterns.
           </p>
           <p>
             You have the right to receive information about the source,
@@ -95,19 +95,18 @@ export default async function Home() {
           </p>
           <p>
             The responsible authority as defined under data protection law
-            is:United VARs CLG Kaiserswerther Str. 115 40880
-            Ratingen Germany Fax: +49 2102 94 21
-            044 E-Mail:&nbsp;info@united-vars.comThe responsible authority is
-            the natural or legal person who alone or jointly with others decides
-            on the purposes and means of processing personal data (e.g. names,
-            e-mail addresses, etc.).
+            is:United VARs CLGKaiserswerther Str. 11540880 RatingenGermanyFax:
+            +49 2102 94 21 044E-Mail:&nbsp;info@united-vars.comThe responsible
+            authority is the natural or legal person who alone or jointly with
+            others decides on the purposes and means of processing personal data
+            (e.g. names, e-mail addresses, etc.).
           </p>
           <p>Statutory data protection officer</p>
           <p>
             We have appointed a data protection officer for our
-            company:Christian Schwinge All for One Steeb
-            AG Rita-Maiburg-Stra&szlig;e 40 70794
-            Filderstadt-Bernhausen GermanyPhone: +49 711 258560-0 E-Mail:{" "}
+            company:Christian SchwingeAll for One Steeb
+            AGRita-Maiburg-Stra&szlig;e 4070794
+            Filderstadt-BernhausenGermanyPhone: +49 711 258560-0E-Mail:{" "}
             <a href="mailto:christian.schwinge@all-for-one.com">
               christian.schwinge@all-for-one.com
             </a>
@@ -133,7 +132,7 @@ export default async function Home() {
           </p>
           <p>
             3. Data security, data protection and communicating / inquiry by
-            email, telephone or fax 
+            email, telephone or fax
           </p>
           <p>
             If you contact us by e-mail, telephone or fax, your request
@@ -154,7 +153,7 @@ export default async function Home() {
             other cases, the processing is based on your consent (Art. 6 para. 1
             lit. a DSGVO) and / or on our legitimate interests (Art. 6 para. 1
             lit. f DSGVO), as we have a legitimate interest in the effective
-            processing of enquiries addressed to us. 
+            processing of enquiries addressed to us.
           </p>
           <p>
             The data sent to us by you via contact requests will remain with us
@@ -177,20 +176,20 @@ export default async function Home() {
             information. You can contact us directly at any time about requests
             concerning the disclosure, deletion and correction of your data.
             Please use the following address for correspondence:United VARs
-            LLP Office Ratingen Kaiserswerther Str. 115 40880 Ratingen Fax:
-            +49-2102 / 94 21 044 E-Mail:&nbsp;info@united-vars.comIN THE EVENT
-            THAT DATA ARE PROCESSED ON THE BASIS OF ART. 6 SECT. 1 LIT. E OR F
-            GDPR, YOU HAVE THE RIGHT TO AT ANY TIME OBJECT TO THE PROCESSING OF
-            YOUR PERSONAL DATA BASED ON GROUNDS ARISING FROM YOUR UNIQUE
-            SITUATION. THIS ALSO APPLIES TO ANY PROFILING BASED ON THESE
-            PROVISIONS. TO DETERMINE THE LEGAL BASIS, ON WHICH ANY PROCESSING OF
-            DATA IS BASED, PLEASE CONSULT THIS DATA PROTECTION DECLARATION. IF
-            YOU LOG AN OBJECTION, WE WILL NO LONGER PROCESS YOUR AFFECTED
-            PERSONAL DATA, UNLESS WE ARE IN A POSITION TO PRESENT COMPELLING
-            PROTECTION WORTHY GROUNDS FOR THE PROCESSING OF YOUR DATA, THAT
-            OUTWEIGH YOUR INTERESTS, RIGHTS AND FREEDOMS OR IF THE PURPOSE OF
-            THE PROCESSING IS THE CLAIMING, EXERCISING OR DEFENCE OF LEGAL
-            ENTITLEMENTS (OBJECTION PURSUANT TO ART. 21 SECT. 1 GDPR). 
+            LLPOffice RatingenKaiserswerther Str. 11540880 RatingenFax: +49-2102
+            / 94 21 044E-Mail:&nbsp;info@united-vars.comIN THE EVENT THAT DATA
+            ARE PROCESSED ON THE BASIS OF ART. 6 SECT. 1 LIT. E OR F GDPR, YOU
+            HAVE THE RIGHT TO AT ANY TIME OBJECT TO THE PROCESSING OF YOUR
+            PERSONAL DATA BASED ON GROUNDS ARISING FROM YOUR UNIQUE SITUATION.
+            THIS ALSO APPLIES TO ANY PROFILING BASED ON THESE PROVISIONS. TO
+            DETERMINE THE LEGAL BASIS, ON WHICH ANY PROCESSING OF DATA IS BASED,
+            PLEASE CONSULT THIS DATA PROTECTION DECLARATION. IF YOU LOG AN
+            OBJECTION, WE WILL NO LONGER PROCESS YOUR AFFECTED PERSONAL DATA,
+            UNLESS WE ARE IN A POSITION TO PRESENT COMPELLING PROTECTION WORTHY
+            GROUNDS FOR THE PROCESSING OF YOUR DATA, THAT OUTWEIGH YOUR
+            INTERESTS, RIGHTS AND FREEDOMS OR IF THE PURPOSE OF THE PROCESSING
+            IS THE CLAIMING, EXERCISING OR DEFENCE OF LEGAL ENTITLEMENTS
+            (OBJECTION PURSUANT TO ART. 21 SECT. 1 GDPR).
           </p>
           <p>
             IF YOUR PERSONAL DATA IS BEING PROCESSED IN ORDER TO ENGAGE IN
@@ -207,13 +206,13 @@ export default async function Home() {
             member state where they usually maintain their domicile, place of
             work or at the place where the alleged violation occurred. The right
             to log a complaint is in effect regardless of any other
-            administrative or court proceedings available as legal
-            recourses. You have the right to demand that we hand over any data
-            we automatically process on the basis of your consent or in order to
-            fulfil a contract be handed over to you or a third party in a
-            commonly used, machine readable format. If you should demand the
-            direct transfer of the data to another controller, this will be done
-            only if it is technically feasible. 
+            administrative or court proceedings available as legal recourses.You
+            have the right to demand that we hand over any data we automatically
+            process on the basis of your consent or in order to fulfil a
+            contract be handed over to you or a third party in a commonly used,
+            machine readable format. If you should demand the direct transfer of
+            the data to another controller, this will be done only if it is
+            technically feasible.
           </p>
           <p>
             Within the scope of the applicable statutory provisions, you have
@@ -223,7 +222,7 @@ export default async function Home() {
             data rectified or eradicated. If you have questions about this
             subject matter or any other questions about personal data, please do
             not hesitate to contact us at any time at the address provided in
-            section &ldquo;Information Required by Law.&rdquo; 
+            section &ldquo;Information Required by Law.&rdquo;
           </p>
           <p>
             You have the right to demand the imposition of restrictions as far
@@ -266,7 +265,7 @@ export default async function Home() {
             information material that we have not expressly requested. The
             operators of this website and its pages reserve the express right to
             take legal action in the event of the unsolicited sending of
-            promotional information, for instance via SPAM messages. 
+            promotional information, for instance via SPAM messages.
           </p>
           <p>5. SSL and/or TLS encryption</p>
           <p>
@@ -280,7 +279,7 @@ export default async function Home() {
             encryption is activated, data you transmit to us cannot be read by
             third parties.
           </p>
-          <p>6. Anonymized / Pseudonymized use of the website </p>
+          <p>6. Anonymized / Pseudonymized use of the website</p>
           <p>
             In principle, you can use our website without entering your personal
             information. Pseudonymized user data will not be linked to the
@@ -303,7 +302,7 @@ export default async function Home() {
             immediately after the submission or deletion of the comment,
             provided it is not subject to any legal retention periods.
           </p>
-          <p>8. Contact form </p>
+          <p>8. Contact form</p>
           <p>
             If you submit inquiries to us via our contact form, the information
             provided in the contact form as well as any contact information
@@ -326,8 +325,8 @@ export default async function Home() {
             mandatory legal provisions &ndash; in particular retention periods.
           </p>
           <p>
-            9. Processing based on consent United VARs will process your
-            Personal Data if you granted prior consent to the specific proposed
+            9. Processing based on consentUnited VARs will process your Personal
+            Data if you granted prior consent to the specific proposed
             processing of your Personal Data (Article 6(1) lit. a GDPR). Subject
             to a respective provision and your consent, United VARs may use your
             name, email and postal address, telephone number, job title and
@@ -336,8 +335,8 @@ export default async function Home() {
             United VARs; United VARs may forward this information and also
             provide a hashed user ID to its members and partners listed on this
             page:{" "}
-            <a href="//www.united-vars.com/en/partners. ">
-              www.united-vars.com/en/partners. 
+            <a href="//www.united-vars.com/en/partners.">
+              www.united-vars.com/en/partners.
             </a>
           </p>
           <p>10. Registration on this website</p>
@@ -369,7 +368,7 @@ export default async function Home() {
             &nbsp;The IP address This data is not merged with other data
             sources.
           </p>
-          <p>11. Analyse tools and advertising </p>
+          <p>11. Analyse tools and advertising</p>
           <p>Google Analytics</p>
           <p>
             This website uses web analysis service Google Analytics, which is
@@ -430,7 +429,7 @@ export default async function Home() {
             your browser shall not be merged with other data in Google&rsquo;s
             possession.
           </p>
-          <p>Browser Plugin </p>
+          <p>Browser Plugin</p>
           <p>
             You may refuse the use of cookies by selecting the appropriate
             settings on your browser, however please note that if you do this
@@ -549,7 +548,7 @@ export default async function Home() {
               https://policies.google.com/technologies/ads?hl=en
             </a>
           </p>
-          <p>Google Conversion-Tracking </p>
+          <p>Google Conversion-Tracking</p>
           <p>
             This website uses Google Conversion Tracking. The provider of this
             service is Google Ireland Limited (&ldquo;Google&rdquo;), Gordon
@@ -668,7 +667,7 @@ export default async function Home() {
             indefinite. You may object to the storage if your interests outweigh
             our legitimate interest.
           </p>
-          <p>13.&nbsp;Plugins and tools </p>
+          <p>13.&nbsp;Plugins and tools</p>
           <p>YouTube with enhanced data protection</p>
           <p>
             Our website uses plugins from the YouTube website. The site is
@@ -748,7 +747,7 @@ export default async function Home() {
               https://www.adobe.com/de/privacy/policy/html
             </a>
           </p>
-          <p>14. External contents and/or processing data outside of the EU </p>
+          <p>14. External contents and/or processing data outside of the EU</p>
           <p>
             We use active Java script contents from external providers on our
             website. When our website is accessed, these external providers
@@ -776,7 +775,7 @@ export default async function Home() {
             on our social media channels and our website, the review/outlook on
             our events, as well as the use in flyers / presentations.
           </p>
-          <p>16. Notification of the use of cookies </p>
+          <p>16. Notification of the use of cookies</p>
           <p>
             We use cookies on different web pages in order to make your visit to
             our website more appealing and to enable certain functions to be
@@ -804,13 +803,13 @@ export default async function Home() {
             The type and version of browser used&middot; The used operating
             systemReferrer URLThe hostname of the accessing computerThe time of
             the server inquiryThe IP addressThis data is not merged with other
-            data sources. This data is recorded on the basis of Art. 6 Sect. 1
+            data sources.This data is recorded on the basis of Art. 6 Sect. 1
             lit. f GDPR. The operator of the website has a legitimate interest
             in the technically error free depiction and the optimization of the
             operator&rsquo;s website. In order to achieve this, server log files
             must be recorded.
           </p>
-          <p>18. Hosting and content delivery networks (CDN) </p>
+          <p>18. Hosting and content delivery networks (CDN)</p>
           <p>
             This website is hosted by an external service provider (host).
             Personal data collected on this website are stored on the servers of
@@ -883,7 +882,7 @@ export default async function Home() {
           <p>
             You can change your data protection settings on Twitter in the
             account settings at https://twitter.com/account/settings.LinkedIn
-            Plugin. 
+            Plugin.
           </p>
           <p>
             Our website uses features from the LinkedIn network. The provider is
@@ -911,9 +910,8 @@ export default async function Home() {
             declaration at: https://www.linkedin.com/legal/privacy-policy.
           </p>
         </div>
-
-        <Footer />
       </main>
+      <Footer />
     </>
   );
 }

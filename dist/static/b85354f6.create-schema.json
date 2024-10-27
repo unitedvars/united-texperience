@@ -66,6 +66,9 @@
           },
           {
             "type": "events"
+          },
+          {
+            "type": "home"
           }
         ],
         "name": "value",
@@ -111,7 +114,8 @@
           "list": [
             "article",
             "stats",
-            "events"
+            "events",
+            "home"
           ]
         },
         "description": "Optional: Used to filter the reference fields above so all translations share the same types.",
@@ -188,6 +192,12 @@
         ],
         "name": "featuredArticle",
         "type": "reference"
+      },
+      {
+        "readOnly": true,
+        "hidden": true,
+        "name": "language",
+        "type": "string"
       }
     ],
     "name": "home",
@@ -466,7 +476,8 @@
       }
     ],
     "name": "editorial",
-    "type": "document"
+    "type": "document",
+    "title": "Edition"
   },
   {
     "fields": [
