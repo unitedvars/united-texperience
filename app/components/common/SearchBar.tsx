@@ -5,13 +5,15 @@ import { IoChevronDownSharp } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { archivo, orbitron } from "@/utils/fonts";
 import FilterMenu from "./FilterMenu";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const SearchBar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [searchString, setSearchString] = useState("");
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -19,8 +21,10 @@ const SearchBar = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
+  const { push } = useRouter();
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
+
+  const params = new URLSearchParams(useSearchParams().toString());
 
   return (
     <div className="flex gap-6 py-6">
@@ -36,10 +40,27 @@ const SearchBar = () => {
       </div>
       <div className="flex items-center gap-2 cursor-pointer group">
         <IoIosSearch className="group-hover:text-primary-500 transition" />
-        <input
-          placeholder={"search"}
-          className="bg-transparent placeholder:text-primary-900 focus:outline-none "
-        />
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            // console.log(searchString);
+            if (searchString.length > 0) {
+              params.set("searchParam", searchString);
+            } else {
+              params.delete("searchParam");
+            }
+            push(`?${params.toString()}`, {});
+          }}
+        >
+          <input
+            placeholder={"search"}
+            onChange={(e) => {
+              setSearchString(e.target.value);
+            }}
+            value={searchString}
+            className="bg-transparent placeholder:text-primary-900 focus:outline-none "
+          />
+        </form>
       </div>
       <div className="flex ml-auto items-center gap-2">
         <div className={clsx(archivo.className, "text-sm text-primary-700")}>
@@ -68,21 +89,21 @@ const SearchBar = () => {
           >
             <MenuItem
               className={clsx(orbitron.className, "text-sm")}
-              onClick={handleClose}
+              onClick={() => {
+                params.set("sort", "asc");
+                push(`?${params.toString()}`, {});
+              }}
             >
               Latest
             </MenuItem>
             <MenuItem
               className={clsx(orbitron.className, "text-sm")}
-              onClick={handleClose}
+              onClick={() => {
+                params.set("sort", "desc");
+                push(`?${params.toString()}`, {});
+              }}
             >
-              Newest
-            </MenuItem>
-            <MenuItem
-              className={clsx(orbitron.className, "text-sm")}
-              onClick={handleClose}
-            >
-              By Category
+              Oldest
             </MenuItem>
           </Menu>
         </div>

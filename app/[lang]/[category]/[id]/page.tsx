@@ -30,6 +30,7 @@ const Article = async ({
     query: ARTICLE,
     params: {
       slug: params.id,
+      language: params.lang,
     },
   });
 
@@ -43,6 +44,7 @@ const Article = async ({
       author: null,
       dateFrom: null,
       dateTo: null,
+      searchParam: null,
       language: params.lang,
     },
   });
@@ -54,6 +56,8 @@ const Article = async ({
       author: null,
       dateFrom: null,
       dateTo: null,
+      searchParam: null,
+      language: params.lang,
     },
   });
 
@@ -72,6 +76,7 @@ const Article = async ({
       dateFrom: null,
       dateTo: null,
       language: params.lang,
+      searchParam: null,
     },
   });
 

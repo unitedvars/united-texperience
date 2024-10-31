@@ -1,5 +1,11 @@
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { ALL_COUNT, ARTICLES, CATEGORIES_QUERY } from "@/sanity/lib/queries";
+import {
+  ALL_COUNT,
+  ARTICLES,
+  CATEGORIES_QUERY,
+  ARTICLES_ASC,
+  ARTICLES_DESC,
+} from "@/sanity/lib/queries";
 import Navbar from "@/app/components/common/Navbar";
 import { Category } from "@/types";
 import CategoryBarList from "@/app/components/CategoryBarList";
@@ -15,6 +21,8 @@ const Article = async ({
   params: { lang: "en" | "es" };
   searchParams: any;
 }) => {
+  const currentPage = parseInt(searchParams.page);
+
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
@@ -27,15 +35,19 @@ const Article = async ({
       editorial: searchParams.editorial || null,
       dateFrom: searchParams.dateFrom || null,
       dateTo: searchParams.dateTo || null,
+      searchParam: searchParams.searchParam || null,
     },
   });
-
-  const currentPage = parseInt(searchParams.page);
 
   let totalPages = getTotalPages(allCount);
 
   const articles = await sanityFetch<any>({
-    query: ARTICLES,
+    query:
+      searchParams.sort === "asc"
+        ? ARTICLES_ASC
+        : searchParams.sort === "desc"
+          ? ARTICLES_DESC
+          : ARTICLES,
     params: {
       ...getArticlePageParams(currentPage),
       language: params.lang,
@@ -43,6 +55,7 @@ const Article = async ({
       editorial: searchParams.editorial || null,
       dateFrom: searchParams.dateFrom || null,
       dateTo: searchParams.dateTo || null,
+      searchParam: searchParams.searchParam || null,
     },
   });
 

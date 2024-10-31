@@ -44,7 +44,25 @@ export const article = {
       name: "content",
       type: "array",
       of: [
-        { type: "block" },
+        {
+          type: "block",
+          marks: {
+            annotations: [
+              {
+                name: "externalLink",
+                type: "object",
+                title: "External link",
+                fields: [
+                  {
+                    name: "url",
+                    type: "url",
+                    title: "URL",
+                  },
+                ],
+              },
+            ],
+          },
+        },
         { type: "slug", title: "YouTube Embed" },
         { type: "quote", title: "Blockquote" },
         {
@@ -65,6 +83,18 @@ export const article = {
       type: "string",
       readOnly: true,
       hidden: true,
+    },
+  ],
+  orderings: [
+    {
+      title: "Published Date, Latest",
+      name: "publishDateLatest",
+      by: [{ field: "_createdAt", direction: "desc" }],
+    },
+    {
+      title: "Published Date, Oldest",
+      name: "publishDateOldest",
+      by: [{ field: "_createdAt", direction: "asc" }],
     },
   ],
 };

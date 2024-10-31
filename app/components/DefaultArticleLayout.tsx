@@ -8,6 +8,7 @@ import { Article } from "@/types";
 import ReactPlayer from "react-player";
 import Image from "next/image";
 import { urlForImage } from "@/sanity/lib/image";
+import Link from "next/link";
 
 const DefaultArticleLayout = ({ article }: { article: Article }) => {
   return (
@@ -59,6 +60,18 @@ const DefaultArticleLayout = ({ article }: { article: Article }) => {
                         <PortableText value={props.value.text} />{" "}
                       </blockquote>
                     </figure>
+                  );
+                },
+              },
+              marks: {
+                externalLink: ({ value, children }) => {
+                  const { slug = {} } = value;
+                  console.log(value);
+                  const href = `${value.url}`;
+                  return (
+                    <Link href={href} target="_blank">
+                      {children}
+                    </Link>
                   );
                 },
               },

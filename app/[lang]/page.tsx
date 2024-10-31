@@ -30,6 +30,7 @@ export default async function Home({
     query: HOME_QUERY,
     params: {
       language: lang,
+      searchParam: null,
     },
   });
 
@@ -43,6 +44,7 @@ export default async function Home({
       dateFrom: null,
       dateTo: null,
       language: lang,
+      searchParam: null,
     },
   });
 
@@ -73,6 +75,7 @@ export default async function Home({
     params: {
       category: "techpoint",
       language: lang,
+      searchParam: null,
     },
   });
 
@@ -81,6 +84,7 @@ export default async function Home({
     params: {
       category: "hot-news",
       language: lang,
+      searchParam: null,
     },
   });
 

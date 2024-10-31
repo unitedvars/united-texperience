@@ -20,6 +20,7 @@ const Article = async ({
   params: { category: string; page: string; lang: "es" | "en" };
   searchParams: any;
 }) => {
+  const currentPage = parseInt(searchParams.page);
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
@@ -33,10 +34,9 @@ const Article = async ({
       editorial: searchParams.editorial || null,
       dateFrom: searchParams.dateFrom || null,
       dateTo: searchParams.dateTo || null,
+      searchParam: searchParams.searchParam || null,
     },
   });
-
-  const currentPage = parseInt(searchParams.page);
 
   let totalPages = getTotalPages(categoryCount);
 
@@ -50,6 +50,7 @@ const Article = async ({
       editorial: searchParams.editorial || null,
       dateFrom: searchParams.dateFrom || null,
       dateTo: searchParams.dateTo || null,
+      searchParam: searchParams.searchParam || null,
     },
   });
 
