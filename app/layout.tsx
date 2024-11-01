@@ -4,6 +4,7 @@ import "./globals.css";
 import clsx from "clsx";
 import ProgressBarWrapper from "./components/common/ProgressBarWrapper";
 import { GoogleTagManager } from "@next/third-parties/google";
+import CookieBanner from "./components/common/CookieBanner";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -26,6 +27,9 @@ export default function RootLayout({
       <body className={clsx(maitree.className, "bg-gray-50")}>
         <ProgressBarWrapper />
         {children}
+
+        {/* ESTO ES EL BANNER DE COOKIES SE TIENE QUE ABRIR AL CARGAR LA PAGINA, Y ENVIAR EL EVENTO QUE ELIJA EL USUARIO*/}
+        {/*<CookieBanner />*/}
       </body>
     </html>
   );
