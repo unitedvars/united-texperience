@@ -910,8 +910,9 @@ export default async function Home() {
             declaration at: https://www.linkedin.com/legal/privacy-policy.
           </p>
         </div>
+        <Footer />
       </main>
-      <Footer />
+      
     </>
   );
 }

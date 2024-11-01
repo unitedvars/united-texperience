@@ -17,10 +17,10 @@ export default async function Home() {
       <header className="flex flex-col">
         <Navbar categories={categories} showCategoryBar={false} />
       </header>
-      <main className="pb-16 w-full px-8 lg:max-w-4xl mx-auto">
+      <main className="pb-16 w-full px-8 ">
         <div
           className={clsx(
-            "flex flex-col min-h-screen pb-8 [&>p]:mb-6 pt-8",
+            "flex flex-col min-h-screen pb-8 [&>p]:mb-6 lg:max-w-4xl mx-auto pt-8",
             archivo.className
           )}
         >
@@ -82,8 +82,10 @@ export default async function Home() {
             Copyright and Legal Notice is permitted)
           </p>
         </div>
+
+        <Footer />
       </main>
-      <Footer />
+      
     </>
   );
 }
