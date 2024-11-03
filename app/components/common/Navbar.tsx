@@ -10,6 +10,7 @@ import Link from "next/link";
 import Logo from "./Logo";
 import Button from "./Button";
 import Menu from "./Menu";
+import SubscribeModal from "./SubscribeModal";
 import { Category } from "@/types";
 import { motion } from "framer-motion";
 import CategoryBar from "../CategoryBar";
@@ -23,6 +24,7 @@ const Navbar = ({
   showCategoryBar?: boolean;
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { lang } = useParams();
   return (
     <>
@@ -61,11 +63,14 @@ const Navbar = ({
               </label>
             </div>
           </div>
+
           <div className="w-1/3 flex justify-center">
             <Link href={`/${lang}`}>
               <Logo variant="isologo" />
             </Link>
           </div>
+
+
           <div className="w-1/3 justify-end flex gap-6 text-primary-600">
             <div
               className={clsx(
@@ -77,7 +82,11 @@ const Navbar = ({
               <span>|</span>
               <Link href="/es">ES</Link>
             </div>
-            <Button className={"hidden lg:block"}>Subscribe</Button>
+
+
+            <Button className={"hidden lg:block"} onClick={() => {
+              setIsModalOpen(!isModalOpen);
+            }} >Subscribe</Button>
           </div>
         </div>
         {/* CATEGORIES BAR */}
@@ -93,6 +102,11 @@ const Navbar = ({
         setIsOpen={setIsMenuOpen}
         categories={categories}
       />
+
+      <SubscribeModal 
+         isOpen={isModalOpen}
+         setIsOpen={setIsModalOpen}
+      />      
     </>
   );
 };

@@ -29,7 +29,7 @@ export default async function Footer() {
               future of industries and the world.
             </p>
           </div>
-          <div className="flex flex-col lg:w-1/2 gap-8">
+          <div className="flex items-end flex-col lg:w-1/2 gap-2">
             <div className="flex flex-col lg:items-end">
               <strong
                 className={clsx(
@@ -43,17 +43,7 @@ export default async function Footer() {
                 Get alerts of all the news we have for you
               </p>
             </div>
-            <form className="flex flex-col lg:flex-row items-center gap-4 justify-end h-full ">
-              <input
-                type="text"
-                className={clsx(
-                  archivo.className,
-                  "w-full lg:w-auto border border-primary-600 h-12 rounded-md grow px-4"
-                )}
-                placeholder="Please enter your email..."
-              />
-              <Button className="w-full lg:w-auto">Subscribe</Button>
-            </form>
+            <Button className="w-2/5">Subscribe</Button>
           </div>
         </div>
         <div className="flex flex-row lg:flex-col gap-8 lg:gap-4">
