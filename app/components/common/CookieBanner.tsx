@@ -4,11 +4,9 @@ import Button from "./Button";
 import ButtonSecondary from "./ButtonSecondary";
 import Link from "next/link";
 
-export default async function CookieBanner() {
+const CookieBanner = () => {
   
   return (
-    <>
-    {/* ESTO ES EL BANNER DE COOKIES SE TIENE QUE ABRIR AL CARGAR LA PAGINA, Y ENVIAR EL EVENTO QUE ELIJA EL USUARIO*/}
       <div className="w-4/5 max-w-7xl shadow-lg bg-white rounded-lg p-4 fixed bottom-10 right-[16px] lg:right-[80px]">
         <div>
           <h5
@@ -35,6 +33,7 @@ export default async function CookieBanner() {
           <Button> Accept all</Button>
         </div>
       </div>
-    </>
   );
 };
+
+export default CookieBanner;
