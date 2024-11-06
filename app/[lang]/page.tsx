@@ -14,7 +14,7 @@ import EventsThumbnail from "../components/common/EventsThumbnail";
 import StatThumbnail from "../components/common/StatThumbnail";
 import { Article, Category, Stats, Events } from "@/types";
 import clsx from "clsx";
-import { orbitron } from "@/utils/fonts";
+import { orbitron, archivo } from "@/utils/fonts";
 import Link from "next/link";
 import LargeArticle from "../components/LargeArticle";
 import Footer from "../components/common/Footer";

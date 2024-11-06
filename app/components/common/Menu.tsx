@@ -1,9 +1,11 @@
 import { Category } from "@/types";
+import menuLinks from "@/app/ui/menuLinks";
 import clsx from "clsx";
 import { orbitron, archivo } from "@/utils/fonts";
 import Link from "next/link";
 import MenuContainer from "./MenuContainer";
 import { useParams } from "next/navigation";
+import { home } from "@/sanity/schemas/home";
 
 const Menu = ({
   categories,
@@ -15,16 +17,6 @@ const Menu = ({
   setIsOpen: (isOpen: boolean) => void;
 }) => {
   const { lang } = useParams();
-  const unitedVarsLinks = [
-    {
-      label: "Copyright and Legal Notice",
-      href: "en/copyright-and-legal-notice",
-    },
-    {
-      label: "Data Protection Notice",
-      href: "en/data-and-protection-notice",
-    },
-  ];
   return (
     <>
       <MenuContainer setIsOpen={setIsOpen} isOpen={isOpen}>
@@ -40,15 +32,6 @@ const Menu = ({
             </strong>
 
             <ul className="flex flex-col gap-1">
-              {/* <li
-                key={"all"}
-                className={clsx(
-                  orbitron.className,
-                  "text-primary-800 text-xl hover:text-primary-500 transition"
-                )}
-              >
-                <Link href={`/all?page=1`}>All</Link>
-              </li> */}
               {categories.map((category) => (
                 <li
                   key={category.slug.current}
@@ -89,15 +72,25 @@ const Menu = ({
               United VARs
             </strong>
             <ul className="flex flex-col gap-1">
-              {unitedVarsLinks.map((link) => (
+              <li className={clsx(
+                    orbitron.className,
+                    "text-primary-800 text-xl hover:text-primary-500 transition"
+                  )}>
+                <Link href={`/`}>
+                    Home
+                </Link>
+              </li>
+              {menuLinks.map(({ label, href }, idx: number) => (
                 <li
-                  key={link.label}
+                  key={label}
                   className={clsx(
                     orbitron.className,
                     "text-primary-800 text-xl hover:text-primary-500 transition"
                   )}
                 >
-                  <Link href={link.href}>{link.label}</Link>
+                  <Link href={`/en/${href}`}>
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>

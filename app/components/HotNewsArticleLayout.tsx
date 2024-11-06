@@ -29,6 +29,10 @@ const HotNewsArticleLayout = ({ article }: { article: Article }) => {
           <h1 className={clsx("text-2xl xl:text-[48px] leading-none mb-4")}>
             {article.title}
           </h1>
+          <div
+            className={clsx("text-xs opacity-70")}
+          >{`Source ${article.author.name}`}</div>
+
           <div className={clsx("py-0 [&>p]:my-4 [&>h1]:text-xl portable-text")}>
             <PortableText
               value={article.content}
