@@ -12,10 +12,10 @@ import Footer from "@/app/components/common/Footer";
 import { orbitron } from "@/utils/fonts";
 import clsx from "clsx";
 import ArticleThumbnail from "@/app/components/common/ArticleThumbnail";
-import moment from "moment";
 import Link from "next/link";
 import DefaultArticleLayout from "@/app/components/DefaultArticleLayout";
 import HotNewsArticleLayout from "@/app/components/HotNewsArticleLayout";
+import { formatDate } from "@/utils/utils";
 
 const Article = async ({
   params,
@@ -150,7 +150,7 @@ const Article = async ({
                       <span>{randomArticle.category.name}</span>
                       <span className="text-gray-400">-</span>
                       <span className="text-gray-600">
-                        {moment(randomArticle._createdAt).format(`DD-MM-YY`)}
+                        {formatDate(randomArticle._createdAt, params.lang)}
                       </span>
                     </div>
                     <h1

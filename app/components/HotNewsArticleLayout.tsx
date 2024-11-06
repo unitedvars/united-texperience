@@ -2,13 +2,15 @@
 
 import { orbitron } from "@/utils/fonts";
 import clsx from "clsx";
-import moment from "moment";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
 import { Article } from "@/types";
 import { portableTextComponents } from "@/sanity/lib/portableText";
+import { formatDate } from "@/utils/utils";
+import { useParams } from "next/navigation";
 
 const HotNewsArticleLayout = ({ article }: { article: Article }) => {
+  const { lang } = useParams();
   return (
     <article className="flex flex-col items-center w-full default-box pb-6 md:pb-12 md:my-16">
       <div className="flex flex-col-reverse gap-3 md:flex-row md:gap-6">
@@ -22,7 +24,7 @@ const HotNewsArticleLayout = ({ article }: { article: Article }) => {
             <span>{article.category.name}</span>
             <span className="text-gray-400">-</span>
             <span className="text-gray-600">
-              {moment(article._createdAt).format(`DD-MM-YY`)}
+              {formatDate(article._createdAt, lang as string)}
             </span>
           </div>
 

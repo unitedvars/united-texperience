@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
-import { maitree, orbitron, archivo } from "@/utils/fonts";
+import { maitree } from "@/utils/fonts";
 import "./globals.css";
 import clsx from "clsx";
 import ProgressBarWrapper from "./components/common/ProgressBarWrapper";
 import { GoogleTagManager } from "@next/third-parties/google";
-import Button from "./components/common/Button";
-import ButtonSecondary from "./components/common/ButtonSecondary";
-import Link from "next/link";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -26,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <GoogleTagManager gtmId="GTM-MFD53K6V" />
-      <body className={clsx(maitree.className, "bg-gray-50", "overflow-x-hidden")}>
+      <body
+        className={clsx(maitree.className, "bg-gray-50", "overflow-x-hidden")}
+      >
         <ProgressBarWrapper />
         {children}
 

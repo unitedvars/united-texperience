@@ -2,10 +2,11 @@
 
 import clsx from "clsx";
 import Image from "next/image";
-import moment from "moment";
 import { Article } from "@/types";
 import { orbitron } from "@/utils/fonts";
 import { motion } from "framer-motion";
+import { formatDate } from "@/utils/utils";
+import { useParams } from "next/navigation";
 
 const DefaultArticleHeader = ({
   article,
@@ -14,6 +15,7 @@ const DefaultArticleHeader = ({
   article: Article;
   clickable?: boolean;
 }) => {
+  const { lang } = useParams();
   return (
     <motion.div
       initial={{ transform: "translateY(100px)", opacity: 0 }}
@@ -34,7 +36,7 @@ const DefaultArticleHeader = ({
         fill
         className="object-cover rounded-lg xl:rounded-xl"
       />
-      
+
       <div className="w-full bg-white absolute z-10 xl:w-[882px] bottom-0 left-0 p-4 lg:p-4 flex flex-col xl:rounded-tr-lg xl:rounded-bl-lg">
         <div
           className={clsx(
@@ -45,7 +47,7 @@ const DefaultArticleHeader = ({
           <span>{article.category.name}</span>
           <span className="text-gray-400">-</span>
           <span className="text-gray-600">
-            {moment(article._createdAt).format(`DD-MM-YY`)}
+            {formatDate(article._createdAt, lang as string)}
           </span>
         </div>
         <h1
@@ -67,7 +69,7 @@ const DefaultArticleHeader = ({
           </div>
           <div className="h-3 w-px bg-gray-300 hidden md:block" />
           <div className={clsx("text-xs text-primary-800")}>
-          {article.editorial.name}
+            {article.editorial.name}
           </div>
         </div>
       </div>

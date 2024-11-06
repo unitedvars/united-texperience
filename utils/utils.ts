@@ -21,3 +21,7 @@ export const getTotalPages = (allArticles: number) => {
     allArticles / parseInt(process.env.NEXT_PUBLIC_DEFAULT_PAGE_SIZE as string)
   );
 };
+
+export const formatDate = (date: any, locale: string) => {
+  return new Date(date).toLocaleString(locale, { dateStyle: "short" });
+};

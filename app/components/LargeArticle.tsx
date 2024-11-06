@@ -2,10 +2,11 @@
 
 import clsx from "clsx";
 import Image from "next/image";
-import moment from "moment";
 import { Article } from "@/types";
 import { orbitron } from "@/utils/fonts";
 import { motion } from "framer-motion";
+import { formatDate } from "@/utils/utils";
+import { useParams } from "next/navigation";
 
 const LargeArticle = ({
   article,
@@ -14,6 +15,7 @@ const LargeArticle = ({
   article: Article;
   clickable?: boolean;
 }) => {
+  const { lang } = useParams();
   return (
     <motion.div
       initial={{ transform: "translateY(100px)", opacity: 0 }}
@@ -47,7 +49,7 @@ const LargeArticle = ({
           <span>{article.category.name}</span>
           <span className="text-gray-400">-</span>
           <span className="text-gray-600">
-            {moment(article._createdAt).format(`DD-MM-YY`)}
+            {formatDate(article._createdAt, lang as string)}
           </span>
         </div>
         <h1
