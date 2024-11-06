@@ -15,6 +15,7 @@ const SearchBar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [searchString, setSearchString] = useState("");
   const open = Boolean(anchorEl);
+  const [selectedSorting, setSelectedSorting] = useState("Latest");
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -74,7 +75,7 @@ const SearchBar = () => {
               "text-primary-500 flex items-center gap-2"
             )}
           >
-            Latest
+            {selectedSorting}
             <IoChevronDownSharp />
           </button>
           <Menu
@@ -91,6 +92,7 @@ const SearchBar = () => {
               className={clsx(orbitron.className, "text-sm")}
               onClick={() => {
                 params.set("sort", "asc");
+                setSelectedSorting("Latest");
                 push(`?${params.toString()}`, {});
               }}
             >
@@ -100,6 +102,7 @@ const SearchBar = () => {
               className={clsx(orbitron.className, "text-sm")}
               onClick={() => {
                 params.set("sort", "desc");
+                setSelectedSorting("Oldest");
                 push(`?${params.toString()}`, {});
               }}
             >
