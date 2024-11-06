@@ -5,11 +5,11 @@ import { IoChevronDownSharp } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import clsx from "clsx";
 import { archivo, orbitron } from "@/utils/fonts";
 import FilterMenu from "./FilterMenu";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const SearchBar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

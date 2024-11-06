@@ -68,10 +68,7 @@ const ArticleList = ({
           }}
           className="h-80 flex items-center justify-center"
         >
-          <strong
-            className={clsx("text-1xl font-light", archivo.className)}
-          >
-
+          <strong className={clsx("text-1xl font-light", archivo.className)}>
             No articles found...
           </strong>
         </motion.div>

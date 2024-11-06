@@ -83,7 +83,7 @@ export const EVENTS = groq`*[_type == "events" && language == $language] | order
 
 export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language && ${articleParams}] | order(_id) [$trim_start...$trim_end] ${articlesQuery}`;
 
-export const CATEGORY_COUNT = groq`count(*[_type == "article" && category->slug.current == $category])`;
+export const CATEGORY_COUNT = groq`count(*[_type == "article" && category->slug.current == $category && ${articleParams}])`;
 
 export const ALL_COUNT = groq`count(*[_type == "article" && ${articleParams} ])`;
 
