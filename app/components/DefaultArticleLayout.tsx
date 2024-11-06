@@ -5,10 +5,7 @@ import { PortableText } from "next-sanity";
 import MotionWrapper from "./common/MotionWrapper";
 import DefaultArticleHeader from "./DefaultArticleHeader";
 import { Article } from "@/types";
-import ReactPlayer from "react-player";
-import Image from "next/image";
-import { urlForImage } from "@/sanity/lib/image";
-import Link from "next/link";
+import { portableTextComponents } from "@/sanity/lib/portableText";
 
 const DefaultArticleLayout = ({ article }: { article: Article }) => {
   return (
@@ -34,48 +31,7 @@ const DefaultArticleLayout = ({ article }: { article: Article }) => {
         >
           <PortableText
             value={article.content}
-            components={{
-              types: {
-                image: (props) => {
-                  return (
-                    <div className="relative aspect-video w-full bg-gray-200 rounded-md overflow-hidden">
-                      <Image
-                        src={props.value.asset.url}
-                        alt="United Texperience"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  );
-                },
-                slug: (props) => (
-                  <div className="youtube-embed">
-                    <ReactPlayer url={props.value.current} />
-                  </div>
-                ),
-                quote: (props) => {
-                  return (
-                    <figure>
-                      <blockquote className="bg-gray-200 p-6 rounded-md text-xl leading-relaxed italic">
-                        <PortableText value={props.value.text} />{" "}
-                      </blockquote>
-                    </figure>
-                  );
-                },
-              },
-              marks: {
-                externalLink: ({ value, children }) => {
-                  const { slug = {} } = value;
-                  console.log(value);
-                  const href = `${value.url}`;
-                  return (
-                    <Link href={href} target="_blank">
-                      {children}
-                    </Link>
-                  );
-                },
-              },
-            }}
+            components={portableTextComponents}
           />
         </div>
       </MotionWrapper>

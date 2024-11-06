@@ -128,7 +128,7 @@ const Article = async ({
           </div>
           {randomArticle && (
             <Link
-              href={`${params.lang}/${randomArticle.category.slug.current}/${randomArticle.slug.current}`}
+              href={`/${params.lang}/${randomArticle.category.slug.current}/${randomArticle.slug.current}`}
             >
               <div className="w-full bg-white rounded-lg p-4 flex flex-col lg:flex-row gap-4">
                 <div className="lg:w-1/2 relative min-h-96">

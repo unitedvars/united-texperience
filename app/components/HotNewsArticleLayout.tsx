@@ -1,10 +1,12 @@
+"use client";
+
 import { orbitron } from "@/utils/fonts";
 import clsx from "clsx";
 import moment from "moment";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
 import { Article } from "@/types";
-import Link from "next/link";
+import { portableTextComponents } from "@/sanity/lib/portableText";
 
 const HotNewsArticleLayout = ({ article }: { article: Article }) => {
   return (
@@ -30,16 +32,7 @@ const HotNewsArticleLayout = ({ article }: { article: Article }) => {
           <div className={clsx("py-0 [&>p]:my-4 [&>h1]:text-xl portable-text")}>
             <PortableText
               value={article.content}
-              components={{
-                types: {
-                  slug: (props) => (
-                    <p className="youtube-embed">
-                      Read full article{" "}
-                      <Link href={props.value.current}>here</Link>
-                    </p>
-                  ),
-                },
-              }}
+              components={portableTextComponents}
             />
           </div>
         </div>

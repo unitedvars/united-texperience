@@ -251,12 +251,6 @@
             "marks": {
               "annotations": [
                 {
-                  "i18nTitleKey": "inputs.portable-text.annotation.link",
-                  "options": {
-                    "modal": {
-                      "type": "popover"
-                    }
-                  },
                   "fields": [
                     {
                       "validation": [
@@ -268,11 +262,9 @@
                                 "options": {
                                   "scheme": [
                                     "/^http$/",
-                                    "/^https$/",
-                                    "/^tel$/",
-                                    "/^mailto$/"
+                                    "/^https$/"
                                   ],
-                                  "allowRelative": true,
+                                  "allowRelative": false,
                                   "relativeOnly": false,
                                   "allowCredentials": false
                                 }
@@ -282,14 +274,14 @@
                           "level": "error"
                         }
                       ],
-                      "description": "A valid web, email, phone, or relative link.",
-                      "name": "href",
+                      "name": "url",
                       "type": "url",
-                      "title": "Link"
+                      "title": "URL"
                     }
                   ],
-                  "name": "link",
-                  "type": "object"
+                  "name": "externalLink",
+                  "type": "object",
+                  "title": "External link"
                 }
               ],
               "decorators": [
