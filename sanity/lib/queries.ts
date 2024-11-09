@@ -44,6 +44,34 @@ const articlesQuery = `{
   },
 }`;
 
+const eventsQuery = `{
+  _createdAt,
+  _id,
+  title,
+  subtitle,
+  author->{
+    role->,
+    name
+  },
+  category->,
+  editorial->,
+  "mainImage": mainImage.asset->url,
+  slug,
+  eventDate,
+  content[]{
+    ...,
+    _type == "image" => {
+      asset->
+    },
+    markDefs[]{
+      ...,
+      _type == "externalLink" => {
+        "slug": @.reference->slug
+      }
+    }
+  },
+}`;
+
 const eventParams = `{
   title,
   subtitle,
@@ -81,11 +109,17 @@ export const EVENT = groq`*[_type == "events" && slug.current == $slug][0] ${eve
 
 export const EVENTS = groq`*[_type == "events" && language == $language] | order(_id) [$trim_start...$trim_end] ${eventParams}`;
 
+export const EVENTS_ASC = groq`*[_type == "article" && ${eventParams}] | order(_createdAt asc) [$trim_start...$trim_end] ${eventsQuery}`;
+
+export const EVENTS_DESC = groq`*[_type == "article" && ${eventParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${eventsQuery}`;
+
 export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language && ${articleParams}] | order(_id) [$trim_start...$trim_end] ${articlesQuery}`;
 
 export const CATEGORY_COUNT = groq`count(*[_type == "article" && category->slug.current == $category && ${articleParams}])`;
 
 export const ALL_COUNT = groq`count(*[_type == "article" && ${articleParams} ])`;
+
+export const EVENTS_COUNT = groq`count(*[_type == "event" && ${eventParams} ])`;
 
 export const AUTHORS = groq`*[_type == "author"]`;
 

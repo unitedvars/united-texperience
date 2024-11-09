@@ -27,6 +27,11 @@ export const events = {
       type: "string",
     },
     {
+      title: "Event Date",
+      name: "eventDate",
+      type: "date",
+    },
+    {
       name: "language",
       type: "string",
       readOnly: true,

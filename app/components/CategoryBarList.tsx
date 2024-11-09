@@ -46,13 +46,8 @@ const CategoryBarList = ({ categories }: { categories: Category[] }) => {
           archivo.className,
           "text-primary-700 text-right hover:text-primary-500 transition"
         )}
-        onClick={() => {
-          document
-            .querySelector("#events-and-training")
-            ?.scrollIntoView({ behavior: "smooth", block: "center" });
-        }}
       >
-        Events & Training
+        <Link href={`${params.lang}/events?page=1`}>Events & Training</Link>
       </li>
     </ul>
   );
