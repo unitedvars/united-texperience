@@ -15,6 +15,7 @@ import { Category } from "@/types";
 import { motion } from "framer-motion";
 import CategoryBar from "../CategoryBar";
 import { useParams } from "next/navigation";
+import SearchInput from "./SearchInput";
 
 const Navbar = ({
   categories,
@@ -70,8 +71,10 @@ const Navbar = ({
             </Link>
           </div>
 
-
-          <div className="w-1/3 justify-end flex gap-6 text-primary-600">
+          <div className="w-1/3 justify-end flex gap-6 text-primary-600 items-center">
+            <div>
+              <SearchInput className="hidden xl:flex" type={"all"} />
+            </div>
             <div
               className={clsx(
                 orbitron.className,
@@ -83,10 +86,14 @@ const Navbar = ({
               <Link href="/es">ES</Link>
             </div>
 
-
-            <Button className={"hidden lg:block"} onClick={() => {
-              setIsModalOpen(!isModalOpen);
-            }} >Subscribe</Button>
+            <Button
+              className={"hidden lg:block"}
+              onClick={() => {
+                setIsModalOpen(!isModalOpen);
+              }}
+            >
+              Subscribe
+            </Button>
           </div>
         </div>
         {/* CATEGORIES BAR */}
@@ -103,10 +110,7 @@ const Navbar = ({
         categories={categories}
       />
 
-      <SubscribeModal 
-         isOpen={isModalOpen}
-         setIsOpen={setIsModalOpen}
-      />      
+      <SubscribeModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
     </>
   );
 };
