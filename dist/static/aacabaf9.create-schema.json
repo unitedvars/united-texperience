@@ -451,6 +451,10 @@
         "type": "string"
       },
       {
+        "name": "eventDate",
+        "type": "date"
+      },
+      {
         "readOnly": true,
         "hidden": true,
         "name": "language",

@@ -7,6 +7,7 @@ import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import { structureTool } from "sanity/structure";
 import { documentInternationalization } from "@sanity/document-internationalization";
+import { internationalizedArray } from "sanity-plugin-internationalized-array";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./sanity/env";
@@ -29,6 +30,14 @@ export default defineConfig({
         { id: "en", title: "English" },
       ],
       schemaTypes: ["article", "stats", "events", "home"],
+    }),
+    internationalizedArray({
+      languages: [
+        { id: "en", title: "English" },
+        { id: "es", title: "Spanish" },
+      ],
+      defaultLanguages: ["en"],
+      fieldTypes: ["string"],
     }),
   ],
   schema: {

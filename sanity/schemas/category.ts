@@ -9,7 +9,7 @@ export const category = {
     {
       title: "Name",
       name: "name",
-      type: "string",
+      type: "internationalizedArrayString",
     },
     {
       title: "Slug",

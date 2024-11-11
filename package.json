@@ -38,6 +38,7 @@
     "react-player": "^2.16.0",
     "react-select": "^5.8.1",
     "sanity": "^3.45.0",
+    "sanity-plugin-internationalized-array": "^3.0.1",
     "styled-components": "^6"
   },
   "devDependencies": {

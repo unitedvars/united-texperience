@@ -1,8 +1,9 @@
 "use client";
 
 import menuLinks from "@/app/ui/menuLinks";
-import { Category } from "@/types";
+import { Category, Lang } from "@/types";
 import { archivo } from "@/utils/fonts";
+import { getCategoryName } from "@/utils/utils";
 import clsx from "clsx";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -48,7 +49,7 @@ const FooterLinks = ({ categories }: { categories: Category[] }) => {
               className="hover:border-primary-200 pb-1 border-transparent transition border-b"
               href={`/${lang}/${category.slug.current}?page=1`}
             >
-              {category.name}
+              {getCategoryName(category, lang as Lang)}
             </Link>
             {idx < categories.length - 1 && (
               <span className="mx-3 opacity-30 xl:mx-6 hidden lg:inline-block">

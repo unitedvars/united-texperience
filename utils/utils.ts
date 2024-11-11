@@ -1,3 +1,5 @@
+import { Category, Lang } from "@/types";
+
 export const getArticlePageParams = (currentPage: number) => {
   const trim_start =
     currentPage == 1
@@ -24,4 +26,10 @@ export const getTotalPages = (allArticles: number) => {
 
 export const formatDate = (date: any, locale: string) => {
   return new Date(date).toLocaleString(locale, { dateStyle: "short" });
+};
+
+export const getCategoryName = (category: Category, lang: Lang) => {
+  console.log(category.name);
+  const currentCategory = category.name.find((locale) => locale._key === lang);
+  return currentCategory?.value;
 };

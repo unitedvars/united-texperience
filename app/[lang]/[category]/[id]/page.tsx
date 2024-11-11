@@ -7,7 +7,7 @@ import {
   CATEGORIES_QUERY,
 } from "@/sanity/lib/queries";
 import Navbar from "@/app/components/common/Navbar";
-import { Category, Article as ArticleType } from "@/types";
+import { Category, Article as ArticleType, Lang } from "@/types";
 import Footer from "@/app/components/common/Footer";
 import { orbitron } from "@/utils/fonts";
 import clsx from "clsx";
@@ -15,7 +15,7 @@ import ArticleThumbnail from "@/app/components/common/ArticleThumbnail";
 import Link from "next/link";
 import DefaultArticleLayout from "@/app/components/DefaultArticleLayout";
 import HotNewsArticleLayout from "@/app/components/HotNewsArticleLayout";
-import { formatDate } from "@/utils/utils";
+import { formatDate, getCategoryName } from "@/utils/utils";
 
 const Article = async ({
   params,
@@ -147,7 +147,12 @@ const Article = async ({
                         orbitron.className
                       )}
                     >
-                      <span>{randomArticle.category.name}</span>
+                      <span>
+                        {getCategoryName(
+                          randomArticle.category,
+                          params.lang as Lang
+                        )}
+                      </span>
                       <span className="text-gray-400">-</span>
                       <span className="text-gray-600">
                         {formatDate(randomArticle._createdAt, params.lang)}

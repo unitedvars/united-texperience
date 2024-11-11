@@ -1,11 +1,11 @@
-import { Category } from "@/types";
+import { Category, Lang } from "@/types";
 import menuLinks from "@/app/ui/menuLinks";
 import clsx from "clsx";
 import { orbitron, archivo } from "@/utils/fonts";
 import Link from "next/link";
 import MenuContainer from "./MenuContainer";
 import { useParams } from "next/navigation";
-import { home } from "@/sanity/schemas/home";
+import { getCategoryName } from "@/utils/utils";
 
 const Menu = ({
   categories,
@@ -41,7 +41,7 @@ const Menu = ({
                   )}
                 >
                   <Link href={`/${lang}/${category.slug.current}?page=1`}>
-                    {category.name}
+                    {getCategoryName(category, lang as Lang)}
                   </Link>
                 </li>
               ))}
@@ -72,13 +72,13 @@ const Menu = ({
               United VARs
             </strong>
             <ul className="flex flex-col gap-1">
-              <li className={clsx(
-                    orbitron.className,
-                    "text-primary-800 text-xl hover:text-primary-500 transition"
-                  )}>
-                <Link href={`/`}>
-                    Home
-                </Link>
+              <li
+                className={clsx(
+                  orbitron.className,
+                  "text-primary-800 text-xl hover:text-primary-500 transition"
+                )}
+              >
+                <Link href={`/`}>Home</Link>
               </li>
               {menuLinks.map(({ label, href }, idx: number) => (
                 <li
@@ -88,9 +88,7 @@ const Menu = ({
                     "text-primary-800 text-xl hover:text-primary-500 transition"
                   )}
                 >
-                  <Link href={`/en/${href}`}>
-                    {label}
-                  </Link>
+                  <Link href={`/en/${href}`}>{label}</Link>
                 </li>
               ))}
             </ul>

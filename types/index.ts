@@ -11,9 +11,14 @@ export interface Article {
   content: any;
 }
 
+interface CategoryName {
+  _key: "en" | "es";
+  value: string;
+}
+
 export interface Category {
   hide_in_category_bar: boolean;
-  name: string;
+  name: CategoryName[];
   slug: Slug;
 }
 
@@ -57,3 +62,5 @@ export interface SelectOption {
 }
 
 export interface Editorial {}
+
+export type Lang = "en" | "es";

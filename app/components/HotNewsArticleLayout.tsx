@@ -4,9 +4,9 @@ import { orbitron } from "@/utils/fonts";
 import clsx from "clsx";
 import Image from "next/image";
 import { PortableText } from "next-sanity";
-import { Article } from "@/types";
+import { Article, Lang } from "@/types";
 import { portableTextComponents } from "@/sanity/lib/portableText";
-import { formatDate } from "@/utils/utils";
+import { formatDate, getCategoryName } from "@/utils/utils";
 import { useParams } from "next/navigation";
 
 const HotNewsArticleLayout = ({ article }: { article: Article }) => {
@@ -21,7 +21,7 @@ const HotNewsArticleLayout = ({ article }: { article: Article }) => {
               orbitron.className
             )}
           >
-            <span>{article.category.name}</span>
+            <span>{getCategoryName(article.category, lang as Lang)}</span>
             <span className="text-gray-400">-</span>
             <span className="text-gray-600">
               {formatDate(article._createdAt, lang as string)}

@@ -2,10 +2,10 @@
 
 import clsx from "clsx";
 import Image from "next/image";
-import { Article } from "@/types";
+import { Article, Lang } from "@/types";
 import { orbitron } from "@/utils/fonts";
 import { motion } from "framer-motion";
-import { formatDate } from "@/utils/utils";
+import { formatDate, getCategoryName } from "@/utils/utils";
 import { useParams } from "next/navigation";
 
 const LargeArticle = ({
@@ -17,19 +17,7 @@ const LargeArticle = ({
 }) => {
   const { lang } = useParams();
   return (
-    <motion.div
-      initial={{ transform: "translateY(100px)", opacity: 0 }}
-      animate={{
-        transform: "translateY(0px)",
-        opacity: 1,
-      }}
-      transition={{
-        type: "spring",
-        ease: "easeOut",
-        bounce: 0,
-      }}
-      className="grow bg-primary-200 min-h-[611px] h-full relative rounded-xl w-full group"
-    >
+    <div className="grow bg-primary-200 min-h-[611px] h-full relative rounded-xl w-full group">
       {article.mainImage && (
         <Image
           src={article.mainImage}
@@ -46,7 +34,7 @@ const LargeArticle = ({
             orbitron.className
           )}
         >
-          <span>{article.category.name}</span>
+          <span>{getCategoryName(article.category, lang as Lang)}</span>
           <span className="text-gray-400">-</span>
           <span className="text-gray-600">
             {formatDate(article._createdAt, lang as string)}
@@ -77,7 +65,7 @@ const LargeArticle = ({
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

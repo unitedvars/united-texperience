@@ -1,10 +1,11 @@
 "use client";
 
-import { Category } from "@/types";
+import { Category, Lang } from "@/types";
 import { archivo } from "@/utils/fonts";
 import clsx from "clsx";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
+import { getCategoryName } from "@/utils/utils";
 
 const CategoryBarList = ({ categories }: { categories: Category[] }) => {
   const params = useParams();
@@ -35,7 +36,7 @@ const CategoryBarList = ({ categories }: { categories: Category[] }) => {
               )}
             >
               <Link href={`/${params.lang}/${category.slug.current}?page=1`}>
-                {category.name}
+                {getCategoryName(category, params.lang as Lang)}
               </Link>
             </li>
           )
