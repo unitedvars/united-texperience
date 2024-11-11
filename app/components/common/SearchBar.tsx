@@ -27,18 +27,22 @@ const SearchBar = () => {
   const params = new URLSearchParams(useSearchParams().toString());
 
   return (
-    <div className="flex gap-6 py-6">
-      <FilterMenu isOpen={isFilterMenuOpen} setIsOpen={setIsFilterMenuOpen} />
-      <div
-        className="flex items-center gap-2 group cursor-pointer"
-        onClick={() => {
-          setIsFilterMenuOpen(true);
-        }}
-      >
-        <PiFadersFill className="group-hover:text-primary-500 transition" />
-        <span className="group-hover:text-primary-500 transition">filter</span>
+    <div className="flex-col md:flex-row flex gap-6 py-6">
+      <div className="flex gap-6 items-center">
+        <FilterMenu isOpen={isFilterMenuOpen} setIsOpen={setIsFilterMenuOpen} />
+        <div
+          className="flex items-center gap-2 group cursor-pointer"
+          onClick={() => {
+            setIsFilterMenuOpen(true);
+          }}
+        >
+          <PiFadersFill className="group-hover:text-primary-500 transition" />
+          <span className="group-hover:text-primary-500 transition">
+            filter
+          </span>
+        </div>
+        <SearchInput className="grow md:grow-0" />
       </div>
-      <SearchInput />
       <div className="flex ml-auto items-center gap-2">
         <div className={clsx(archivo.className, "text-sm text-primary-700")}>
           Sort by:

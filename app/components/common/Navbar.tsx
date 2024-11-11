@@ -29,18 +29,7 @@ const Navbar = ({
   const { lang } = useParams();
   return (
     <>
-      <motion.div
-        className="py-4 2xl:py-8 default-box"
-        initial={{ transform: "translateY(-200px)" }}
-        animate={{
-          transform: "translateY(0px)",
-        }}
-        transition={{
-          type: "spring",
-          ease: "easeOut",
-          bounce: 0,
-        }}
-      >
+      <div className="py-4 2xl:py-8 default-box">
         <div className="h-[52px] flex items-center w-full">
           <div
             className="w-1/3 flex gap-12 items-center"
@@ -103,7 +92,7 @@ const Navbar = ({
           </div>
         )}
         {/* MENU */}
-      </motion.div>
+      </div>
       <Menu
         isOpen={isMenuOpen}
         setIsOpen={setIsMenuOpen}

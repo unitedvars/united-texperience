@@ -70,7 +70,7 @@ const eventsQuery = `{
       }
     }
   },
-}`;
+} | order(eventDate desc)`;
 
 const eventParams = `{
   title,

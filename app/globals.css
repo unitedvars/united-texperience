@@ -81,3 +81,7 @@ body {
 .select__dropdown-indicator svg {
   fill: theme("colors.primary.500");
 }
+
+.ph-image {
+  background: theme("colors.stone.100");
+}

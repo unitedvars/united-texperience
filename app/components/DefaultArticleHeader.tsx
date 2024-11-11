@@ -22,7 +22,7 @@ const DefaultArticleHeader = ({
         src={article.mainImage}
         alt={article.title}
         fill
-        className="object-cover rounded-lg xl:rounded-xl"
+        className="object-cover rounded-lg xl:rounded-xl ph-image"
       />
 
       <div className="w-full bg-white absolute z-10 xl:w-[882px] bottom-0 left-0 p-4 lg:p-4 flex flex-col xl:rounded-tr-lg xl:rounded-bl-lg">

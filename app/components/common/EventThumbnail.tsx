@@ -26,18 +26,16 @@ const EventThumbnail = ({
 }: ArticleThumbnailProps) => {
   return (
     <Link href={url || "#"} className="group" target="_blank">
-      <motion.div
-        initial={{ transform: "translateY(40px)", opacity: 0 }}
-        whileInView={{ transform: "translateY(0)", opacity: 1 }}
-        viewport={{
-          once: true,
-          margin: "-200px 0px",
-        }}
-      >
+      <div>
         <div className={clsx(className, "flex gap-2 flex-col group")}>
           {imageUrl && (
             <div className="w-full min-w-[150px] h-[220px] 2xl:h-[150px] relative rounded-md overflow-hidden">
-              <Image src={imageUrl} alt={title} fill className="object-cover" />
+              <Image
+                src={imageUrl}
+                alt={title}
+                fill
+                className="object-cover ph-image"
+              />
             </div>
           )}
 
@@ -54,7 +52,7 @@ const EventThumbnail = ({
             <p className="text-sm text-gray-600">{subtitle}</p>
           </div>
         </div>
-      </motion.div>
+      </div>
     </Link>
   );
 };

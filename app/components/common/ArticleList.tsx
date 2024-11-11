@@ -56,22 +56,11 @@ const ArticleList = ({
           </div>
         </div>
       ) : (
-        <motion.div
-          initial={{ transform: "translateY(20px)" }}
-          animate={{
-            transform: "translateY(0px)",
-          }}
-          transition={{
-            type: "spring",
-            ease: "easeOut",
-            bounce: 0,
-          }}
-          className="h-80 flex items-center justify-center"
-        >
+        <div className="h-80 flex items-center justify-center">
           <strong className={clsx("text-1xl font-light", archivo.className)}>
             No articles found...
           </strong>
-        </motion.div>
+        </div>
       )}
     </Suspense>
   );

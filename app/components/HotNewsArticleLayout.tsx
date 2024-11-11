@@ -48,7 +48,7 @@ const HotNewsArticleLayout = ({ article }: { article: Article }) => {
             src={article.mainImage}
             alt=""
             fill
-            className="object-cover rounded-lg xl:rounded-xl w-full"
+            className="object-cover rounded-lg xl:rounded-xl w-full ph-image"
           />
         </div>
       </div>

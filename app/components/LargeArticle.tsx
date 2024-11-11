@@ -23,7 +23,7 @@ const LargeArticle = ({
           src={article.mainImage}
           alt={article.title}
           fill
-          className="object-cover rounded-lg xl:rounded-xl"
+          className="object-cover rounded-lg xl:rounded-xl ph-image"
         />
       )}
 
