@@ -1,5 +1,7 @@
 import { IoClose } from "react-icons/io5";
 import { useRouter, useSearchParams } from "next/navigation";
+import { archivo, orbitron } from "@/utils/fonts";
+import clsx from "clsx";
 
 const FilterPill = ({
   label,
@@ -15,13 +17,12 @@ const FilterPill = ({
   return (
     <div className="bg-stone-200 flex items-center rounded-sm">
       <div className="px-2">
-        <label htmlFor="">{value}</label>
+        <label className={clsx(orbitron.className, "text-sm")}>{value}</label>
       </div>
       <div
         className="px-1 border-l border-stone-400 cursor-pointer group"
         onClick={() => {
           params.delete(label);
-          console.log(params);
           push(`?${params.toString()}`, {});
         }}
       >

@@ -1,7 +1,7 @@
 "use client";
 
 import { PiFadersFill } from "react-icons/pi";
-import { IoChevronDownSharp } from "react-icons/io5";
+import { IoChevronDownSharp, IoTrash } from "react-icons/io5";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useEffect, useState } from "react";
@@ -35,7 +35,11 @@ const SearchBar = () => {
       if (key != "page") {
         paramFilters.push(
           <div className="flex gap-2">
-            <div className="capitalize">{key}:</div>
+            <div
+              className={clsx("capitalize text-primary-800", archivo.className)}
+            >
+              {key}:
+            </div>
             <FilterPill label={key} value={value} />
           </div>
         );
@@ -65,10 +69,27 @@ const SearchBar = () => {
           </div>
           <SearchInput className="grow md:grow-0" />
         </div>
-        <div>
+        <div className="flex gap-4">
           <div className="flex flex-col gap-2">
             {renderFilters().map((paramFilter) => paramFilter)}
           </div>
+          {renderFilters().length > 0 && (
+            <div
+              className={clsx(
+                "text-red-500 flex gap-2 items-center cursor-pointer"
+              )}
+              onClick={() => {
+                params.delete("author");
+                params.delete("editorial");
+                push(`?${params.toString()}`, {});
+              }}
+            >
+              <IoTrash />
+              <span className={clsx(orbitron.className, "text-sm")}>
+                Clear All
+              </span>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex ml-auto items-center gap-2">
