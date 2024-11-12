@@ -5,6 +5,11 @@ export const category = {
   name: "category",
   type: "document",
   icon: HashIcon,
+  preview: {
+    select: {
+      title: "slug.current",
+    },
+  },
   fields: [
     {
       title: "Name",
