@@ -134,10 +134,78 @@
     "title": "Translation metadata"
   },
   {
+    "options": {
+      "apiVersion": "2022-11-27",
+      "languages": [
+        {
+          "id": "en",
+          "title": "English"
+        },
+        {
+          "id": "es",
+          "title": "Spanish"
+        }
+      ]
+    },
+    "validation": [
+      {
+        "rules": [
+          {
+            "flag": "custom"
+          }
+        ],
+        "level": "error"
+      }
+    ],
+    "of": [
+      {
+        "type": "internationalizedArrayStringValue",
+        "title": "Internationalized array string"
+      }
+    ],
+    "name": "internationalizedArrayString",
+    "type": "array",
+    "title": "Internationalized array"
+  },
+  {
     "fields": [
       {
-        "name": "name",
+        "name": "value",
         "type": "string"
+      }
+    ],
+    "name": "internationalizedArrayStringValue",
+    "type": "object",
+    "title": "Internationalized array string"
+  },
+  {
+    "fields": [
+      {
+        "options": {
+          "apiVersion": "2022-11-27",
+          "languages": [
+            {
+              "id": "en",
+              "title": "English"
+            },
+            {
+              "id": "es",
+              "title": "Spanish"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "internationalizedArrayString"
       },
       {
         "options": {
