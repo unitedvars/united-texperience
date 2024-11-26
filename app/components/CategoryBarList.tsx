@@ -48,7 +48,7 @@ const CategoryBarList = ({ categories }: { categories: Category[] }) => {
           "text-primary-700 text-right hover:text-primary-500 transition"
         )}
       >
-        <Link href={`${params.lang}/events?page=1`}>Events & Training</Link>
+        <Link href={`events?page=1`}>Events & Training</Link>
       </li>
     </ul>
   );

@@ -29,6 +29,7 @@ export const formatDate = (date: any, locale: string) => {
 };
 
 export const getCategoryName = (category: Category, lang: Lang) => {
-  const currentCategory = category.name.find((locale) => locale._key === lang);
+  console.log(category.name);
+  const currentCategory = category.name?.find((locale) => locale._key === lang);
   return currentCategory?.value;
 };
