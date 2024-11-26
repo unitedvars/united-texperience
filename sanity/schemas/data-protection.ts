@@ -1,25 +1,17 @@
-import { HomeIcon } from "@sanity/icons";
-import { Rule } from "sanity";
+import { LockIcon } from "@sanity/icons";
 
-export const home = {
-  name: "home",
+export const dataProtection = {
+  name: "dataProtection",
   type: "document",
-  title: "Home",
-  icon: HomeIcon,
+  title: "Data Protection",
+  icon: LockIcon,
   fields: [
     {
       name: "title",
       title: "Title",
       type: "string",
-      initialValue: "Home",
+      initialValue: "Data Protection",
       disabled: true,
-    },
-    {
-      name: "featuredArticle",
-      title: "Featured Article",
-      type: "reference",
-      to: [{ type: "article" }],
-      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: "language",
@@ -28,8 +20,8 @@ export const home = {
       hidden: true,
     },
     {
-      title: "Footer",
-      name: "footer",
+      title: "Content",
+      name: "content",
       type: "array",
       of: [
         {

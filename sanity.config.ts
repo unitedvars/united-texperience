@@ -29,7 +29,14 @@ export default defineConfig({
         { id: "es", title: "Spanish" },
         { id: "en", title: "English" },
       ],
-      schemaTypes: ["article", "stats", "events", "home"],
+      schemaTypes: [
+        "article",
+        "stats",
+        "events",
+        "home",
+        "copyright",
+        "dataProtection",
+      ],
     }),
     internationalizedArray({
       languages: [
