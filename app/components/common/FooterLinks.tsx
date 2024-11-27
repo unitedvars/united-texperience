@@ -13,7 +13,7 @@ const FooterLinks = ({ categories }: { categories: Category[] }) => {
 
   return (
     <>
-      <ul className="flex justify-start flex-col lg:flex-row">
+      <ul className="flex justify-start flex-col lg:flex-row gap-3">
         {menuLinks.map(({ label, href }, idx: number) => (
           <li
             key={label}

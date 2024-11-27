@@ -20,7 +20,7 @@ import { formatDate, getCategoryName } from "@/utils/utils";
 const Article = async ({
   params,
 }: {
-  params: { id: string; lang: string };
+  params: { id: string; lang: 'en' | 'es' };
 }) => {
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
@@ -194,7 +194,7 @@ const Article = async ({
           )}
 
           <div className="w-full bg-white rounded-lg p-4">
-            <Footer />
+            <Footer lang={params.lang} />
           </div>
         </div>
       </main>

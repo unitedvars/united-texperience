@@ -55,7 +55,7 @@ export default async function Home() {
           </p>
         </div>
 
-      <Footer />
+      <Footer lang={lang} />
       </main>
     </>
   );

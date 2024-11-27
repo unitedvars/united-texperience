@@ -69,7 +69,7 @@ const Events = async ({
           <EventList events={events} totalPages={totalPages} />
         </div>
       </main>
-      <Footer />
+      <Footer lang={lang} />
     </div>
   );
 };

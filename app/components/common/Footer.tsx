@@ -1,6 +1,5 @@
-import menuLinks from "@/app/ui/menuLinks";
 import { sanityFetch } from "@/sanity/lib/fetch";
-import { CATEGORIES_QUERY } from "@/sanity/lib/queries";
+import { CATEGORIES_QUERY, HOME_QUERY } from "@/sanity/lib/queries";
 import { Category } from "@/types";
 import { archivo, orbitron } from "@/utils/fonts";
 import clsx from "clsx";
@@ -8,25 +7,32 @@ import Link from "next/link";
 import Button from "./Button";
 import LogoLink from "./LogoLink";
 import FooterLinks from "./FooterLinks";
+import PortableText from "./PortableText";
 
-export default async function Footer() {
+
+export default async function Footer({lang} : {lang: 'en' | 'es'}) {
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
 
+  const home = await sanityFetch<any>({
+    query: HOME_QUERY,
+    params: {
+      language: lang,
+    },
+  });
+
   return (
     <div className="bg-white rounded-lg p-8 default-box">
-      <footer className="flex flex-col gap-12 lg:px-8">
+      <footer className="flex flex-col gap-12 lg:px-8 max-w-[480px] lg:max-w-none mx-auto">
         <div className="flex flex-col lg:flex-row justify-between gap-8">
           <div className="flex flex-col lg:w-1/2">
             <LogoLink />
 
             <p className={clsx("text-1xl font-light", archivo.className)}>
-              At United TeXperience, we believe in sharing news that empowers
-              businesses and technology leaders to drive innovation. We
-              spotlight the breakthroughs in enterprise solutions, cutting-edge
-              software, and transformative technologies that are shaping the
-              future of industries and the world.
+              <PortableText
+                value={home.footer}
+              />
             </p>
           </div>
           <div className="flex items-end flex-col lg:w-1/2 gap-2">

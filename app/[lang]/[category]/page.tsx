@@ -1,6 +1,5 @@
 import { sanityFetch } from "@/sanity/lib/fetch";
 import {
-  ALL_COUNT,
   CATEGORIES_QUERY,
   CATEGORY_COUNT,
   PAGINATED_ARTICLES_BY_CATEGORY,
@@ -69,7 +68,7 @@ const Article = async ({
           <ArticleList articles={articles} totalPages={totalPages} />
         </div>
       </main>
-      <Footer />
+      <Footer lang={params.lang} />
     </div>
   );
 };

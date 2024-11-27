@@ -17,6 +17,18 @@ const articleParams = `
   && language == $language
 `;
 
+const contentParams = `
+  ...,
+  _type == "image" => {
+    asset->
+  },
+  markDefs[]{
+    ...,
+    _type == "externalLink" => {
+      "slug": @.reference->slug
+    }
+  }`
+
 const articlesQuery = `{
   _createdAt,
   _id,
@@ -30,18 +42,7 @@ const articlesQuery = `{
   editorial->,
   "mainImage": mainImage.asset->url,
   slug,
-  content[]{
-    ...,
-    _type == "image" => {
-      asset->
-    },
-    markDefs[]{
-      ...,
-      _type == "externalLink" => {
-        "slug": @.reference->slug
-      }
-    }
-  },
+  content[]{${contentParams}},
 }`;
 
 const eventsQuery = `{
@@ -58,18 +59,7 @@ const eventsQuery = `{
   "mainImage": mainImage.asset->url,
   slug,
   eventDate,
-  content[]{
-    ...,
-    _type == "image" => {
-      asset->
-    },
-    markDefs[]{
-      ...,
-      _type == "externalLink" => {
-        "slug": @.reference->slug
-      }
-    }
-  },
+  content[]{${contentParams}},
 } | order(eventDate desc)`;
 
 const eventParams = `{
@@ -88,7 +78,15 @@ const statParams = `{
 export const CATEGORIES_QUERY = groq`*[_type == "category"]`;
 
 export const HOME_QUERY = groq`*[_type == "home" && featuredArticle->language == $language][0] {
-  featuredArticle->${articlesQuery}
+  featuredArticle->${articlesQuery},
+  footer[]{${contentParams}}
+}`;
+
+export const COPYRIGHT_QUERY = groq`*[_type == "copyright" && language == $language][0] {
+  content[]{${contentParams}}
+}`;
+export const DATA_PROTECTION_QUERY = groq`*[_type == "dataProtection" && language == $language][0] {
+  content[]{${contentParams}}
 }`;
 
 export const ARTICLES = groq`*[_type == "article" && ${articleParams}] | order(_id) [$trim_start...$trim_end] ${articlesQuery}`;

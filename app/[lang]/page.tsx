@@ -14,7 +14,7 @@ import EventsThumbnail from "../components/common/EventsThumbnail";
 import StatThumbnail from "../components/common/StatThumbnail";
 import { Article, Category, Stats, Events } from "@/types";
 import clsx from "clsx";
-import { orbitron, archivo } from "@/utils/fonts";
+import { orbitron } from "@/utils/fonts";
 import Link from "next/link";
 import LargeArticle from "../components/LargeArticle";
 import Footer from "../components/common/Footer";
@@ -273,7 +273,7 @@ export default async function Home({
             </div>
           </div>
         </div>
-        <Footer />
+        <Footer lang={lang} />
       </main>
     </>
   );

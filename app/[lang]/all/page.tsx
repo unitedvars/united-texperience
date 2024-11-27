@@ -74,7 +74,7 @@ const Article = async ({
           <ArticleList articles={articles} totalPages={totalPages} />
         </div>
       </main>
-      <Footer />
+      <Footer lang={lang} />
     </div>
   );
 };
