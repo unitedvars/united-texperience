@@ -14,13 +14,9 @@ import ArticleList from "@/app/components/common/ArticleList";
 import SearchBar from "@/app/components/common/SearchBar";
 import { getArticlePageParams, getTotalPages } from "@/utils/utils";
 
-const Article = async ({
-  params,
-  searchParams,
-}: {
-  params: { lang: "en" | "es" };
-  searchParams: any;
-}) => {
+const Article = async (props: any) => {
+  const searchParams = props.searchParams;
+  const params = props.params;
   const currentPage = parseInt(searchParams.page);
 
   const categories = await sanityFetch<Category[]>({

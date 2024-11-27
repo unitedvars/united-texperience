@@ -19,13 +19,8 @@ import Link from "next/link";
 import LargeArticle from "../components/LargeArticle";
 import Footer from "../components/common/Footer";
 
-export default async function Home({
-  params: { lang },
-}: {
-  params: {
-    lang: "en" | "es";
-  };
-}) {
+export default async function Home(props: any) {
+  const { lang } = props.params;
   const { featuredArticle } = await sanityFetch<any>({
     query: HOME_QUERY,
     params: {

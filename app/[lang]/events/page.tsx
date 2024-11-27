@@ -14,13 +14,9 @@ import SearchBar from "@/app/components/common/SearchBar";
 import { getArticlePageParams, getTotalPages } from "@/utils/utils";
 import EventList from "@/app/components/common/EventList";
 
-const Events = async ({
-  params,
-  searchParams,
-}: {
-  params: { lang: "en" | "es" };
-  searchParams: any;
-}) => {
+const Events = async (props: any) => {
+  const searchParams = props.searchParams;
+  const params = props.params;
   const currentPage = parseInt(searchParams.page);
 
   const categories = await sanityFetch<Category[]>({

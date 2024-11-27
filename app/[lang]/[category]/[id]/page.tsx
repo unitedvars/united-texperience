@@ -17,8 +17,8 @@ import DefaultArticleLayout from "@/app/components/DefaultArticleLayout";
 import HotNewsArticleLayout from "@/app/components/HotNewsArticleLayout";
 import { formatDate, getCategoryName } from "@/utils/utils";
 
-const Article = async ({ params }: any) => {
-  const { id, lang } = params;
+const Article = async (props : any) => {
+  const { id, lang } = props.params;
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });

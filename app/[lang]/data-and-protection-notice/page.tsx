@@ -8,11 +8,8 @@ import { Category } from "@/types";
 import clsx from "clsx";
 import { archivo, maitree } from "@/utils/fonts";
 
-export default async function Home({
-  params,
-}: {
-  params: { id: string; lang: 'en' | 'es' };
-}) {
+export default async function Home(props: any) {
+  const params = props.params;
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
     params: {
