@@ -7,7 +7,11 @@ import { Category } from "@/types";
 import clsx from "clsx";
 import { archivo, maitree } from "@/utils/fonts";
 
-export default async function Home() {
+export default async function Home({
+  params,
+}: {
+  params: { id: string; lang: 'en' | 'es' };
+}) {
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
@@ -55,7 +59,7 @@ export default async function Home() {
           </p>
         </div>
 
-      <Footer lang={lang} />
+      <Footer lang={params.lang} />
       </main>
     </>
   );

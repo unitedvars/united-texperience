@@ -6,8 +6,7 @@ import { Suspense } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Pagination from "@mui/material/Pagination";
 import clsx from "clsx";
-import { motion } from "framer-motion";
-import { archivo, maitree } from "@/utils/fonts";
+import { archivo } from "@/utils/fonts";
 
 const ArticleList = ({
   articles,

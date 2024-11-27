@@ -22,6 +22,7 @@ const EventList = ({
   const pathname = usePathname();
   const page = parseInt(searchParams.get("page") as string);
 
+  console.log(totalPages);
   return (
     <Suspense>
       {events.length > 0 ? (
@@ -41,7 +42,7 @@ const EventList = ({
             ))}
           </ul>
           <div className={clsx("w-full flex items-center justify-center py-8")}>
-            {page && totalPages && totalPages > 0 && (
+            {page && totalPages && (
               <Pagination
                 count={totalPages}
                 page={page}
