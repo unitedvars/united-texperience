@@ -213,7 +213,7 @@ export default async function Home({
               <div className="overflow-x-scroll overflow-y-hidden">
                 <ul className="flex flex-row gap-8">
                   {events.map((event: Events) => (
-                    <li key={event._id} className="w-[500px]">
+                    <li key={event._id}>
                       <EventsThumbnail
                         url={event.url}
                         imageUrl={event.mainImage}
