@@ -28,7 +28,7 @@ const EventList = ({
         <div className="pt-8">
           <ul className="grid gap-y-8 w-full max-w-[32rem] mx-auto">
             {events?.map((event: Events) => (
-              <li key={event._id} className="gap-2 w-full h flex flex-col">
+              <li key={event._id} className="gap-2 w-full flex flex-col">
                 <div className="grow rounded-md bg-white p-4">
                   <EventThumbnail
                     imageUrl={event.mainImage}

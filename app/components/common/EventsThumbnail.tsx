@@ -28,7 +28,7 @@ const EventsThumbnail = ({
   const { lang } = useParams();
   return (
     <Link href={`${url}`} target="_blank" className="group">
-      <div className={clsx(className, "flex gap-2 flex-col group")}>
+      <div className={clsx(className, "flex gap-2 flex-col group min-w-[300px]")}>
         {imageUrl && (
           <div className="w-full min-w-[150px] h-[220px] 2xl:h-[150px] relative rounded-md overflow-hidden">
             <Image
