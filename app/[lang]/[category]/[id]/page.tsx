@@ -17,11 +17,8 @@ import DefaultArticleLayout from "@/app/components/DefaultArticleLayout";
 import HotNewsArticleLayout from "@/app/components/HotNewsArticleLayout";
 import { formatDate, getCategoryName } from "@/utils/utils";
 
-const Article = async ({
-  params,
-}: {
-  params: { id: string; lang: 'en' | 'es' };
-}) => {
+const Article = async ({ params }: any) => {
+  const { id, lang } = params;
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
@@ -29,15 +26,15 @@ const Article = async ({
   const article = await sanityFetch<any>({
     query: ARTICLE,
     params: {
-      slug: params.id,
-      language: params.lang,
+      slug: id,
+      language: lang,
     },
   });
 
   const other_articles = await sanityFetch<any>({
     query: ARTICLES,
     params: {
-      slug: params.id,
+      slug: id,
       trim_start: 0,
       trim_end: 4,
       editorial: null,
@@ -45,7 +42,7 @@ const Article = async ({
       dateFrom: null,
       dateTo: null,
       searchParam: null,
-      language: params.lang,
+      language: lang,
     },
   });
 
@@ -57,7 +54,7 @@ const Article = async ({
       dateFrom: null,
       dateTo: null,
       searchParam: null,
-      language: params.lang,
+      language: lang,
     },
   });
 
@@ -75,7 +72,7 @@ const Article = async ({
       author: null,
       dateFrom: null,
       dateTo: null,
-      language: params.lang,
+      language: lang,
       searchParam: null,
     },
   });
@@ -128,7 +125,7 @@ const Article = async ({
           </div>
           {randomArticle && (
             <Link
-              href={`/${params.lang}/${randomArticle.category.slug.current}/${randomArticle.slug.current}`}
+              href={`/${lang}/${randomArticle.category.slug.current}/${randomArticle.slug.current}`}
             >
               <div className="w-full bg-white rounded-lg p-4 flex flex-col lg:flex-row gap-4">
                 <div className="lg:w-1/2 relative min-h-96">
@@ -150,12 +147,12 @@ const Article = async ({
                       <span>
                         {getCategoryName(
                           randomArticle.category,
-                          params.lang as Lang
+                          lang as Lang
                         )}
                       </span>
                       <span className="text-gray-400">-</span>
                       <span className="text-gray-600">
-                        {formatDate(randomArticle._createdAt, params.lang)}
+                        {formatDate(randomArticle._createdAt, lang)}
                       </span>
                     </div>
                     <h1
@@ -194,7 +191,7 @@ const Article = async ({
           )}
 
           <div className="w-full bg-white rounded-lg p-4">
-            <Footer lang={params.lang} />
+            <Footer lang={lang} />
           </div>
         </div>
       </main>
