@@ -46,19 +46,12 @@ const Menu = ({
                 </li>
               ))}
               <li
-                key={"events-and-training"}
                 className={clsx(
                   orbitron.className,
                   "text-primary-800 text-xl hover:text-primary-500 transition cursor-pointer"
                 )}
-                onClick={() => {
-                  document
-                    .querySelector("#events-and-training")
-                    ?.scrollIntoView({ behavior: "smooth", block: "center" });
-                  setIsOpen(false);
-                }}
               >
-                Events & Training
+                <Link href={`/#events-and-training`}>Events & Training</Link>
               </li>
             </ul>
           </div>
