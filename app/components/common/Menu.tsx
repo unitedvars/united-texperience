@@ -46,12 +46,13 @@ const Menu = ({
                 </li>
               ))}
               <li
+                key={"events-and-training"}
                 className={clsx(
                   orbitron.className,
                   "text-primary-800 text-xl hover:text-primary-500 transition cursor-pointer"
                 )}
               >
-                <Link href={`/#events-and-training`}>Events & Training</Link>
+                <Link href={`/${lang}/events?page=1`}>Events & Training</Link>
               </li>
             </ul>
           </div>
