@@ -8,6 +8,7 @@ import Button from "./Button";
 import LogoLink from "./LogoLink";
 import FooterLinks from "./FooterLinks";
 import PortableText from "./PortableText";
+import FooterSubscribeSection from "./FooterSubscribeSection";
 
 
 export default async function Footer({lang} : {lang: 'en' | 'es'}) {
@@ -49,7 +50,7 @@ export default async function Footer({lang} : {lang: 'en' | 'es'}) {
                 Get alerts of all the news we have for you
               </p>
             </div>
-            <Button className="w-2/5">Subscribe</Button>
+            <FooterSubscribeSection />
           </div>
         </div>
         <div className="flex flex-row lg:flex-col gap-8 lg:gap-4">
