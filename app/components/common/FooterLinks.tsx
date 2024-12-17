@@ -58,6 +58,21 @@ const FooterLinks = ({ categories }: { categories: Category[] }) => {
             )}
           </li>
         ))}
+
+        <span className="text-primary-500 mx-3 opacity-30 xl:mx-6 hidden lg:inline-block">
+          |
+        </span>
+
+        <li
+          key={"events-and-training"}
+          className={clsx(
+            archivo.className,
+            "text-primary-500 lg:text-right hover:text-primary-500 transition"
+          )}
+        >
+          <Link className="hover:border-primary-200 pb-1 border-transparent transition border-b"
+           href={`/${lang}/events?page=1`}>Events & Training</Link>
+        </li>
       </ul>
     </>
   );
