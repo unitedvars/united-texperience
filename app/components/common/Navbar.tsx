@@ -64,6 +64,8 @@ const Navbar = ({
             <div>
               <SearchInput className="hidden xl:flex" type={"all"} />
             </div>
+
+            {/*
             <div
               className={clsx(
                 orbitron.className,
@@ -73,7 +75,7 @@ const Navbar = ({
               <Link href="/en">EN</Link>
               <span>|</span>
               <Link href="/es">ES</Link>
-            </div>
+            </div>*/}
 
             <Button
               className={"hidden lg:block"}
