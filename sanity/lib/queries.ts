@@ -89,7 +89,7 @@ export const DATA_PROTECTION_QUERY = groq`*[_type == "dataProtection" && languag
   content[]{${contentParams}}
 }`;
 
-export const ARTICLES = groq`*[_type == "article" && ${articleParams}] | order(_id) [$trim_start...$trim_end] ${articlesQuery}`;
+export const ARTICLES = groq`*[_type == "article" && ${articleParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${articlesQuery}`;
 
 export const ARTICLES_ASC = groq`*[_type == "article" && ${articleParams}] | order(_createdAt asc) [$trim_start...$trim_end] ${articlesQuery}`;
 
@@ -111,7 +111,21 @@ export const EVENTS_ASC = groq`*[_type == "article" && ${eventParams}] | order(_
 
 export const EVENTS_DESC = groq`*[_type == "article" && ${eventParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${eventsQuery}`;
 
-export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language && ${articleParams}] | order(_id) [$trim_start...$trim_end] ${articlesQuery}`;
+export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language && ${articleParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${articlesQuery}`;
+
+export const PAGINATED_ARTICLES_BY_CATEGORY_ASC = groq`
+  *[_type == "article" && category->slug.current == $category && ${articleParams}]
+  | order(_createdAt asc)
+  [$trim_start...$trim_end]
+  ${articlesQuery}
+`;
+
+export const PAGINATED_ARTICLES_BY_CATEGORY_DESC = groq`
+  *[_type == "article" && category->slug.current == $category && ${articleParams}]
+  | order(_createdAt desc)
+  [$trim_start...$trim_end]
+  ${articlesQuery}
+`;
 
 export const CATEGORY_COUNT = groq`count(*[_type == "article" && category->slug.current == $category && ${articleParams}])`;
 

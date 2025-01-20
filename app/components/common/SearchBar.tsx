@@ -120,7 +120,7 @@ const SearchBar = () => {
             <MenuItem
               className={clsx(orbitron.className, "text-sm")}
               onClick={() => {
-                params.set("sort", "asc");
+                params.set("sort", "desc");
                 setSelectedSorting("Latest");
                 push(`?${params.toString()}`, {});
               }}
@@ -130,7 +130,7 @@ const SearchBar = () => {
             <MenuItem
               className={clsx(orbitron.className, "text-sm")}
               onClick={() => {
-                params.set("sort", "desc");
+                params.set("sort", "asc");
                 setSelectedSorting("Oldest");
                 push(`?${params.toString()}`, {});
               }}

@@ -3,6 +3,8 @@ import {
   CATEGORIES_QUERY,
   CATEGORY_COUNT,
   PAGINATED_ARTICLES_BY_CATEGORY,
+  PAGINATED_ARTICLES_BY_CATEGORY_ASC,
+  PAGINATED_ARTICLES_BY_CATEGORY_DESC
 } from "@/sanity/lib/queries";
 import Navbar from "@/app/components/common/Navbar";
 import { Category } from "@/types";
@@ -36,7 +38,12 @@ const Article = async (props: any) => {
   let totalPages = getTotalPages(categoryCount);
 
   const articles = await sanityFetch<any>({
-    query: PAGINATED_ARTICLES_BY_CATEGORY,
+    query:
+      searchParams.sort === "asc"
+        ? PAGINATED_ARTICLES_BY_CATEGORY_ASC
+        : searchParams.sort === "desc"
+          ? PAGINATED_ARTICLES_BY_CATEGORY_DESC
+          : PAGINATED_ARTICLES_BY_CATEGORY,
     params: {
       ...getArticlePageParams(currentPage),
       language: params.lang,
@@ -55,7 +62,6 @@ const Article = async (props: any) => {
         <Navbar categories={categories} showCategoryBar={false} />
       </header>
       <main className="flex flex-col pb-16 pt-10 default-box">
-        <h1 className="text-6xl text-center">Articles</h1>
         <div className="divide-y py-8 border-t border-b mt-6">
           <CategoryBarList categories={categories} />
         </div>

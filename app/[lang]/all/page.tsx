@@ -61,7 +61,6 @@ const Article = async (props: any) => {
         <Navbar categories={categories} showCategoryBar={false} />
       </header>
       <main className="flex flex-col pb-16 pt-10 default-box">
-        <h1 className="text-6xl text-center">Articles</h1>
         <div className="divide-y py-8 border-t border-b mt-6">
           <CategoryBarList categories={categories} />
         </div>

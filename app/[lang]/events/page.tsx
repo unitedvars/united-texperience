@@ -18,7 +18,6 @@ const Events = async (props: any) => {
   const searchParams = props.searchParams;
   const params = props.params;
   const currentPage = parseInt(searchParams.page);
-
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,
   });
@@ -56,7 +55,6 @@ const Events = async (props: any) => {
         <Navbar categories={categories} showCategoryBar={false} />
       </header>
       <main className="flex flex-col pb-16 pt-10 default-box">
-        <h1 className="text-6xl text-center">Articles</h1>
         <div className="divide-y py-8 border-t border-b mt-6">
           <CategoryBarList categories={categories} />
         </div>
