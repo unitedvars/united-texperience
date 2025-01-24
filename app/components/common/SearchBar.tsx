@@ -32,15 +32,25 @@ const SearchBar = () => {
   const renderFilters = () => {
     const paramFilters = [];
     for (const [key, value] of params.entries()) {
+      let formattedValue = value;
+
+      if (value === 'asc') {
+        formattedValue = 'Oldest'
+      }
+
+      if (value === 'desc') {
+        formattedValue = 'Latest'
+      }
+
       if (key != "page") {
         paramFilters.push(
-          <div className="flex gap-2">
+          <div className="flex gap-2" key={value}>
             <div
               className={clsx("capitalize text-primary-800", archivo.className)}
             >
               {key}:
             </div>
-            <FilterPill label={key} value={value} />
+            <FilterPill label={key} value={formattedValue} />
           </div>
         );
       }

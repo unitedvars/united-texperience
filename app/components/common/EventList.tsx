@@ -22,10 +22,9 @@ const EventList = ({
   const pathname = usePathname();
   const page = parseInt(searchParams.get("page") as string);
 
-  console.log(totalPages);
   return (
     <Suspense>
-      {events.length > 0 ? (
+      {events?.length > 0 ? (
         <div className="pt-8">
           <ul className="grid gap-y-8 w-full max-w-[32rem] mx-auto">
             {events?.map((event: Events, idx: number) => (
