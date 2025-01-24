@@ -7,7 +7,7 @@ import clsx from "clsx";
 import { archivo } from "@/utils/fonts";
 import DatePicker from "react-datepicker";
 import Button from "./Button";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useParams } from "next/navigation";
 
 interface FilterFormData {
@@ -34,6 +34,9 @@ const FilterMenu = ({
 
   const router = useRouter();
   const params = useParams();
+  const path = usePathname();
+
+  const pathname = path.split("/")[2];
 
   const [formData, setFormData] = useState<FilterFormData>({
     author: undefined,
@@ -80,6 +83,7 @@ const FilterMenu = ({
     );
     setIsOpen(false);
   };
+  console.log(pathname);
 
   const DATE_RANGE_STYLES = clsx(
     "border border-primary-500 w-full h-10 rounded px-2 placeholder:text-gray-500",
@@ -90,28 +94,32 @@ const FilterMenu = ({
     <MenuContainer isOpen={isOpen} setIsOpen={setIsOpen}>
       <form onSubmit={handleFilterSubmit} className="flex flex-col gap-12">
         <div className="flex flex-col gap-8">
-          <div className={clsx("flex flex-col gap-2", archivo.className)}>
-            <label htmlFor="author">Author</label>
-            <Select
-              id="author"
-              options={authors}
-              isClearable
-              onChange={(val) => setFormData({ ...formData, author: val })}
-              classNamePrefix={"select"}
-            />
-          </div>
-          <div className={clsx("flex flex-col gap-2", archivo.className)}>
-            <label htmlFor="editorial">Editorial</label>
-            <Select
-              id="editorial"
-              options={editorials}
-              isClearable
-              value={formData.editorial}
-              onChange={(val) => setFormData({ ...formData, editorial: val })}
-              classNamePrefix={"select"}
-              className="border-primary-500"
-            />
-          </div>
+          {pathname != "events" && (
+            <div className={clsx("flex flex-col gap-2", archivo.className)}>
+              <label htmlFor="author">Author</label>
+              <Select
+                id="author"
+                options={authors}
+                isClearable
+                onChange={(val) => setFormData({ ...formData, author: val })}
+                classNamePrefix={"select"}
+              />
+            </div>
+          )}
+          {pathname != "events" && (
+            <div className={clsx("flex flex-col gap-2", archivo.className)}>
+              <label htmlFor="editorial">Editorial</label>
+              <Select
+                id="editorial"
+                options={editorials}
+                isClearable
+                value={formData.editorial}
+                onChange={(val) => setFormData({ ...formData, editorial: val })}
+                classNamePrefix={"select"}
+                className="border-primary-500"
+              />
+            </div>
+          )}
           <div className="flex gap-4">
             <div className="flex flex-col gap-2 grow">
               <label htmlFor="editorial" className={clsx(archivo.className)}>

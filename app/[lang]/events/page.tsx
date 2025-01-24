@@ -26,8 +26,6 @@ const Events = async (props: any) => {
     query: EVENTS_COUNT,
     params: {
       language: params.lang,
-      author: searchParams.author || null,
-      editorial: searchParams.editorial || null,
       dateFrom: searchParams.dateFrom || null,
       dateTo: searchParams.dateTo || null,
       searchParam: searchParams.searchParam || null,
@@ -45,6 +43,9 @@ const Events = async (props: any) => {
           : EVENTS,
     params: {
       ...getArticlePageParams(currentPage),
+      dateFrom: searchParams.dateFrom || null,
+      dateTo: searchParams.dateTo || null,
+      searchParam: searchParams.searchParam || null,
       language: params.lang,
     },
   });

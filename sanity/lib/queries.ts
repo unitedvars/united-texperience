@@ -18,10 +18,10 @@ const articleParams = `
 `;
 
 const eventParams = ` 
-  (!defined($dateFrom)    || _createdAt >= $dateFrom)
+  (!defined($dateFrom)       || _createdAt >= $dateFrom)
   && (!defined($dateTo)      || _createdAt <= $dateTo) 
   && (!defined($searchParam) || 
-    (title match $searchParam) ||
+    (title match $searchParam)          ||
     (category->name match $searchParam) ||
     (subtitle match $searchParam)
   )
@@ -109,11 +109,11 @@ export const STATS = groq`*[_type == "stats" && language == $language] | order(_
 
 export const EVENT = groq`*[_type == "events" && slug.current == $slug][0] ${eventsQuery}`;
 
-export const EVENTS = groq`*[_type == "events" && language == $language] | order(_id) [$trim_start...$trim_end] ${eventsQuery}`;
+export const EVENTS = groq`*[_type == "events" && ${eventParams}] | order(_id) [$trim_start...$trim_end] ${eventsQuery}`;
 
-export const EVENTS_ASC = groq`*[_type == "events"] | order(_createdAt asc) [$trim_start...$trim_end] ${eventsQuery}`;
+export const EVENTS_ASC = groq`*[_type == "events"] && ${eventParams}| order(_createdAt asc) [$trim_start...$trim_end] ${eventsQuery}`;
 
-export const EVENTS_DESC = groq`*[_type == "events"] | order(_createdAt desc) [$trim_start...$trim_end] ${eventsQuery}`;
+export const EVENTS_DESC = groq`*[_type == "events" && ${eventParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${eventsQuery}`;
 
 export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language && ${articleParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${articlesQuery}`;
 
