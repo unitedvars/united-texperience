@@ -57,6 +57,9 @@ export default async function Home(props: any) {
     params: {
       trim_start: 0,
       trim_end: 100,
+      dateFrom: null,
+      dateTo: null,
+      searchParam: null,
       language: lang,
     },
   });
