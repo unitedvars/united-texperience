@@ -15,8 +15,8 @@ import { getArticlePageParams, getTotalPages } from "@/utils/utils";
 import EventList from "@/app/components/common/EventList";
 
 const Events = async (props: any) => {
-  const searchParams = props.searchParams;
-  const params = props.params;
+  const params = await props.params;
+  const searchParams = await props.searchParams;
   const currentPage = parseInt(searchParams.page);
   const categories = await sanityFetch<Category[]>({
     query: CATEGORIES_QUERY,

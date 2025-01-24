@@ -17,6 +17,17 @@ const articleParams = `
   && language == $language
 `;
 
+const eventParams = ` 
+  (!defined($dateFrom)    || _createdAt >= $dateFrom)
+  && (!defined($dateTo)      || _createdAt <= $dateTo) 
+  && (!defined($searchParam) || 
+    (title match $searchParam) ||
+    (category->name match $searchParam) ||
+    (subtitle match $searchParam)
+  )
+  && language == $language
+`;
+
 const contentParams = `
   ...,
   _type == "image" => {
@@ -62,13 +73,6 @@ const eventsQuery = `{
   content[]{${contentParams}},
 } | order(eventDate desc)`;
 
-const eventParams = `{
-  title,
-  subtitle,
-  "mainImage": mainImage.asset->url,
-  url,
-}`;
-
 const statParams = `{
   title,
   description,
@@ -103,13 +107,13 @@ export const STAT = groq`*[_type == "stats" && slug.current == $slug][0] ${statP
 
 export const STATS = groq`*[_type == "stats" && language == $language] | order(_id) [$trim_start...$trim_end] ${statParams}`;
 
-export const EVENT = groq`*[_type == "events" && slug.current == $slug][0] ${eventParams}`;
+export const EVENT = groq`*[_type == "events" && slug.current == $slug][0] ${eventsQuery}`;
 
-export const EVENTS = groq`*[_type == "events" && language == $language] | order(_id) [$trim_start...$trim_end] ${eventParams}`;
+export const EVENTS = groq`*[_type == "events" && language == $language] | order(_id) [$trim_start...$trim_end] ${eventsQuery}`;
 
-export const EVENTS_ASC = groq`*[_type == "article" && ${eventParams}] | order(_createdAt asc) [$trim_start...$trim_end] ${eventsQuery}`;
+export const EVENTS_ASC = groq`*[_type == "events"] | order(_createdAt asc) [$trim_start...$trim_end] ${eventsQuery}`;
 
-export const EVENTS_DESC = groq`*[_type == "article" && ${eventParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${eventsQuery}`;
+export const EVENTS_DESC = groq`*[_type == "events"] | order(_createdAt desc) [$trim_start...$trim_end] ${eventsQuery}`;
 
 export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language && ${articleParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${articlesQuery}`;
 
@@ -131,7 +135,7 @@ export const CATEGORY_COUNT = groq`count(*[_type == "article" && category->slug.
 
 export const ALL_COUNT = groq`count(*[_type == "article" && ${articleParams} ])`;
 
-export const EVENTS_COUNT = groq`count(*[_type == "event" && ${eventParams} ])`;
+export const EVENTS_COUNT = groq`count(*[_type == "events" && ${eventParams} ])`;
 
 export const AUTHORS = groq`*[_type == "author"]`;
 

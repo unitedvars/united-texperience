@@ -4,7 +4,6 @@ import { Category } from "@/types";
 import { archivo, orbitron } from "@/utils/fonts";
 import clsx from "clsx";
 import Link from "next/link";
-import Button from "./Button";
 import LogoLink from "./LogoLink";
 import FooterLinks from "./FooterLinks";
 import PortableText from "./PortableText";
@@ -30,11 +29,11 @@ export default async function Footer({lang} : {lang: 'en' | 'es'}) {
           <div className="flex flex-col lg:w-1/2">
             <LogoLink />
 
-            <p className={clsx("text-1xl font-light", archivo.className)}>
+            <span className={clsx("text-1xl font-light", archivo.className)}>
               <PortableText
                 value={home.footer}
               />
-            </p>
+            </span>
           </div>
           <div className="flex items-end flex-col lg:w-1/2 gap-2">
             <div className="flex flex-col lg:items-end">
