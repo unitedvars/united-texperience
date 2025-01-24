@@ -61,6 +61,7 @@ const eventsQuery = `{
   _id,
   title,
   subtitle,
+  url,
   author->{
     role->,
     name

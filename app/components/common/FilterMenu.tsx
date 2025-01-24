@@ -83,7 +83,6 @@ const FilterMenu = ({
     );
     setIsOpen(false);
   };
-  console.log(pathname);
 
   const DATE_RANGE_STYLES = clsx(
     "border border-primary-500 w-full h-10 rounded px-2 placeholder:text-gray-500",
