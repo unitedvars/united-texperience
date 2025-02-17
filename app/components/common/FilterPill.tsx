@@ -15,12 +15,12 @@ const FilterPill = ({
   const { push } = useRouter();
   const params = new URLSearchParams(useSearchParams().toString());
   return (
-    <div className="bg-stone-200 flex items-center rounded-sm">
-      <div className="px-2">
-        <label className={clsx(orbitron.className, "text-sm")}>{value}</label>
+    <div className="bg-[#DBDBDB] flex items-center rounded-md p-[8px]">
+      <div>
+        <label className={clsx(orbitron.className, "text-sm", "text-[#929292]", "mr-2")}>{value}</label>
       </div>
       <div
-        className="px-1 border-l border-stone-400 cursor-pointer group"
+        className="border-stone-400 cursor-pointer group"
         onClick={() => {
           params.delete(label);
           push(`?${params.toString()}`, {});

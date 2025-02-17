@@ -44,7 +44,7 @@ const SearchBar = () => {
 
       if (key != "page") {
         paramFilters.push(
-          <div className="flex gap-2" key={value}>
+          <div className="flex gap-2 items-center border-solid border-2 rounded-2xl border-[#0082B5] py-2 px-3" key={value}>
             <div
               className={clsx("capitalize text-primary-800", archivo.className)}
             >
@@ -79,14 +79,14 @@ const SearchBar = () => {
           </div>
           <SearchInput className="grow md:grow-0" />
         </div>
-        <div className="flex gap-4">
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-row justify-start flex-wrap gap-2">
             {renderFilters().map((paramFilter) => paramFilter)}
           </div>
           {renderFilters().length > 0 && (
             <div
               className={clsx(
-                "text-red-500 flex gap-2 items-center cursor-pointer"
+                "text-red-500 flex gap-2 items-center cursor-pointer basis-[10%]"
               )}
               onClick={() => {
                 params.delete("author");
@@ -96,7 +96,7 @@ const SearchBar = () => {
             >
               <IoTrash />
               <span className={clsx(orbitron.className, "text-sm")}>
-                Clear All
+                clear all
               </span>
             </div>
           )}
