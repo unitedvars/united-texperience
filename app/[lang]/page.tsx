@@ -154,6 +154,7 @@ export default async function Home(props: any) {
                           author={article.author}
                           editorial={article.editorial?.name}
                           url={`/${article.category.slug.current}/${article.slug.current}`}
+                          createdAt={article._createdAt}
                         />
                       </li>
                     )
@@ -177,6 +178,7 @@ export default async function Home(props: any) {
                     index < 5 && (
                       <li key={article._id}>
                         <ArticleThumbnail
+                          createdAt={article._createdAt}
                           title={article.title}
                           category={article.category}
                           author={article.author}
@@ -254,6 +256,7 @@ export default async function Home(props: any) {
                       index < 3 && (
                         <li key={article._id}>
                           <ArticleThumbnail
+                            createdAt={article._createdAt}
                             imageUrl={article.mainImage}
                             title={article.title}
                             category={article.category}
