@@ -4,7 +4,6 @@ import clsx from "clsx";
 import Image from "next/image";
 import { maitree, orbitron } from "@/utils/fonts";
 import Link from "next/link";
-import { formatDate } from "@/utils/utils";
 
 import { motion } from "framer-motion";
 import { Author, Category, Lang } from "@/types";
@@ -22,7 +21,6 @@ interface ArticleThumbnailProps {
   url?: string;
   subtitle?: string;
   showAuthorDetails?: boolean;
-  createdAt: string;
 }
 
 const ArticleThumbnail = ({
@@ -36,7 +34,6 @@ const ArticleThumbnail = ({
   className,
   url,
   subtitle,
-  createdAt,
 }: ArticleThumbnailProps) => {
   const { lang } = useParams();
   return (
@@ -56,7 +53,7 @@ const ArticleThumbnail = ({
         <div className="flex flex-col pr-1">
           <div
             className={clsx(
-              "uppercase text-primary-500 text-sm mb-1 flex gap-1",
+              "uppercase text-primary-500 text-sm mb-1 flex items-center gap-1",
               orbitron.className
             )}>
               <strong
@@ -67,9 +64,9 @@ const ArticleThumbnail = ({
               >
                 {getCategoryName(category, lang as Lang)}
               </strong>
-              <span className="text-gray-400">-</span>
-              <span className="text-gray-600">
-                {formatDate(createdAt, lang as string)}
+              <span className="text-gray-400 text-xs">-</span>
+              <span className="text-gray-600 text-xs">
+                DATE
               </span>
           </div>
 

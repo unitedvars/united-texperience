@@ -37,7 +37,6 @@ const ArticleList = ({
                     editorial={article.editorial?.name}
                     url={`${article.category.slug.current}/${article.slug.current}`}
                     subtitle={article.subtitle}
-                    createdAt={article._createdAt}
                   />
                 </div>
               </li>
