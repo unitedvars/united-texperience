@@ -37,7 +37,7 @@ const LargeArticle = ({
           <span>{getCategoryName(article.category, lang as Lang)}</span>
           <span className="text-gray-400">-</span>
           <span className="text-gray-600">
-            {formatDate(article._createdAt, lang as string)}
+            {formatDate(article.releaseDate, lang as string)}
           </span>
         </div>
         <h1

@@ -64,12 +64,13 @@ const ArticleThumbnail = ({
               >
                 {getCategoryName(category, lang as Lang)}
               </strong>
+              
+              {/* 
               <span className="text-gray-400 text-xs">-</span>
               <span className="text-gray-600 text-xs">
                 DATE
-              </span>
+              </span> */}
           </div>
-
           <h3
             className={clsx(  
               "text-lg leading-[22px] bg-no-repeat transition-all duration-400 hover:bg-[length:100%_0.1em,0_0.1em] hover:bg-position-[100%_100%,0_100%] group-hover:underline mb-3",

@@ -25,7 +25,10 @@ export const getTotalPages = (allArticles: number) => {
 };
 
 export const formatDate = (date: any, locale: string) => {
-  return new Date(date).toLocaleString(locale, { dateStyle: "short" });
+  const dateObj = new Date(date);
+  const userTimezoneOffset = dateObj.getTimezoneOffset() * 60000;
+  const adjustedDate = new Date(dateObj.getTime() + userTimezoneOffset);
+  return adjustedDate.toLocaleString(locale, { dateStyle: "short" });
 };
 
 export const getCategoryName = (category: Category, lang: Lang) => {

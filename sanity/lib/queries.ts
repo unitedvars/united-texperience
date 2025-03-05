@@ -41,6 +41,7 @@ const contentParams = `
   }`
 
 const articlesQuery = `{
+  releaseDate,
   _createdAt,
   _id,
   title,

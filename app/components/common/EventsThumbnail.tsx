@@ -17,6 +17,11 @@ interface EventsThumbnailProps {
   className?: string;
 }
 
+const truncateText = (text: string, maxLength: number) => {
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength) + "...";
+};
+
 const EventsThumbnail = ({
   title,
   subtitle,
@@ -50,7 +55,9 @@ const EventsThumbnail = ({
             {title}
           </h3>
 
-          <p className="text-sm text-gray-600">{subtitle}</p>
+          <p className="text-sm text-gray-600">
+            {subtitle ? truncateText(subtitle, 150) : ""}
+          </p>
         </div>
       </div>
     </Link>

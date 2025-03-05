@@ -17,6 +17,11 @@ export const article = {
       type: "string",
     },
     {
+      title: 'Release date',
+      name: 'releaseDate',
+      type: 'date'
+    },
+    {
       title: "MainImage",
       name: "mainImage",
       type: "image",

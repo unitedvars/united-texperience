@@ -9,6 +9,7 @@ export interface Article {
   author: Author;
   category: Category;
   content: any;
+  releaseDate: string;
 }
 
 interface CategoryName {
