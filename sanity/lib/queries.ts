@@ -117,7 +117,7 @@ export const EVENTS_ASC = groq`*[_type == "events" && ${eventParams}] | order(_c
 
 export const EVENTS_DESC = groq`*[_type == "events" && ${eventParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${eventsQuery}`;
 
-export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language && ${articleParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${articlesQuery}`;
+export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language && ${articleParams}] | order(releaseDate desc) [$trim_start...$trim_end] ${articlesQuery}`;
 
 export const PAGINATED_ARTICLES_BY_CATEGORY_ASC = groq`
   *[_type == "article" && category->slug.current == $category && ${articleParams}]
