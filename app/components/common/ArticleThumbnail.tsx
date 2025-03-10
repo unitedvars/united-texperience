@@ -8,7 +8,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Author, Category, Lang } from "@/types";
 import { useParams } from "next/navigation";
-import { getCategoryName } from "@/utils/utils";
+import { formatDate, getCategoryName } from "@/utils/utils";
 
 interface ArticleThumbnailProps {
   title: string;
@@ -21,6 +21,7 @@ interface ArticleThumbnailProps {
   url?: string;
   subtitle?: string;
   showAuthorDetails?: boolean;
+  releaseDate: string;
 }
 
 const ArticleThumbnail = ({
@@ -34,6 +35,7 @@ const ArticleThumbnail = ({
   className,
   url,
   subtitle,
+  releaseDate,
 }: ArticleThumbnailProps) => {
   const { lang } = useParams();
   return (
@@ -65,11 +67,11 @@ const ArticleThumbnail = ({
                 {getCategoryName(category, lang as Lang)}
               </strong>
               
-              {/* 
+              
               <span className="text-gray-400 text-xs">-</span>
               <span className="text-gray-600 text-xs">
-                DATE
-              </span> */}
+                {formatDate(releaseDate, lang as string)}
+              </span>
           </div>
           <h3
             className={clsx(  
