@@ -21,7 +21,6 @@ interface ArticleThumbnailProps {
   url?: string;
   subtitle?: string;
   showAuthorDetails?: boolean;
-  releaseDate: string;
 }
 
 const ArticleThumbnail = ({
@@ -35,7 +34,6 @@ const ArticleThumbnail = ({
   className,
   url,
   subtitle,
-  releaseDate,
 }: ArticleThumbnailProps) => {
   const { lang } = useParams();
   return (
@@ -67,11 +65,11 @@ const ArticleThumbnail = ({
                 {getCategoryName(category, lang as Lang)}
               </strong>
               
-              
+              {/* 
               <span className="text-gray-400 text-xs">-</span>
               <span className="text-gray-600 text-xs">
                 {formatDate(releaseDate, lang as string)}
-              </span>
+              </span>*/}
           </div>
           <h3
             className={clsx(  

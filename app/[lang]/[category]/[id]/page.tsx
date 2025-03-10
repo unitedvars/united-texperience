@@ -108,7 +108,6 @@ const Article = async (props : any) => {
                   {other_articles.map((article: ArticleType) => (
                     <li key={article._id} className="lg:w-1/4">
                       <ArticleThumbnail
-                        releaseDate={article.releaseDate}
                         imageUrl={article.mainImage}
                         title={article.title}
                         category={article.category}

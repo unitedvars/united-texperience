@@ -5,8 +5,8 @@ import { groq } from "next-sanity";
 const articleParams = `
   (!defined($editorial)      || editorial->name == $editorial) 
   && (!defined($author)      || author->name == $author) 
-  && (!defined($dateFrom)    || _createdAt >= $dateFrom)
-  && (!defined($dateTo)      || _createdAt <= $dateTo) 
+  && (!defined($dateFrom)    || releaseDate >= $dateFrom)
+  && (!defined($dateTo)      || releaseDate <= $dateTo) 
   && (!defined($searchParam) || 
     (title match $searchParam) ||
     (content[].children[].text match $searchParam) ||
@@ -95,11 +95,11 @@ export const DATA_PROTECTION_QUERY = groq`*[_type == "dataProtection" && languag
   content[]{${contentParams}}
 }`;
 
-export const ARTICLES = groq`*[_type == "article" && ${articleParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${articlesQuery}`;
+export const ARTICLES = groq`*[_type == "article" && ${articleParams}] | order(releaseDate desc) [$trim_start...$trim_end] ${articlesQuery}`;
 
-export const ARTICLES_ASC = groq`*[_type == "article" && ${articleParams}] | order(_createdAt asc) [$trim_start...$trim_end] ${articlesQuery}`;
+export const ARTICLES_ASC = groq`*[_type == "article" && ${articleParams}] | order(releaseDate asc) [$trim_start...$trim_end] ${articlesQuery}`;
 
-export const ARTICLES_DESC = groq`*[_type == "article" && ${articleParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${articlesQuery}`;
+export const ARTICLES_DESC = groq`*[_type == "article" && ${articleParams}] | order(releaseDate desc) [$trim_start...$trim_end] ${articlesQuery}`;
 
 export const ARTICLE = groq`*[_type == "article" && slug.current == $slug][0] ${articlesQuery}`;
 
@@ -121,14 +121,14 @@ export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && categ
 
 export const PAGINATED_ARTICLES_BY_CATEGORY_ASC = groq`
   *[_type == "article" && category->slug.current == $category && ${articleParams}]
-  | order(_createdAt asc)
+  | order(releaseDate asc)
   [$trim_start...$trim_end]
   ${articlesQuery}
 `;
 
 export const PAGINATED_ARTICLES_BY_CATEGORY_DESC = groq`
   *[_type == "article" && category->slug.current == $category && ${articleParams}]
-  | order(_createdAt desc)
+  | order(releaseDate desc)
   [$trim_start...$trim_end]
   ${articlesQuery}
 `;
