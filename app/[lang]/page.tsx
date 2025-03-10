@@ -148,7 +148,6 @@ export default async function Home(props: any) {
                     index < 7 && (
                       <li key={article._id} className="gap-2 w-full">
                         <ArticleThumbnail
-                          releaseDate={article.releaseDate}
                           imageUrl={article.mainImage}
                           title={article.title}
                           category={article.category}
@@ -178,7 +177,6 @@ export default async function Home(props: any) {
                     index < 5 && (
                       <li key={article._id}>
                         <ArticleThumbnail
-                          releaseDate={article.releaseDate}
                           title={article.title}
                           category={article.category}
                           author={article.author}
@@ -256,7 +254,6 @@ export default async function Home(props: any) {
                       index < 3 && (
                         <li key={article._id}>
                           <ArticleThumbnail
-                            releaseDate={article.releaseDate}
                             imageUrl={article.mainImage}
                             title={article.title}
                             category={article.category}

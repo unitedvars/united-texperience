@@ -108,7 +108,6 @@ const Article = async (props : any) => {
                   {other_articles.map((article: ArticleType) => (
                     <li key={article._id} className="lg:w-1/4">
                       <ArticleThumbnail
-                        releaseDate={article.releaseDate}
                         imageUrl={article.mainImage}
                         title={article.title}
                         category={article.category}
@@ -153,7 +152,7 @@ const Article = async (props : any) => {
                       </span>
                       <span className="text-gray-400">-</span>
                       <span className="text-gray-600">
-                        {formatDate(randomArticle._createdAt, lang)}
+                        date
                       </span>
                     </div>
                     <h1
