@@ -28,4 +28,16 @@ export const stats = {
       hidden: true,
     },
   ],
+  orderings: [
+    {
+      title: "Published Date, Latest",
+      name: "publishDateLatest",
+      by: [{ field: "_createdAt", direction: "desc" }],
+    },
+    {
+      title: "Published Date, Oldest",
+      name: "publishDateOldest",
+      by: [{ field:"_createdAt", direction: "asc" }],
+    },
+  ],
 };

@@ -77,9 +77,10 @@ const eventsQuery = `{
 
 const statParams = `{
   title,
+  _createdAt,
   description,
   "mainImage": mainImage.asset->url
-}`;
+}| order(_createdAt desc)`;
 
 export const CATEGORIES_QUERY = groq`*[_type == "category"]`;
 
