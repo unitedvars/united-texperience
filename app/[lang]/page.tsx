@@ -18,6 +18,8 @@ import { orbitron } from "@/utils/fonts";
 import Link from "next/link";
 import LargeArticle from "../components/LargeArticle";
 import Footer from "../components/common/Footer";
+import StatsScroller from "./components/StatsScroller";
+import EventsScroller from "./components/EventsScroller";
 
 export default async function Home(props: any) {
   const { lang } = props.params;
@@ -100,35 +102,7 @@ export default async function Home(props: any) {
           <LargeArticle article={featuredArticle} />
         </Link>
 
-        {stats.length > 0 && (
-          <div className="flex-col lg:flex-row flex items-stretch">
-            <div className="w-full lg:w-full bg-white rounded-lg p-4 pb-2">
-              <h2
-                className={clsx(
-                  "text-primary-500 text-2xl border-b pb-4 mb-4",
-                  orbitron.className
-                )}
-              >
-                Stats & Numbers
-              </h2>
-
-              <div className="overflow-x-scroll pb-2">
-                <ul className="flex flex-row gap-8">
-                  {stats.map((stat: Stats) => (
-                    <li key={stat._id} className="w-[500px]">
-                      <StatThumbnail
-                        imageUrl={stat.mainImage}
-                        title={stat.title}
-                        description={stat.description}
-                        className={"min-h-[124px]"}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        )}
+        {stats.length > 0 && <StatsScroller stats={stats} />}
 
         <div className="flex-col lg:flex-row flex gap-4 items-stretch">
           <div className="w-full lg:w-9/12 bg-white rounded-lg p-4">
@@ -193,39 +167,7 @@ export default async function Home(props: any) {
           </div>
         </div>
 
-        {events.length > 0 && (
-          <div
-            className="flex-col lg:flex-row flex items-stretch"
-            id="events-and-training"
-          >
-            <div className="w-full lg:w-full bg-white rounded-lg p-4">
-              <h2
-                className={clsx(
-                  "text-primary-500 text-2xl border-b pb-4 mb-4",
-                  orbitron.className
-                )}
-              >
-                Events & Trainings
-              </h2>
-
-              <div className="overflow-x-scroll overflow-y-hidden">
-                <ul className="flex flex-row gap-8">
-                  {events.map((event: Events) => (
-                    <li key={event._id}>
-                      <EventsThumbnail
-                        url={event.url}
-                        imageUrl={event.mainImage}
-                        title={event.title}
-                        subtitle={event.subtitle}
-                        className={"min-h-[124px]"}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        )}
+        {events.length > 0 && <EventsScroller events={events} />}
 
         <div className="flex-col lg:flex-row flex items-stretch">
           <div className="w-full lg:w-full bg-white rounded-lg p-4">
