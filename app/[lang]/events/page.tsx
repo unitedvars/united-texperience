@@ -40,7 +40,7 @@ const Events = async (props: any) => {
         ? EVENTS_ASC
         : searchParams.sort === "desc"
           ? EVENTS_DESC
-          : EVENTS,
+          : EVENTS_DESC,
     params: {
       ...getArticlePageParams(currentPage),
       dateFrom: searchParams.dateFrom || null,

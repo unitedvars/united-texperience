@@ -114,9 +114,9 @@ export const EVENT = groq`*[_type == "events" && slug.current == $slug][0] ${eve
 
 export const EVENTS = groq`*[_type == "events" && ${eventParams}] | order(_id) [$trim_start...$trim_end] ${eventsQuery}`;
 
-export const EVENTS_ASC = groq`*[_type == "events" && ${eventParams}] | order(_createdAt asc) [$trim_start...$trim_end] ${eventsQuery}`;
+export const EVENTS_ASC = groq`*[_type == "events" && ${eventParams}] | order(eventDate asc) [$trim_start...$trim_end] ${eventsQuery}`;
 
-export const EVENTS_DESC = groq`*[_type == "events" && ${eventParams}] | order(_createdAt desc) [$trim_start...$trim_end] ${eventsQuery}`;
+export const EVENTS_DESC = groq`*[_type == "events" && ${eventParams}] | order(eventDate desc) [$trim_start...$trim_end] ${eventsQuery}`;
 
 export const PAGINATED_ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language && ${articleParams}] | order(releaseDate desc) [$trim_start...$trim_end] ${articlesQuery}`;
 

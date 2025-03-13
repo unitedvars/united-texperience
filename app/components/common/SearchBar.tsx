@@ -86,7 +86,7 @@ const SearchBar = () => {
           {renderFilters().length > 0 && (
             <div
               className={clsx(
-                "text-red-500 flex gap-2 items-center cursor-pointer basis-[10%]"
+                "text-red-500 flex gap-2 items-center cursor-pointer basis-[30%]"
               )}
               onClick={() => {
                 params.delete("author");
