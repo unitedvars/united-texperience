@@ -104,7 +104,7 @@ export const ARTICLES_DESC = groq`*[_type == "article" && ${articleParams}] | or
 
 export const ARTICLE = groq`*[_type == "article" && slug.current == $slug][0] ${articlesQuery}`;
 
-export const ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language] ${articlesQuery}`;
+export const ARTICLES_BY_CATEGORY = groq`*[_type == "article" && category->slug.current == $category && language == $language] | order(releaseDate desc) ${articlesQuery}`;
 
 export const STAT = groq`*[_type == "stats" && slug.current == $slug][0] ${statParams}`;
 

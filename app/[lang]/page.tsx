@@ -118,7 +118,7 @@ export default async function Home(props: any) {
               <ul className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-rows-2 gap-8 sm:gap-x-3 sm:gap-y-16">
                 {hotnews_articles.map(
                   (article: Article, index: number) =>
-                    index > 0 &&
+                    index >= 0 &&
                     index < 7 && (
                       <li key={article._id} className="gap-2 w-full">
                         <ArticleThumbnail
